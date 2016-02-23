@@ -10,7 +10,7 @@ Les thèmes sont à déployer sur un CDN
 
 # Livrables
 
-Le packaging des thèmes est fourni sous la forme d'un zip qui est déployé derrière un frontal WEB (Apache) : **hornet-themes-*.zip**
+Le packaging des thèmes est fourni sous la forme d'un zip qui est déployé derrière un frontal WEB (Apache) : `hornet-themes-*.zip`
 
 # Déploiement
 
@@ -26,7 +26,7 @@ La configuration du Apache doit permettre les `Cross-Domains` afin de pouvoir ch
 
 Pour celà, activer le module header de apache et mettre en place la configuration suivantes :
 
-```
+```shell
 a2enmod headers
 ```
 
@@ -63,7 +63,6 @@ Exemple de configuration complète :
 	ServerAdmin webmaster@localhost
 	DocumentRoot /var/www
 	<Directory /var/www/>
-		FileETag none
  		ExpiresActive On		
 		Header append Cache-Control "public"
 		Options FollowSymLinks MultiViews Indexes
@@ -87,7 +86,7 @@ Exemple de configuration complète :
 </VirtualHost>
 ```
 
-## Frontal Apache
+## Dépot des thèmes
 
 1. Récupérer le zip contenant le thème.
 2. Le décompresser dans le répertoire cible. /hornet
@@ -97,12 +96,12 @@ L'arboressence obtenue doit ressembler à ceci :
 ```
 [DocumentRoot ou Alias]
 	/hornet
-		/5.0.0
-			/THEME
+		/5.0.X
+			/NOM_THEME
 ```
 
 ## Vérification
 
 Accès aux ressources du CDN :
 
-- Saisir l’url ` [PROTOCOLE]://[URL]:PORT/hornet/5.0.0/THEME/css/theme.css` dans un navigateur web.
+- Saisir l’url ` [PROTOCOLE]://[URL]:[PORT]/hornet/5.0.X/NOM_THEME/css/theme.css` dans un navigateur web.

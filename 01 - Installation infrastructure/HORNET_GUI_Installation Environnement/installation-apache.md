@@ -74,7 +74,7 @@ Exemple concret :
 	Require all granted
 </Proxy>
 
-AliasMatch ^/MON_APPLI/static(.*)$ /var/www/MON_APPLI/static$1 
+AliasMatch ^/MON_APPLI/static([^/]+)/(.*)$ /var/www/MON_APPLI/static/$2
 
 ProxyPassMatch ^/MON_APPLI/static !
 ProxyPass /MON_APPLI balancer://balancer-MON_APPLI/MON_APPLI stickysession=NODESESSIONID nofailover=on
@@ -85,7 +85,7 @@ La valeur de `route` doit être équivalente à celle présent dans le fichier p
 ```json
   "server":{
     "route": "js1",
-    "port":8888
+    ...
   }
 ```
 
@@ -105,9 +105,9 @@ Exemple concret :
 
 ```xml
 <Proxy balancer://balancer-MON_APPLI-service>
-	BalancerMember http://127.0.0.1:8009 route=jvmIDJVM-1 retry=30 keepalive=on ttl=10 loadfactor=3 flushpackets=auto timeout=300
-	BalancerMember http://127.0.0.1:8010 route=jvmIDJVM-2 retry=30 keepalive=on ttl=10 loadfactor=3 flushpackets=auto timeout=300
-	BalancerMember http://127.0.0.1:8011 route=jvmIDJVM-3 retry=30 keepalive=on ttl=10 loadfactor=3 flushpackets=auto timeout=300
+	BalancerMember http://127.0.0.1:8080 route=jvmIDJVM-1 retry=30 keepalive=on ttl=10 loadfactor=3 flushpackets=auto timeout=300
+	BalancerMember http://127.0.0.1:8081 route=jvmIDJVM-2 retry=30 keepalive=on ttl=10 loadfactor=3 flushpackets=auto timeout=300
+	BalancerMember http://127.0.0.1:8082 route=jvmIDJVM-3 retry=30 keepalive=on ttl=10 loadfactor=3 flushpackets=auto timeout=300
 	
 	Require all granted	
 </Proxy>
@@ -126,6 +126,7 @@ Pour ce point, l'architecture de Hornet propose d'utiliser un CDN pour la mise �
 La configuration doit contenir les lignes suivantes pour autoriser les requêtes cross-domain :
 
 Globalement dans Apache :
+
 ```xml
 	<IfModule mod_headers.c>
 		Header set Access-Control-Allow-Origin *
@@ -157,7 +158,6 @@ Exemple de configuration complète :
 	ServerAdmin webmaster@localhost
 	DocumentRoot /var/www
 	<Directory /var/www/>
-		FileETag none
  		ExpiresActive On		
 		Header append Cache-Control "public"
 		Options FollowSymLinks MultiViews Indexes

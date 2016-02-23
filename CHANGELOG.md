@@ -1,0 +1,136 @@
+# Appli Tutoriel 5.0.0
+
+- DEV_APT_AGE - En tant que Developpeur je peux Utiliser des actions de base pour développer mes Action
+- DEV_APT_AND - En tant que Developpeur je peux utiliser des classes en environnement case sensitive
+- DEV_APT_BOM - En tant que Developpeur je peux importer les dépendances par familles (Plans de conf / BOM)
+- DEV_APT_BOU - En tant que Developpeur je peux Lancer l'application tutoriel sans services
+- DEV_APT_CJS - En tant que Developpeur je peux utiliser un systéme de cache en JS
+- DEV_APT_COD - retrouver les Codification des spécifications dans l'organisation des sources
+- DEV_APT_CRM - En tant que Developpeur je peux séparer les routes par modules fonctionnel
+- DEV_APT_FIL - En tant que Developpeur je peux Poser run filtre sur une famille d'URL
+- DEV_APT_FLU - En tant que Developpeur je peux Utiliser les contextes Fluxible
+- DEV_APT_HAN - En tant que Developpeur je peux utiliser React pour le template de page
+- DEV_APT_HEL - En tant que Developpeur je peux paramétrer les configurations de sécurité de Helmet
+- DEV_APT_ORG - je peux retrouver mes fichier en fonction du patterne Flux  et non de leur technologie
+- DEV_APT_SPI - En tant que Developpeur je peux savoir lorsqu'un traitement est en cours (spiner)
+- DEV_APT_SRM - En tant que Developpeur je peux séparer les routes par modules fonctionnel
+- DEV_APT_STS - En tant que Developpeur je peux Implémenter mes Store sen TS avec Héritage
+- DEV_APT_TAR - je peux acceder aux composant sans connaitre l'arboressence des composants
+- DEV_APT_UCP - En tant que Developpeur je peux Utiliser un context path
+- DEV_CLI_ACD - En tant que développeur Je peux enchainer les actions en passant le contexte "chaindata"
+- DEV_CLI_ACT - En tant que Developpeur je peux Migration du routeur et des actions pour fonctionnement avec js
+- DEV_CLI_CSR - En tant que Developpeur je peux effectuer une validation d'autenticité de mon formulaire via csrf
+- DEV_CLI_DBL - En tant que développeur Je peux rendre isomorphe les contôles de validation et de saisie
+- DEV_CLI_ESC - En tant que Developpeur je peux désactiver les protections anti-injection SQL (escape)
+- DEV_CLI_FLU - En tant que Developpeur je peux Utiliser fluxible pour réaliser mes développpement
+- DEV_CLI_HPP - En tant que Developpeur je peux  assurer l'absence de doublons dans les paramétres get
+- DEV_CLI_LIC - En tant que Developpeur je peux avoir les licences et les changelog des modules
+- DEV_CLI_MRE - En tant que Developpeur je peux Utiliser la derniére versino de React
+- DEV_CLI_R13 - En tant que Developpeur je peux Utiliser React 0.13
+- DEV_CLI_RTE - En tant que Developpeur je peux Migration du routeur pour fonctionnement avec js
+- DEV_CLI_SHO - En tant que Developpeur je peux configurer les sessions de express (httponly, secure)
+- DEV_CLI_SRM - En tant que Developpeur je peux charger les routes par modules fonctionnel
+- DEV_CLI_TAB - En tant que Developpeur je peux Afficher le tableau en isomorphe
+- DEV_CLI_UUS - En tant que Developpeur je peux utiliser de faéon systématique use strict dans mes TS.
+- DEV_DEV_DTS - En tant que Developpeur je peux mettre des point d'arret dans les TS
+- DEV_DEV_DTW - En tant que Developpeur je peux Debugger en typescript dans l'environnement webstorm
+- DEV_DEV_FTS - En tant que Developpeur je peux importer une seul d?finition de donn?es
+- DEV_DEV_FTS - En tant que Developpeur je peux importer une seul définition de donn?es
+- DEV_DEV_SCO - En tant que Developpeur je peux Lancer les application sans ligne de commande
+- DEV_DEV_W10 - En tant que Developpeur je peux utiliser le deboggeur webstorm 10 (nécéssite Nodejs 0.12)
+- DEV_DOC_ARC - En tant que Developpeur je peux connaitre La structure générale de l'application
+- DEV_DOC_GDF - En tant que Developpeur je peux connaitre les bonnes pratiques pour le framework
+- DEV_DOC_NJS - En tant que Developpeur je peux connaitre les utilisation des composant js
+- DEV_DOC_SER - En tant que Developpeur je peux connaitre les utilisation des composant services
+- DEV_ENV_IEE - En tant que Developpeur je peux installer mon environnement Java
+- DEV_ENV_IEW - En tant que Developpeur je peux installer mon environnement JS
+- DEV_ENV_LAS - En tant que Developpeur je peux lancer / debugger l'applitutoriel  (service)
+- DEV_ENV_LDA - En tant que Developpeur je peux lancer / debugger l'applitutoriel
+- DEV_ENV_LINK - En tant que DéveloppeurJe peux gérer les d?pendances entre modules Afin de travailler efficacement
+- DEV_ENV_LPD - En tant que Développeur Je peux gérer les PeerDependencies entre modules Afin de travailler efficacement
+- DEV_ENV_MCA - En tant que Developpeur je peux mesurer la couverture de test de l'applituto
+- DEV_ENV_MCF - En tant que Developpeur je peux mesurer la couverture de test du framwork
+- DEV_ENV_TAS - En tant que Developpeur je peux tester (unitaire) l'applitutoriel  (service)
+- DEV_ENV_TAT - En tant que Developpeur je peux tester (unitaire) l'applitutoriel
+- DEV_ENV_TDF - En tant que Developpeur je peux tester / debuger le framework
+- DEV_ENV_TFS - En tant que Developpeur je peux tester / debuger le framework (service)
+- DEV_PIC_EXP - En tant que Developpeur je peux exporter mes objets Java sous un format TypeScript
+- DEV_SER_LBK - En tant que Developpeur je peux utiliser Logback pour développer l'applitutoriel-services
+- DEV_SER_LIC - En tant que Developpeur je peux avoir les licences et les changelog des modules
+- DEV_SER_MB3 - En tant que Developpeur je peux utiliser MyBatis 3 pour développer l'applitutoriel-services
+- DEV_SER_MVN - En tant que Developpeur je peux utiliser Maven pour développer l'applitutoriel-services
+- DEV_SER_SMV - En tant que Developpeur je peux utiliser Spring MVC pour développer l'applitutoriel-services
+- DEV_SER_SP4 - En tant que Developpeur je peux utiliser Spring 4 pour développer l'applitutoriel-services
+- DEV_TEM_TJA - En tant que Developpeur je peux Constuire une application Service basée sur Maven (Archetype)
+- DEV_TEM_TJS - En tant que Developpeur je peux Constuire une application Node JS basée sur yeoman (thème Intranet)
+- DEV_TEM_TTH - En tant que Developpeur je peux générer un projet sur un théme
+- EXP_APT_CONF - Je peux configurer l'appli tuto via un ou plusieurs fichier de conf externes à l'appliAfin
+- EXP_CLI_PCP - En tant que Exploitant je peux paramétrer le contextPath
+- EXP_DOC_ISI - En tant que Exploitant je peux installer une infra simple
+- EXP_DOC_SAT - En tant que Exploitant je peux Installer l'application Tutoriel
+- EXP_DOC_STH - En tant que Exploitant je peux Installer le CDN (Thème)
+- EXP_INF_IAS - En tant que Exploitant je peux installer l'applitutoriel (service)
+- EXP_INF_IAT - En tant que Exploitant je peux installer l'applitutoriel
+- EXP_INF_PFM - En tant que Exploitant je peux publier / installer le Framework
+- EXP_INF_PFS - En tant que Exploitant je peux publier le Framework  (service)
+- EXP_INF_PTH - En tant que Exploitant je peux publier / installer les Themes
+- EXP_INF_SCE - En tant que Exploitant je peux Séparer les confs d'exploitation des confs d'appli
+- INT_APT_MVN - En tant que IntégrateuirJe peux construire l'application Tuto services avec Maven
+- INT_APT_PER - En tant que Intégrateur je peux valider les performance de l'applituto
+- INT_CLI_SCH - En tant que intégrateur Je peux reconstruire l'application é l'identique dans plusieurs mois.
+- INT_MSC_N12 - En tant que Intégrateur je peux construire et installer le projet sur node 0.12
+- INT_PIC_CAS - En tant que Intégrateur je peux construire l'applitutoriel (service)
+- INT_PIC_CAT - En tant que Intégrateur je peux construire l'applitutoriel
+- INT_PIC_CDO - En tant que Intégrateur je peux construire la documentation
+- INT_PIC_CFM - En tant que Intégrateur je peux construire le framework
+- INT_PIC_CFS - En tant que Intégrateur je peux construire le framework  (service)
+- INT_PIC_CTH - En tant que Intégrateur je peux construire les Themes
+- INT_PIC_MCA - En tant que Intégrateur je peux mesurer la couverture de test de l'applituto
+- INT_PIC_MFC - En tant que Intégrateur je peux mesurer la couverture de test du framwork
+- UTI_APT_ACC - En tant que Utilisateur je peux visualiser la page d'accueil
+- UTI_APT_AID - En tant que Utilisateur je peux En tant qu'utilisateur je visualise la page d'aide
+- UTI_APT_APT - En tant que Utilisateur je peux ajouter un partenaire via le tableau
+- UTI_APT_ASE - En tant que Utilisateur je peux ajouter un secteur
+- UTI_APT_AUT - En tant que Utilisateur je peux m'identifier
+- UTI_APT_CLL - En tant que Utilisateur je peux ajouer / modifier un partenaire avec des composants avancés
+- UTI_APT_CSM - En tant que Utilisateur je peux ajouer / modifier un partenaire avec des composants avancés
+- UTI_APT_CTH - En tant que Utilisateur je peux changer de théme
+- UTI_APT_CTH_1 - En tant que Utilisateur je peux changer de théme
+- UTI_APT_ECS - En tant que Utilisateur je peux Exporter les données du tableau partenaire au format CSV
+- UTI_APT_EMC - En tant que Utilisateur je peux envoyer un mail de contact
+- UTI_APT_EPD - En tant que Utilisateur je peux Exporter les données du tableau partenaire au format PDF
+- UTI_APT_ERL - En tant que Utilisateur je peux effectuer une recherche sur la liste des partenaires
+- UTI_APT_ERT - En tant que Utilisateur je peux savoir lorsqu'un traitement n'a pas abouti (erreur technique)
+- UTI_APT_ESE - En tant que Utilisateur je peux editer un secteur
+- UTI_APT_EXL - En tant que Utilisateur je peux Exporter les donn?es du tableau partenaire au format EXL
+- UTI_APT_EXL - En tant que Utilisateur je peux Exporter les données du tableau partenaire au format EXL
+- UTI_APT_FPT - En tant que Utilisateur je peux filtrer les partenaires remontés par la recherche
+- UTI_APT_FUP - En tant que Utilisateur je peux uploader un fichier sur la fiche partenaire (photo)
+- UTI_APT_GRA - En tant que Utilisateur je peux Visualiser la répartition par secteur
+- UTI_APT_HAB - En tant que Utilisateur je peux accéder uniquement aux parges autorisées
+- UTI_APT_I18 - En tant que Utilisateur je peux visualiser l'application dans ma langue.
+- UTI_APT_MIF - En tant que Utilisateur je peux visualiser les message d'information
+- UTI_APT_MOB_1 - En tant que Utilisateur je peux naviguer avec un mobile
+- UTI_APT_NFA - En tant que Utilisateur je peux naviguer dans l'applitutoriel via un fil d'ariane
+- UTI_APT_NMO - En tant que Utilisateur je peux utiliser l'application dans plusieurs onglets
+- UTI_APT_NPA - En tant que Utilisateur je peux naviguer dans l'applitutoriel via un plan d'application
+- UTI_APT_NPT - En tant que Utilisateur je peux naviguer de page en page pour visualiser les partenaires
+- UTI_APT_ONG - En tant que Utilisateur je peux passer d'un onglet à l'autre sur la page des partenaire
+- UTI_APT_PAC - En tant que Utilisateur je peux visualiser la politique d'accessibilité
+- UTI_APT_PCA - En tant que Utilisateur je peux ajouer / modifier un partenaire avec des composants avancés
+- UTI_APT_SMX - En tant que Utilisateur je peux basculer en mode spa / mpa / mixte
+- UTI_APT_SPI - En tant que Utilisateur je peux savoir si un traitement est en cours
+- UTI_APT_SPP - En tant que Utilisateur je peux supprimer un ou plusieurs partenaires
+- UTI_APT_SSB - En tant que Utilisateur je peux ne plus avoir de backend
+- UTI_APT_TAB - En tant que Utilisateur je peux naviguer avec une tablette
+- UTI_APT_TRT - En tant que Utilisateur je peux trier le résultats du tableau
+- UTI_APT_VAD - En tant que Utilisateur je peux visualiser l'applitutoriel sur le thème diplonet avec son entete
+- UTI_APT_VEE - En tant que Utilisateur je peux visualiser mes erreurs de saisies sur la fiche d'édition des partenaires
+- UTI_APT_VEF - En tant que Utilisateur je peux visualiser mes erreurs de saisies sur le filtre du tableau
+- UTI_APT_VER - En tant que Utilisateur je peux visualiser mes erreurs de saisies sur les champs de recherche
+- UTI_APT_VLP - En tant que Utilisateur je peux visualiser une liste de partenaire
+- UTI_APT_VPT - En tant que Utilisateur je peux visualiser un partenaire via le tableau
+- UTI_CLI_AUC - En tant que Utilisateur je peux afficher le composant AutoComplete de maniére isomorphe
+- UTI_CLI_CAL - En tant que Utilisateur je peux afficher le composant Calendrier n de maniére isomorphe
+- UTI_CLI_NOT - En tant que Utilisateur je peux afficher le composant Notification de maniére isomorphe
+- UTI_CLI_ONG - En tant que Utilisateur je peux afficher le composant Onglets de maniére isomorphe

@@ -7,7 +7,7 @@ Ce chapitre décrit les différentes étapes nécessaires au déploiement des de
 
 Arrêter le service:
 
-```
+```shell
 systemctl stop apache2
 ```
 
@@ -25,7 +25,7 @@ Exemple de configuration :
 	Require all granted
 </Proxy>
 
-AliasMatch ^/applitutoriel/static(.*)$ /var/www/applitutoriel/static$1 
+AliasMatch ^/applitutoriel/static([^/]+)/(.*)$ /var/www/applitutoriel/static/$2
 
 ProxyPassMatch ^/applitutoriel/static !
 ProxyPass /applitutoriel balancer://balancer-applitutoriel/applitutoriel stickysession=NODESESSIONID nofailover=on
@@ -37,13 +37,11 @@ Redémarrer le service:
 systemctl start apache2
 ```
 
-
-
 ## Serveur NodeJS
 
 Arrêter le service:
 
-```
+```shell
 systemctl stop applitutoriel
 ```
 
@@ -51,20 +49,22 @@ Se positionner dans le répertoire d'installation de l'application :
 
 Dézipper le livrable :
 
-```
-unzip applitutoriel-5.0.0.dynamic.zip /var/lib/nodejs/applitutoriel
+```shell
+unzip applitutoriel-5.0.X.dynamic.zip /var/lib/nodejs/applitutoriel
 ```
 
-Appliquer la configuration des fichiers : **/etc/nodejs/applitutoriel**
+Appliquer la configuration des fichiers : `/etc/nodejs/applitutoriel`
 
 - environnement
 - production.json
 - production-1.json
 - production-X.json
+- log4js-1.json
+- log4js-X.json
 
 Redémarrer le service:
 
-```
+```shell
 systemctl restart applitutoriel
 ```
 
@@ -72,7 +72,7 @@ systemctl restart applitutoriel
 
 Arrêter le service:
 
-```
+```shell
 systemctl stop apache2
 ```
 
@@ -82,9 +82,9 @@ Exemple de configuration :
 
 ```xml
 <Proxy balancer://balancer-applitutoriel-service>
-	BalancerMember http://127.0.0.1:8009 route=jvmIDJVM-1 retry=30 keepalive=on ttl=10 loadfactor=3 flushpackets=auto timeout=300
-	BalancerMember http://127.0.0.1:8010 route=jvmIDJVM-2 retry=30 keepalive=on ttl=10 loadfactor=3 flushpackets=auto timeout=300
-	BalancerMember http://127.0.0.1:8011 route=jvmIDJVM-3 retry=30 keepalive=on ttl=10 loadfactor=3 flushpackets=auto timeout=300
+	BalancerMember http://127.0.0.1:8080 route=jvmIDJVM-1 retry=30 keepalive=on ttl=10 loadfactor=3 flushpackets=auto timeout=300
+	BalancerMember http://127.0.0.1:8081 route=jvmIDJVM-2 retry=30 keepalive=on ttl=10 loadfactor=3 flushpackets=auto timeout=300
+	BalancerMember http://127.0.0.1:8082 route=jvmIDJVM-3 retry=30 keepalive=on ttl=10 loadfactor=3 flushpackets=auto timeout=300
 	
 	Require all granted	
 </Proxy>
@@ -94,7 +94,7 @@ ProxyPass /applitutoriel-service balancer://balancer-applitutoriel/applitutoriel
 
 Redémarrer le service:
 
-```
+```shell
 systemctl start apache2
 ```
 
@@ -102,17 +102,17 @@ systemctl start apache2
 
 Arrêter le service:
 
-```
+```shell
 systemctl stop tomcat8
 ```
 
-Déposer les fichiers de configurations à l’emplacement indiqué dans le fichier de paramétrage du contexte de l’application (variable **conf/applitutorielprop**).
+Déposer les fichiers de configurations à l’emplacement indiqué dans le fichier de paramétrage du contexte de l’application (variable `conf/applitutorielprop`).
 
-```
-unzip applitutoriel-service-5.0.0-config.zip /etc/tomcat8/appli/applitutoriel-service
+```shell
+unzip applitutoriel-service-5.0.X-config.zip /etc/tomcat8/appli/applitutoriel-service
 ```
 
-Déposer le fichier de paramétrage du contexte de l’application dans le répertoire du serveur Tomcat situé sous : **/etc/tomcat8/Catalina/localhost/**
+Déposer le fichier de paramétrage du contexte de l’application dans le répertoire du serveur Tomcat situé sous : `/etc/tomcat8/Catalina/localhost/`
 
 ```xml
 <Context useHttpOnly="true">
@@ -122,13 +122,13 @@ Déposer le fichier de paramétrage du contexte de l’application dans le répe
 
 Déployer le war sur le serveur applicatif :
 
-- **applitutoriel-service-5.0.0.war**
+- `applitutoriel-service-5.0.X.war`
 
-Renommer le fichier en **applitutoriel.war** avant de le déposer dans le répertoire tomcat 8 : **/var/lib/tomcat8/webapps**
+Renommer le fichier en `applitutoriel.war` avant de le déposer dans le répertoire tomcat 8 : `/var/lib/tomcat8/webapps`
 
 Redémarrer le service
 
-```
+```shell
  systemctl start tomcat8
 ```
 
@@ -141,7 +141,7 @@ Ce chapitre décrit les actions à mener afin de vérifier que l’application a
 
 Accès à l’application :
 
-- Saisir l’url « **[protocole]://[url du serveur]:8080/applitutoriel-service/secteurs** » dans un navigateur web.
+- Saisir l’url `[PROTOCOLE]://[HOST]:[PORT]/applitutoriel-service/secteurs` dans un navigateur web.
 
 Le résultat doit ressembler à ceci :
 
@@ -185,7 +185,7 @@ Le résultat doit ressembler à ceci :
 
 Accès à l’application :
 
-- Saisir l’url **[protocole]://[url du serveur node]/applitutoriel** dans un navigateur web et vérifier l'affichage suivant :
+- Saisir l’url `[PROTOCOLE]://[HOST]:[PORT]/applitutoriel` dans un navigateur web et vérifier l'affichage suivant :
 
 ![Page d'acueil](./sources/application-tutoriel/accueil.png)
 

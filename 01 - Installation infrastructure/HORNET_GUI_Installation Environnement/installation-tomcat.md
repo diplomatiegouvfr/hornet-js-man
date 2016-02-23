@@ -70,15 +70,21 @@ Editer le fichier : `/etc/default/tomcat8`
 
 Modifier la valeur de la variable : `JAVA_HOME`
 
-`JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64`
+```
+JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
+```
 
 Modifier la valeur de la variable : `JAVA_OPTS`
 
-`JAVA_OPTS="-Djava.awt.headless=true -Xmx1024M -Xms1024M -XX:+PrintGCDetails -XX:+PrintGC -Xloggc:/var/log/tomcat8/loggc.log -Duser.language=fr -Duser.region=FR -Dfile.encoding=utf-8 -Duser.timezone=Europe/Paris"`
+```
+JAVA_OPTS="-Djava.awt.headless=true -Xmx1024M -Xms1024M -XX:+PrintGCDetails -XX:+PrintGC -Xloggc:/var/log/tomcat8/loggc.log -Duser.language=fr -Duser.region=FR -Dfile.encoding=utf-8 -Duser.timezone=Europe/Paris"`
+```
 
 Modifier le chemin temporaire : `JVM_TMP`
 
-`JVM_TMP=/var/tmp/tomcat8`
+```
+JVM_TMP=/var/tmp/tomcat8
+```
 
 ###	Configuration server.conf 
 
@@ -118,25 +124,23 @@ Installer en pre-requis, le package tomcat8.
 apt-get install tomcat8
 ```
 
-Récupérer le package : tomcat8-instance-8.0.28-maedi.deb
-
-Installer le package : tomcat8-instance_8.0.14-1_all.deb
+Récupérer puis installer le package : `tomcat8-instance-8.0.28.deb`
 
 ```shell
-dpkg –i tomcat8-instance-8.0.28-maedi.deb
+dpkg –i tomcat8-instance-8.0.28.deb
 ```
 
 Créer les instances tomcat :
 
 ```shell
-tomcat8-instance-create –p 8081 –c 8006 –a 8009 tomcat8-1
-tomcat8-instance-create –p 8082 –c 8007 –a 8010 tomcat8-2
-tomcat8-instance-create –p 8083 –c 8008 –a 8011 tomcat8-3
+tomcat8-instance-create -p 8081 -c 8006 tomcat8-1
+tomcat8-instance-create -p 8082 -c 8007 tomcat8-2
+tomcat8-instance-create -p 8083 -c 8008 tomcat8-3
 ```
 
 ## Utilisation du service SystemD
 
-Fichier systemd encapsulé par Debian : **/run/systemd/generator.late/tomcat8.service**
+Fichier systemd encapsulé par Debian : `/run/systemd/generator.late/tomcat8.service`
 
 ```shell
 systemctl stop tomcat8

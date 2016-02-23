@@ -25,12 +25,12 @@ Le serveur de thèmes mutualisé hornet-themes est livré séparément sur un CD
 
 ## Liste des livrables
 
-- applitutoriel-5.0.0-dynamic.zip 
-- applitutoriel-5.0.0-static.zip 
+- applitutoriel-5.0.X-dynamic.zip 
+- applitutoriel-5.0.X-static.zip 
 
-- applitutoriel-service-5.0.0-config.zip
-- applitutoriel-service-5.0.0-context.zip
-- applitutoriel-service-5.0.0.war
+- applitutoriel-service-5.0.X-config.zip
+- applitutoriel-service-5.0.X-context.zip
+- applitutoriel-service-5.0.X.war
 
 # Configuration pré-déploiement
 
