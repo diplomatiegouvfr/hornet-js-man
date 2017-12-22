@@ -18,7 +18,7 @@ pipeline {
         HORNETJSBUILDER_VERSION="1.5.0"
 
         // Publication
-        ARTIFACTORY_URL = "http://artifactory.app.diplomatie.gouv.fr/artifactory-dev"
+        ARTIFACTORY_URL = ""
         REPOSITORY_GROUP="hornet"
         REPOSITORY_NPM_SNAPSHOT = "${REPOSITORY_GROUP}-npm-snapshot"
         REPOSITORY_NPM_RELEASE = "${REPOSITORY_GROUP}-npm-release"
