@@ -1,6 +1,6 @@
 # SMTP poste dev #
 
-Paramétrage d'un serveur SMTP sur un Debian 8.
+Paramétrage d'un serveur SMTP sur un Debian 9.
 
 ## Installation de l'apache2
 

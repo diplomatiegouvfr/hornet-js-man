@@ -13,7 +13,7 @@ Installer Yeoman :
 créer un lien symbolique vers Yeoman dans $HOME/bin :
 
 ```shell
-    ln -s /home/votreuser/Dev/node-v6.10.X-linux-x64/lib/node_module/yo/lib/cli.js
+    ln -s /home/votreuser/Dev/node-v8.9.X-linux-x64/lib/node_module/yo/lib/cli.js
 ```
 
 Installer le template Yeoman pour un projet hornet-js :
@@ -38,9 +38,9 @@ Créer un répertoire pour l'application, s'y positionner et lancer la générat
 | Nom de votre projet | - | applitutoriel-js |
 | Version de votre projet | 1.0.0 | 1.0.0-rc.1 |
 | Description de votre projet | - | application tutoriel |
-| Version du framework (hornet-js) | - | 5.1.0 |
+| Version du framework (hornet-js) | - | 5.1.1 |
 | Thême de l'application | - | hornet-themes-intranet |
-| Version du thême de l'application | - | 5.1.0 |
+| Version du thême de l'application | - | 5.1.1 |
 | Host de la partie service | - | http://localhost:8080 |
 | ContextPath de la partie service | - | applitutoriel |
 | Mode full spa | - | false |
@@ -50,7 +50,7 @@ Créer un répertoire pour l'application, s'y positionner et lancer la générat
 Se positionner dans le répertoire du projet et exécuter la commande suivante :
 
 ```shell
-    mvn archetype:generate -DarchetypeGroupId=fr.gouv.diplomatie.hornet -DarchetypeArtifactId=hornet-service-archetype -DarchetypeVersion=5.1.0
+    mvn archetype:generate -DarchetypeGroupId=fr.gouv.diplomatie.hornet -DarchetypeArtifactId=hornet-service-archetype -DarchetypeVersion=5.1.1
 ```
 
 | Information | Valeur à saisir  |

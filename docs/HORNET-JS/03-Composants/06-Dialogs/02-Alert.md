@@ -47,20 +47,21 @@ private closeAlert(): void {
 
 Les attributs du composant `Alert` :
 
-| attribut | obligatoire | description |
-| -------- | ----------- | ----------- |
-| message| X | Message affiché dans la popup |
-| isVisible| X | Rendre le composant visible |
-| onClickOk| | Passer la méthode à appeler lorsque l'utilisateur clique sur le bouton `Valider`|
-| onClickCancel | | Passer la méthode à appeler lorsque l'utilisateur clique sur le bouton `Annuler`|
-| onClickClose | | Passer la méthode à appeler lorsque l'utilisateur clique sur la croix (en haut à droite) ou sur le bouton `Annuler`  |
-| title | | Titre de l'alerte |
-| valid | | Fonction de validation |
-| cancel | | Fonction appelé lors de l'annulation de la modale |
-| validTitle | | Title du bouton de validation |
-| cancelTitle | | Title du bouton d'annulation |
-| underlayClickExits | | Permet de sortir de l'alerte lors d'un clique en dehors de celle-ci |
-| escapeKeyExits | | Permet de spécifier si on peut utiliser la touche "Echappe" pour sortir de l'alerte |
+| Attribut | Description | Obligatoire | Valeur par défaut | Type |
+| -------- | ----------- | ----------- |----------- |----------- |
+| message| Message affiché dans la popup | Oui | |string |
+| isVisible| Rendre le composant visible |  |false |boolean |
+| onClickOk| Passer la méthode à appeler lorsque l'utilisateur clique sur le bouton `Valider`| | | React.MouseEventHandler<HTMLInputElement>|
+| onClickClose | Passer la méthode à appeler lorsque l'utilisateur clique sur la croix (en haut à droite) ou sur le bouton `Annuler`  | | | React.MouseEventHandler<HTMLInputElement>|
+| title | Titre de l'alerte | | |string |
+| valid | Fonction de validation | | |string |
+| cancel | Fonction appelé lors de l'annulation de la modale | | | string|
+| validTitle | Title du bouton de validation | | |string |
+| cancelTitle | Title du bouton d'annulation | | |string |
+| underlayClickExits | Permet de sortir de l'alerte lors d'un clique en dehors de celle-ci | |false |boolean |
+| escapeKeyExits | Permet de spécifier si on peut utiliser la touche "Echappe" pour sortir de l'alerte | | false| boolean|
+| notificationId | Identifiant des notifications| | | string|
+| dialogId| identifiant de l'alerte | | |string |
 
 
 ### Alerte sur une action d'un tableau

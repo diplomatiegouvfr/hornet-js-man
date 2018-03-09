@@ -33,3 +33,19 @@ Ne pas utiliser uniquement  des expands pour votre contenu sur une même page. S
 - Utiliser des pictos en svg pour des raisons d'accessibilité et de responsive
 - Les champs d'une recherche avancée apparaissent toujours avant le bouton final d'action de recherche
 
+
+## Positionnement de champs
+
+- Il est possible de positionner jusqu’à 4 champs sur une seule ligne
+- Dans tous les cas, il faut que toutes les lignes de l’écran soient composées de la même façon : soit d’un nombre pair, soit d’un nombre impair. On peut par ex, faire une ligne de 2 champs, et en dessous, une ligne de 4 petits champs :
+
+![exemple1](sources/exemple_quatre_champs.png)
+
+Il est même recommandé de laisser parfois des « vides ». Cela permet de faire des pauses « visuelles » (aéré). Par contre, l’emplacement vide doit être mis en fin de ligne, et pas en début :
+
+![exemple2](sources/exemple_trois_champs.png)
+
+- Même si la fin du contenu n’est pas visible dans le champ, on peut s’autoriser à ne pas mettre un champ plus grand/large. Puisque l’utilisateur, s’il le souhaite, pourra agrandir le champ si c’est un champ texte, soit « déplacer » son curseur dans le texte d’un champ simple pour faire apparaitre la suite.
+Pour savoir si cela vaut le coup de proposer un grand champ texte ou bien un simple champ de saisie, il faut estimer le nombre de cas où le texte dépassera la taille max de ces champs. Sur Evaluation, nous pouvons nous appuyer sur les données dont nous disposons déjà en base, pour connaitre la taille max que les agents saisissent, ainsi que le nombre de fois où ce cas est rencontré.
+- Il est tout à fait possible (voir recommandé) de changer le thème de couleur Hornet. Cela permettrait  à l’application d’avoir sa propre identité visuelle, et serait rapidement reconnue par les agents, si la couleur est différente des autres applications Hornet.
+- Si des pictogrammes sont à reprendre ou à réaliser, il faut qu’ils soient en « svg »

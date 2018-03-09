@@ -49,8 +49,17 @@ Cette partie contient l'ensemble du paramétrage spécifique aux exécutions ré
 |timeout|Timeout de connexion TCP|300000|
 |uploadFileSize|Taille maximal d'upload de fichier|1000000|
 |sessionTimeout|Timeout des sessions utilisateur|1800000|
+|notifications|objet de configuration des notifications de fin de session|{}|
+|sessionTimeoutDelay|delai à partir du quel on va lancer les notifications de fin de session imminente, active la fonctionnalité|30000,
+|notifSessionTimeoutRepeat|le temps entre deux notifications|5000
+|rethrow| pour transmettre les status http reçus par le back-end|false
 |stackTraceLimit|Taille d'une stackTrace dans les logs|100|
 |bodyParserLimit|Taille max que peut recevoir le body-parser|50mb|
+
+    "notifications": {
+      "sessionTimeoutDelay": 30000,
+      "notifSessionTimeoutRepeat": 5000
+    }
 
 ```json
   "server": {
@@ -63,6 +72,10 @@ Cette partie contient l'ensemble du paramétrage spécifique aux exécutions ré
     "timeout": 300000,
     "uploadFileSize": 1000000,
     "sessionTimeout": 1800000,
+    "notifications": {
+      "sessionTimeoutDelay": 30000,
+      "notifSessionTimeoutRepeat": 5000
+    },
     "stackTraceLimit": 100,
     "bodyParserLimit": "50mb"
   }
@@ -430,9 +443,11 @@ Pour configurer l'application afin d'utiliser un serveur de mail SMTP, vous pouv
 |timetolive|Durée de rétention du cache|60|
 
 ```json
-"cache": {
-    "enabled": true,
-    "timetolive": 60
+"request": {
+    "cache": {
+        "enabled": true,
+        "timetolive": 60
+     }
   }
 ```
 

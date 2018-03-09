@@ -7,24 +7,28 @@ Le cache est par défaut disponible côté serveur et côté client. Par défaut
 Configuration possible du cache.
 
 ```javascript
-"cache" : {
-  "enabled":true,
-  "timetolive":60 // en secondes
+"request": {
+    "cache" : {
+      "enabled":true,
+      "timetolive":60 // en secondes
+    }
 }
 ```
 
 La configuration permet d'avoir une gestion de cache différente côté serveur et côté client, voici l'exemple de configuration à mettre en place dans ce cas :
 
 ```javascript
-"cache": {
-  "client": {
-    "enabled": false,
-    "timetolive": 60
-  },
-  "server": {
-    "enabled": false,
-    "timetolive": 120
-  }
+"request": {
+    "cache": {
+      "client": {
+        "enabled": false,
+        "timetolive": 60
+      },
+      "server": {
+        "enabled": false,
+        "timetolive": 120
+      }
+    }
 }
 ```
 

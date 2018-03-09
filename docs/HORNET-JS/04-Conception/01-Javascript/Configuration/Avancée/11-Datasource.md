@@ -5,7 +5,7 @@
 Le composant `Datasource` permet de gérer une collection de données brutes.
 Ces données peuvent provenir soit d'un service soit d'un tabeau de data.
 L'objectif de ce composant est de donner une solution aux manipulations de données dans le maximum de cas
-(initialisation, récupération, ajout, suppression, suppression totale, selection, tri, filtre, rechargement et gestion des erreurs)
+(initialisation, récupération, ajout, suppression, suppression totale, selection, tri, filtre, rechargement et gestion des erreurs, findAll(since 5.1.1))
 
 Il existe 4 types de datasource:
 - datasource "simple" : Fourni un ensemble de méthodes permettant la manipulation des données brutes.
@@ -18,7 +18,7 @@ Il existe 4 types de datasource:
 Ce composant propose des méthodes pour manipuler les données.
 la plupart des méthodes déclenchent un évènement du même nom lorsque les traitements sont terminés.
 Si une opération ne se déroule pas correctement, un évèment de type error est lancé avec
-un numéro technique d'erreur (10301/10302/10303/10304/10305/10306).
+un numéro technique d'erreur (10301/10302/10303/10304/10305/10306/10307/10320).
 Ce numéro indique le type d'erreur qui est survenue.
 
 **Les méthodes datasource simple:**
@@ -131,8 +131,21 @@ cette action déclenche l'évènement sort.
 dataSource.on("sort", (SortedResult)=>{
        //staff
 })
-dataSource.sort(sortData[], compare? : Function);
-//sortData données de tri, tableau object SortData.
+dataSource.sort(DatasourceSortOption);
+```
+
+Le type DatasourceSortOption est de la forme suivante:
+
+```
+export interface DatasourceSortOption {
+    /** Informations de tri */
+    sortDatas?: SortData[];
+    /** Méthode de tri custom */
+    compare?: ((sortDatas: SortData, a: any, b: any) => number) | DefaultSort;
+    /** Méthode de tri custom */
+    getCompareFunction?: (number: number) => Function;
+
+}
 ```
 
 Le tableau de sortData permet de proposer un tri multicolonne. Attention l'ordre des sortData dans le tableau est ici primordiale.
@@ -141,7 +154,7 @@ voici un exemple qui permet de trier les données d'un datasource en fonction de
 puis par ordre alphabetique sur la colonne des auteurs.
 
 ```javascript
-dataSource.sort([ new SortData("dateCreat", SortDirection.DESC), new SortData("auteurCreat") ]);
+dataSource.sort({sortDatas: [ new SortData("dateCreat", SortDirection.DESC), new SortData("auteurCreat") ]});
 ```
 
 - filter :
@@ -190,6 +203,18 @@ envoie un event lorsque le datasource effectue des opérations.
 dataSource.on("loadingData", (inProgress)=>{
        //staff
 })
+```
+
+- findAll :
+Trouver tous les éléments qui correspondent à des critères et disponibles coté client.
+cette action ne déclenche aucun évènement, elle est synchrone.
+
+```javascript
+public findAll(criteria)
+
+//exemple : 
+let fournisseurs = dataSource.findAll({type : "Fournisseur"});
+//fournisseurs retourne tous les partenaires de type "Fournisseur"
 ```
 
 **Les méthodes datasourceMaster:**

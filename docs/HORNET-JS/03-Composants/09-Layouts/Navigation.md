@@ -104,16 +104,17 @@ render(): JSX.Element {
 
 Descriptif des attributs du menu :
 
-| attribut | description |
-| -------- | ----------- |
-| closeOnClickOutside |  Indique si le menu doit se fermer lors d'un clic en dehors de la zone |
-| closeOnLinkClick | Indique si le menu doit se fermer lors d'un clic sur un lien |
-| closeOnTabOutside | Indique si le menu doit se fermer lors d'une tabulation en dehors de celui-ci |
-| configMenu  | Surcharge de la configuration du menu |
-| dataPassThru | Indique si les liens ne passent pas par le routeur |
-| onToggleClick | Fonction appelée lors du clic sur le toggle du menu |
-| showIconInfo  | Affichage du bouton d'accessibilité |
-| vertical | Affichage du menu de façon verticale |
+| Attribut | Description | Obligatoire | Valeur par défaut | Type |
+| -------- | ----------- |----------- | ----------- | ----------- |
+| closeOnClickOutside |  Indique si le menu doit se fermer lors d'un clic en dehors de la zone ||true|boolean|
+| closeOnLinkClick | Indique si le menu doit se fermer lors d'un clic sur un lien ||true|boolean|
+| closeOnTabOutside | Indique si le menu doit se fermer lors d'une tabulation en dehors de celui-ci ||true|boolean|
+| configMenu  | Surcharge de la configuration du menu |||array[MenuItemConfig]|
+| dataPassThru | Indique si les liens ne passent pas par le routeur |||boolean|
+| onToggleClick | Fonction appelée lors du clic sur le toggle du menu |||Function|
+| showIconInfo  | Affichage du bouton d'accessibilité |||boolean|
+| vertical | Affichage du menu de façon verticale |||boolean|
+| workingZoneWidth | Largeur maximale de la zone de travail en pixel. Utilisé par le composant LayoutSwitcher pour agrandir ou rétrécir la zone de travail |||string|
 
 ### Personnalisation du style
 

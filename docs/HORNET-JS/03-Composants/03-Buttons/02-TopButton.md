@@ -10,16 +10,17 @@ Il s'affiche au dessus du footer.
 
 Attributs du composant :
 
-| attibut   | description                                                        | valeur par defaut |
-| --------- | ------------------------------------------------------------------ | --------- |
-| className | Classes css du bouton| &nbsp;  |
-| footer    | Identifiant de la balise du footer | "ft" |
-| header    | Identifiant de la balise du header |  "header-container" |
-| id        | Identifiant unique du bouton | &nbsp; |
-| name      | Nom du bouton | &nbsp; |
-| title     | Titre du bouton | &nbsp;  |
+| Attibut   | Description                                                        | Obligatoire | Valeur par défaut | Type |
+| --------- | ------------------------------------------------------------------ | --------- | ------------------- | -----|
+| className | Classes css du bouton|   | | string |
+| footer    | Identifiant de la balise du footer || "footer-container" | string |
+| header    | Identifiant de la balise du header | | "header-container" |string |
+| id        | Identifiant unique du bouton |  | |string |
+| name      | Nom du bouton | | |string |
+| title     | Titre du bouton | |  |string |
 
-exemple:
+
+## Live coding
 
 `Attention pour le live coding : garder l'identifiant "top-button-exemple" pour le TopButton. Celui-ci s'affichera avec une flèche rouge`
 

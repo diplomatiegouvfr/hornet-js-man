@@ -150,6 +150,9 @@ Il gère les exceptions suivant deux types :
   - `BusinessException` et `BusinessListException`
   - `Exception`
 
+
+Chaque type d'exception peut porter le status HTTP à renvoyer avec l'utilisation de annotation `@ResponseStatus` sur la classe d'exception. Si la classe ne comporte pas cette annotation, le status HTTP sera valorisé à 500.
+
 Pour activer ce gestionnaire d'erreur dans une application Hornet :
 
 

@@ -2,7 +2,7 @@
 
 ## Installation
 
-La version de Webstorm supportée par Hornet est la `2017.2.5`.
+La version de Webstorm supportée par Hornet est la `2017.3.4`.
 
 - Récupérer le binaire correspondant au système d’exploitation de développement depuis le site de webstorm
 

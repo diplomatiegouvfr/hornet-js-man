@@ -56,27 +56,29 @@ onSubmit(){
 
 Les attributs proposés par le composant:
 
-| attribut | obligatoire | description |
-| -------- | ----------- | ----------- |
-| alert |  | Détermine la nature de la boîte de dialogue (role) |
-| className| | Nom de la classe |
-| closeLabel | |  Titre du bouton de fermeture |
-| closeSymbole | | Contenu du bouton de fermeture |
-| escapeKeyExits |  | Détermine si la touche 'Echap' ferme la boîte de dialogue ou non |
-| focusDialog |  | Détermine si la boîte de dialogue peut avoir le Focus |
-| hideCloseBar | | Détermine si le bandeau bas contentant le bouton de fermeture de la boîte de dialogue est affiché ou non |
-| hideTitleBar | | Détermine si le titre boîte de dialogue est affiché ou non |
-| initialFocus | | Noeud du DOM ou sélecteur CSS de l'élément portant le focus à l'ouverture |
-| isDraggable | | Détermine si la modale est déplaçable ou non |
-| isVisible | X | Détermine si la boîte de dialogue est à afficher ou non |
-| manageFocus |  | Détermine si la boîte de dialogue gère le focus de ses éléments |
-| onClickClose |   | Passer la méthode à appeler lorsque l'utilisateur clique sur la croix (en haut à droite) ou par la touche Escape |
-| onShow | | Passer la méthode à appeler à l'affichage du composant |
-| title |  | Titre de la boîte de dialogue |
-| underlayClass| | Nom de la classe appliquée à la div de contenu |
-| underlayClickExits |  | Détermine si le click à l'extèrieur ferme la boîte de dialogue ou non |
-| verticallyCenter |  | Détermine si la boîte de dialogue est centrée verticalement |
-| withoutOverflow |  | Permet de supprimer l'overflow du contenu de la modal |
+| Attribut | Description | Obligatoire | Valeur par défaut | Type |
+| -------- | ----------- | ----------- |----------- |----------- |
+| alert | Détermine la nature de la boîte de dialogue (role) |  | false | boolean|
+| className| Nom de la classe | | | string|
+| closeLabel |  Titre du bouton de fermeture | | |string|
+| closeSymbole | Contenu du bouton de fermeture | || string|
+| context | Contexte | | |any|
+| dialogId | Identifiant | ||string|
+| escapeKeyExits | Détermine si la touche 'Echap' ferme la boîte de dialogue ou non |  ||boolean|
+| focusDialog | Détermine si la boîte de dialogue peut avoir le Focus |  |true|boolean|
+| hideCloseBar | Détermine si le bandeau bas contentant le bouton de fermeture de la boîte de dialogue est affiché ou non | |true|boolean|
+| hideTitleBar | Détermine si le titre boîte de dialogue est affiché ou non | |false|boolean|
+| initialFocus | Noeud du DOM ou sélecteur CSS de l'élément portant le focus à l'ouverture | ||boolean|
+| isDraggable | Détermine si la modale est déplaçable ou non | ||boolean|
+| isVisible | Détermine si la boîte de dialogue est à afficher ou non |  |false|boolean|
+| manageFocus | Détermine si la boîte de dialogue gère le focus de ses éléments |  ||boolean|
+| onClickClose | Passer la méthode à appeler lorsque l'utilisateur clique sur la croix (en haut à droite) ou par la touche Escape |   ||React.MouseEventHandler<HTMLInputElement>|
+| onShow | Passer la méthode à appeler à l'affichage du composant | ||Function|
+| title | Titre de la boîte de dialogue |  ||string|
+| underlayClass| Nom de la classe appliquée à la div de contenu | ||string|
+| underlayClickExits | Détermine si le click à l'extèrieur ferme la boîte de dialogue ou non |  |true|boolean|
+| verticallyCenter | Détermine si la boîte de dialogue est centrée verticalement |  |true|boolean|
+| withoutOverflow | Permet de supprimer l'overflow du contenu de la modal |  |false|boolean|
 
 Si l'attribut `underlayClickExits`, n'est pas valorisé à `true` **la popin est modale**.
 

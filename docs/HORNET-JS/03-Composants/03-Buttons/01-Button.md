@@ -25,19 +25,19 @@ let item: ButtonProps[] = {
 
 ```
 
-| attribut   | description                                                        |
-| --------- | ------------------------------------------------------------------ |
-| className | Style appliqué sur le bouton                                       |
-| disabled  | Bouton désactivé ou non                                            |
-| hasPopUp  | [Accessibilité] Indicateur si le bouton ouvre un popup             |
-| id        | Identifiant unique du bouton                                       |
-| label     | Texte sur du bouton                                                |
-| name      | Nom du bouton                                                      |
-| onClick   | Fonction exécutée sur le click                                     |
-| title     | Title sur du bouton                                                |
-| type      | Le type input html submit, button, radio, checkbox, etc            |
-| value     | Valeur correspondante à ce bouton pour la soumission du formulaire |
-| url       | Url sur laquelle redirige le bouton                                |
+| Attribut   | Description                                                       | Obligatoire | Valeur par défaut | Type |
+| --------- | ------------------------------------------------------------------ |-------------|------------------ |------|
+| className | Style appliqué sur le bouton                                       |             |                   | string     |
+| disabled  | Bouton désactivé ou non                                            |             | false             | boolean     |
+| hasPopUp  | [Accessibilité] Indicateur si le bouton ouvre un popup             |             |                   | boolean     |
+| id        | Identifiant unique du bouton                                       |             |                   | string     |
+| label     | Texte sur du bouton                                                |             |                   | string     |
+| name      | Nom du bouton                                                      |             |                   | string     |
+| onClick   | Fonction exécutée sur le click                                     |             |                   | React.MouseEventHandler<HTMLElement>     |
+| title     | Title sur du bouton                                                |             |                   | string     |
+| type      | Le type input html submit, button, radio, checkbox, etc            |             |                   | string     |
+| value     | Valeur correspondante à ce bouton pour la soumission du formulaire |             |                   | string     |
+| url       | Url sur laquelle redirige le bouton                                |             |                   | string     |
 [Button - attributs]
 
 Exemple d'utilisation:

@@ -20,6 +20,10 @@ Ce composant expose une classe `Server`:
 | port | private | number | Port sur lequel le serveur est monté |
 | maxConnections | private | number | Nombre de connexions max au serveur |
 | timeOut | private | number | Délai d'attente |
+|notifications | private | object |objet de configuration des notifications de fin de session
+|sessionTimeoutDelay| private | number |delai à partir du quel on va lancer les notifications de fin de session imminente, active la fonctionnalité
+|notifSessionTimeoutRepeat| private | number |le temps entre deux notifications
+|rethrow| private | boolean | pour transmettre les status http reçus par le back-end
 | protocol | private | string | http/https |
 
 ### Méthodes
@@ -162,6 +166,7 @@ L'ajout des options `https` dans la configuration serveur active par défaut le 
 Ensemble des options pouvant être fournies au serveur pour la mise en place du protocole `https` :  
 
 ```javascript
+
 declare module "https" {
 export interface ServerOptions {
         pfx?: any;
@@ -185,10 +190,13 @@ export interface ServerOptions {
 Ex : génération d'un certificat auto-signé et d'une clé pour tester le mode https
 
 ```shell
+
 openssl req -x509 -sha256 -newkey rsa:2048 -keyout key.pem -out cert.pem -days XXX
-``
+
+```
 
 ```javascript
+
   "server": {
     ...
     "https": {
@@ -196,6 +204,7 @@ openssl req -x509 -sha256 -newkey rsa:2048 -keyout key.pem -out cert.pem -days X
       "key": "/path/to/client/private/key/in/pem/format",
       "passphrase": "password"
     }
+    
 ```
 
 Note :

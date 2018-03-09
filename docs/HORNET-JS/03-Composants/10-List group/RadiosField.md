@@ -44,15 +44,27 @@ Aperçu :
 
 ![radio](../sources/form/radios-field/radio-notinline.png)
 
-Descriptif des attributs du composant RadiosField :
+Le composant possède les propriétés des interfaces:
 
-| attribut | description | valeur par défaut |
-| -------- | ----------- | ----------------- |
-| currentChecked | Indique si la valeur par default doit être cochée ou non | |
-| dataSource | Données des boutons radio |format: {{"value":"", "label":""}...} |
-| data | Données des boutons radio en ne passant pas par un Datasource| |
-| label | Libellé du champ de saisie de date |  |
-| required | Indique si la saisie du champ est obligatoire pour valider le formulaire | false |
+[HornetClickableProps](/hornetshowroom/composant/page/hornet-js/composants/hornet-component-props)
+
+[HornetBasicFormFieldProps](/hornetshowroom/composant/page/hornet-js/composants/hornet-component-props)
+
+[HornetComponentDatasourceProps](/hornetshowroom/composant/page/hornet-js/composants/hornet-component-props)
+
+[HornetComponentChoicesProps](/hornetshowroom/composant/page/hornet-js/composants/hornet-component-props)
+
+Attributs du composant RadiosField :
+
+| Attribut | Description | Obligatoire |Valeur par défaut | Type |
+| -------- | ----------- | --------- |----------------- |--------- |
+| id | Information optionnelle, valorisée par le name si non indiquée | ||string|
+| defaultValue | Indique et définit si la valeur par défaut selectionné | ||any|
+| dataSource | Données des boutons radio, format: {{"value":"", "label":""}...}|| |Datasource|
+| data | Données des boutons radio en ne passant pas par un Datasource| ||any|
+| label | Libellé du champ de saisie de date |  ||string|
+| name  | Nom du radio field | ||string|
+| required | Indique si la saisie du champ est obligatoire pour valider le formulaire || false |boolean|
 
 le champ dispose également d'un attribut inline qui permet de définir comment sont affichés les boutons:
 
@@ -62,7 +74,7 @@ le champ dispose également d'un attribut inline qui permet de définir comment 
   name="exampleRadio"
   label={"Type de partenaire"}
   dataSource={this.data}
-  currentChecked={true}
+  defaultValue={this.data[0]}
   inline={RadiosField.Inline.FIELD}
 />
 ...
@@ -77,7 +89,7 @@ le champ dispose également d'un attribut inline qui permet de définir comment 
   name="exampleRadio"
   label={"Type de partenaire"}
   dataSource={this.data}
-  currentChecked={true}
+  defaultValue={this.data[0]}
   inline={RadiosField.Inline.ALL}
 />
 ...
@@ -113,7 +125,7 @@ render(): JSX.Element {
                  name="exampleRadio"
                  label={"Type de partenaire"}
                  dataSource={this.data}
-                 currentChecked={true}
+                 defaultValue={this.data[1]}
                  inline={RadiosField.Inline.FIELD}
                 />
             </Form>
@@ -137,7 +149,6 @@ render(): JSX.Element {
              name="exampleRadio"
              label={"Type de partenaire"}
              dataSource={dataSource}
-             currentChecked={true}
              inline={RadiosField.Inline.FIELD}
             />
     );

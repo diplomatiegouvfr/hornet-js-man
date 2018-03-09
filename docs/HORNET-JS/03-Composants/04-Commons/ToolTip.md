@@ -8,15 +8,15 @@ Le composant `ToolTip` affiche une icône d'information qui laisse apparaître u
 
 ## Utilisation
 
-| attribut   | description                                         | valeur par défaut                                |
-| ---------- | --------------------------------------------------- | ------------------------------------------------ |
-| alt        | Propriété alt de l'image                            |                                                  |
-| classImg   | Style appliqué sur l'élément 'img'                  | imgTooltip                                       |
-| classSpan  | Style appliqué sur l'élément 'span'                 | tooltip                                          |
-| icoToolTip | Url de l'image dans le théme                        | /img/tooltip/ico_tooltip.png                     |
-| idImg      | Id de l'élément 'img'                               |                                                  |
-| idSpan     | Id de l'élément 'span'                              |                                                  |
-| src        | Url de l'image à afficher                           | this.genUrlTheme("/img/tooltip/ico_tooltip.png") |
+| Attribut   | Description                                         | Obligatoire | Valeur par défaut                                | Type |
+| ---------- | --------------------------------------------------- | ------------| ------------------------------------------------ |------|
+| alt        | Propriété alt de l'image                            | Oui         |                                                  |string|
+| classImg   | Style appliqué sur l'élément 'img'                  |             | "tooltip-image"                                  |string|
+| classSpan  | Style appliqué sur l'élément 'span'                 |             | "tooltip"                                        |string|
+| icoToolTip | Url de l'image dans le théme                        |             | "/img/tooltip/tooltip.svg"                       |string|
+| idImg      | Id de l'élément 'img'                               |             |                                                  |string|
+| idSpan     | Id de l'élément 'span'                              | Oui         |                                                  |string|
+| src        | Url de l'image à afficher                           |             | ToolTip.genUrlTheme("/img/tooltip/ico_tooltip.png") |string|
 
 ```javascript
 

@@ -2,7 +2,7 @@
 
 L'installation d'une instance Tomcat passe par : 
 
-- L'installation du paquet Debian openjdk8
+- L'installation du paquet Debian openjdk9
 - L'installation du paquet Debian tomcat8 mono et multi-instance
 - La configuration du lanceur SystemD
 
@@ -23,8 +23,8 @@ java -version
 ```
 
 ```shell
-openjdk version "1.8.0_40-internal"
-OpenJDK Runtime Environment (build 1.8.0_40-internal-b22)
+openjdk version "1.9.4_X-internal"
+OpenJDK Runtime Environment (build 1.9.v_X-internal-b22)
 OpenJDK 64-Bit Server VM (build 25.40-b25, mixed mode)
 ```
 
@@ -32,7 +32,7 @@ Si le jdk installé n’est pas dans la bonne version :
 
 ```shell
 update-java-alternatives -l
-update-java-alternatives -s java-1.8.0-openjdk-amd64
+update-java-alternatives -s java-1.9.4-openjdk-amd64
 ```
 
 Faire un remove de la version courante : 
@@ -46,7 +46,7 @@ apt-get remove lejdkinstalle
 
 ### Installation du package
 
-Installer le paquet tomcat8 (8.0.14-1).
+Installer le paquet tomcat8 (8.5.14-1).
 
 ```shell
 apt-get install tomcat8
@@ -71,7 +71,7 @@ Editer le fichier : `/etc/default/tomcat8`
 Modifier la valeur de la variable : `JAVA_HOME`
 
 ```
-JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
+JAVA_HOME=/usr/lib/jvm/java-1.9.4-openjdk-amd64
 ```
 
 Modifier la valeur de la variable : `JAVA_OPTS`

@@ -23,16 +23,18 @@ Le composant permet d'afficher des messages de plusieurs types :
 
 Le Composant Notification sert à afficher les messages d'erreurs.
 
-| attibut          | description                                                        | valeur par défaut                         |
-| ---------------- | ------------------------------------------------------------------ | ----------------------------------------- |
-| errors           | Messages d'erreur passés à la notification                         | |
-| errorsTitle      | Titre de la section des erreurs                                    | this.i18n("notification.errorsTitle")     |
-| infos            | Messages d'informations passés à la notification                   | |
-| infosTitle       | Titre de la section des informations                               | this.i18n("notification.infosTitle")      |
-| personnals       | Messages personnels passés à la notification                       | |
-| personnalsTitle  | Titre de la section des messages personnalisable                   | this.i18n("notification.personnalsTitle") |
-| warnings         | Warnings passés à la notification                                  | |
-| warningsTitle    | Titre de la section des warnings                                   | this.i18n("notification.warningsTitle")   |
+| Attibut          | Description                                                        | Obligatoire | Valeur par défaut                         | Type|
+| ---------------- | ------------------------------------------------------------------ | ------------| ----------------------------------------- |-----|
+| errors           | Messages d'erreur passés à la notification                         | ||any|
+| errorsTitle      | Titre de la section des erreurs                                    | |this.i18n("notification.errorsTitle")     |string|
+| exceptions       | Messages d'exceptions passés à la notification                     |  ||Array<BaseError>|
+| id               | Identifiant de la notification                                     |Oui ||string|
+| infos            | Messages d'informations passés à la notification                   | ||any|
+| infosTitle       | Titre de la section des informations                               | |this.i18n("notification.infosTitle")      |string|
+| personnals       | Messages personnels passés à la notification                       | ||any|
+| personnalsTitle  | Titre de la section des messages personnalisable                   | |this.i18n("notification.personnalsTitle") |string|
+| warnings         | Warnings passés à la notification                                  | ||any|
+| warningsTitle    | Titre de la section des warnings                                   | |this.i18n("notification.warningsTitle")   |string|
 
 ## Création d'une notification
 
@@ -59,13 +61,13 @@ errors.addNotification(notif);
 Enfin il nous reste plus qu'a afficher les notifications. Pour cela, il faut utiliser la fonction `notify` du `NotificationManager` : 
 ```javascript
 /* Patron */
-NotificationManager.notify("id", "les erreurs", "les informations","les exceptions","Les alertes","les personnels");
+NotificationManager.notify("id", "id du composant", "les erreurs", "les informations","les exceptions","Les alertes","les personnels");
 /* Exemple pour afficher des notifications de type informations (en vert) */
-NotificationManager.notify(null,null,errors,null,null,null);
+NotificationManager.notify(null,null,null,errors,null,null,null);
 /* Exemple pour afficher des notifications de type personnelles */
-NotificationManager.notify(null,null,null,null,null,personnals);
+NotificationManager.notify(null,null,null,null,null,null,personnals);
 /* Exemple pour afficher des notifications de type personnelles et errors */
-NotificationManager.notify(null,errors,null,null,null,personnals);
+NotificationManager.notify(null,null,errors,null,null,null,personnals);
 
 ```
 
@@ -90,15 +92,14 @@ render() {
 ```javascript showroom
 
 
-let errors = [{
- text: "ceci est le visuel pour un message d'erreur"
-}]
-let personnal = [{
- text: "ceci est le visuel pour un message personnal avec une couleur personnalisable"
-}]
+let errors = [{ text: "ceci est le visuel pour un message d'erreur"}];
+let personnal = [{ text: "ceci est le visuel pour un message personnal avec une couleur personnalisable"}];
 
  return (
-          <Notification id="exemple-notification" errors={errors} personnalsTitle="Texte personnalisé"  color="purple" personnals={personnal}/>
-    );
+    <div>
+        <Notification id="error-notification" errors={errors} />
+        <Notification id="personal-notification" personnalsTitle="Texte personnalisé"  color="purple" personnals={personnal}/>
+    </div>
+);
 
 ```

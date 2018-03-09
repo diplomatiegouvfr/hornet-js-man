@@ -16,7 +16,7 @@ Les composants techniques du framework :
 
 ## Prérequis
 
-* NodeJS 6.10.x
+* NodeJS 8.9.x
 * hornet-js-builder 1.4.0 installé en global:
 
 ```shell

@@ -37,7 +37,7 @@ render(): JSX.Element {
         <div>
             <h2>Contact</h2>
             <Notification id="notif"/>
-            <Form
+            <Form id="form-example"
                 schema={schema}
                 formMessages={formI18n}
                 onSubmit={this.onSubmit}
@@ -80,20 +80,27 @@ messages.json:
 
 Descriptif des attributs du composant formulaire Hornet :
 
-| attribut                | description                                                                                    | valeur par défaut |
-| ----------------------- | ---------------------------------------------------------------------------------------------- | ----------------- |
-| className               | Nom de la classe CSS à affecter au formulaire.                                                 | "formRecherche"   |
-| customValidators        | Valideurs customisés : permettent d'implémenter et de chaîner des règles de validation difficiles à mettre en oeuvre simplement avec un schéma json-schema. Ils sont appliqués après la validation basée sur le schéma de validation, donc les données du formulaire ont déjà éventuellement bénéficié de la coercition de types.| |
-| formMessages            | Messages spécifiques à ce formulaire : utilisés pour la génération des messages d'erreur de validation                                                           |                   |
-| hideButtons             | Lorsqu'égal à true, les boutons de validation ne sont pas affichés                             | false             |
-| imgFilePath             | Surcharge de l'url des images (ex. : http://localhost:7777/internet), notamment les icônes indiquant la présence d'une infobulle. Il faut que les images se situent au même niveau d'arborescence que celles du thème intranet et que leurs noms soient identiques (ex. : "/img/tooltip/ico_tooltip.png"). | |
-| isMandatoryFieldsHidden | Lorsque mis à true, le message d'information concernant les champs obligatoires est masqué     | false             |
-| markRequired            | Lorsqu'égal à false,les libellés des champs obligatoires ne sont pas marqués avec un astérisque| true              |
-| onFormChange            | Fonction déclenchée lors de la modification d'un champ du formulaire                           | function(){}      |
-| onSubmit                | Fonction déclenchée lors de la soumission du formulaire                                        | function(){}      |
-| readOnly                | Indique si le formulaire est en lecture seule : dans ce cas aucun champ n'est modifiable.      | false             |
-| subTitle                | Sous-titre éventuel                                                                            | null              |
-| text                    | Texte descriptif éventuel                                                                      |                   |
+| Attribut                | Description                                                                                    | Obligatoire | Valeur par défaut | Type |
+| ----------------------- | ---------------------------------------------------------------------------------------------- | ------------|------------------ | -----|
+| className               | Nom de la classe CSS à affecter au formulaire.                                                 | |"formRecherche"   |string|
+| customValidators        | Valideurs customisés : permettent d'implémenter et de chaîner des règles de validation difficiles à mettre en oeuvre simplement avec un schéma json-schema. Ils sont appliqués après la validation basée sur le schéma de validation, donc les données du formulaire ont déjà éventuellement bénéficié de la coercition de types.| |[]|array[ICustomValidation]|
+| defaultValues           | Données initiales du formulaire                                                                | | |any |
+| formMessages            | Messages spécifiques à ce formulaire : utilisés pour la génération des messages d'erreur de validation |||any|
+| hideButtons             | Lorsqu'égal à true, les boutons de validation ne sont pas affichés                             || false             |boolean|
+| id                      | Identifiant du formulaire                                                                      | Oui | |string|
+| imgFilePath             | Surcharge de l'url des images (ex. : http://localhost:7777/internet), notamment les icônes indiquant la présence d'une infobulle. Il faut que les images se situent au même niveau d'arborescence que celles du thème intranet et que leurs noms soient identiques (ex. : "/img/tooltip/ico_tooltip.png"). | ||string|
+| isMandatoryFieldsHidden | Lorsque mis à true, le message d'information concernant les champs obligatoires est masqué     || false             |boolean|
+| markRequired            | Lorsqu'égal à false,les libellés des champs obligatoires ne sont pas marqués avec un astérisque|| true              |boolean|
+| name                    | Nom du formulaire                                                                              |||string|
+| notifId                 |  Identifiant du groupe de notifications auquel seront rattachées les notifications d'erreurs de validation de ce formulaire| | | string|
+| onBeforeSubmit          | Fonction déclenchée lors de la soumission du formulaire, avant la validation                   |||(data: any) => void|
+| onFormChange            | Fonction déclenchée lors de la modification d'un champ du formulaire                           ||| function(){}      |
+| onSubmit                | Fonction déclenchée lors de la soumission du formulaire, lorsque celui-ci est valide           ||| React.FormEventHandler<HTMLElement> |
+| schema                  | Schema JSON de validation                                                                      |||any|
+| subTitle                | Sous-titre éventuel                                                                            || null              |string|
+| text                    | Texte descriptif éventuel                                                                      ||                   |string|
+| textLang                | Langue du texte descriptif                                                                     |||string|
+| validationOptions       | Options de validation ajv (cf. http://epoberezkin.github.io/ajv/#options)                      ||DataValidator.DEFAULT_VALIDATION_OPTIONS |ajv.Options|
 
 Il existe d'autres types de champs :
 
@@ -233,7 +240,7 @@ Dans ce cas la propriété readOnly du formulaire doit être valorisée à `true
 
 ```javascript
 ...
-<Form
+<Form id="form-example"
      schema={schema}
      formMessages={formI18n}
      onSubmit={this.onSubmit}
@@ -337,7 +344,7 @@ Exemple de formulaire avec des fieldsets:
 
 ```javascript
 ...
-<Form
+<Form id="form-example"
     schema={schema}
     formMessages={formI18n}
     onSubmit={this.onSubmit}
@@ -368,7 +375,7 @@ Exemple:
 
 ```javascript
 ...
-<Form
+<Form id="form-example"
     schema={schema}
     formMessages={formI18n}
     onSubmit={this.onSubmit}
@@ -397,7 +404,7 @@ Aperçu :
 ```javascript showroom
 
 	return (
-        <Form>
+        <Form id="form-example">
             <InputField label="Code postal" />
         </Form>
     );

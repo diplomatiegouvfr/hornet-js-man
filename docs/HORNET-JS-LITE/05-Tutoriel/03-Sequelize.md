@@ -393,11 +393,11 @@ Dans l'exemple ci-dessous, l'entity Partenaire est définie avec 5 relations à 
 
 ```javascript
     private initPartenaireEntity(): void {
-        SequelizeUtils.initRelationBelongsTo(this.partenaireEntity, this.paysEntity, "laNationalite", "id_pays");
-        SequelizeUtils.initRelationBelongsTo(this.partenaireEntity, this.villeEntity, "laVille", "id_ville");
-        SequelizeUtils.initRelationBelongsTo(this.partenaireEntity, this.civiliteEntity, "laCivilite", "id_civilite");
-        SequelizeUtils.initRelationBelongsToMany(this.partenaireEntity, this.produitEntity, "listeProduit", "id_partenaire", "produit_partenaire");
-        SequelizeUtils.initRelationBelongsTo(this.partenaireEntity, this.photoEntity, "laPhoto", "id_photo");
+        SequelizeUtils.initRelationBelongsTo({fromEntity: this.partenaireEntity, toEntity: this.paysEntity, alias: "laNationalite", foreignKey: "id_pays"});
+        SequelizeUtils.initRelationBelongsTo({fromEntity: this.partenaireEntity, toEntity: this.villeEntity, alias: "laVille", foreignKey: "id_ville"});
+        SequelizeUtils.initRelationBelongsTo({fromEntity: this.partenaireEntity, toEntity: this.civiliteEntity, alias: "laCivilite", foreignKey: "id_civilite"});
+        SequelizeUtils.initRelationBelongsToMany({fromEntity: this.partenaireEntity, toEntity: this.produitEntity, alias: "listeProduit", foreignKey: "id_partenaire", throughTable: "produit_partenaire"});
+        SequelizeUtils.initRelationBelongsTo({fromEntity: this.partenaireEntity, toEntity: this.photoEntity, alias: "laPhoto", foreignKey: "id_photo"});
     }
 ```
 
@@ -483,27 +483,27 @@ export class ModelDAO extends HornetSequelizeModel {
     /** METHODS */
 
     private initVilleEntity(): void {
-        SequelizeUtils.initRelationBelongsTo(this.villeEntity, this.paysEntity, "lePays", "id_pays");
+        SequelizeUtils.initRelationBelongsTo({fromEntity: this.villeEntity, toEntity: this.paysEntity, alias: "lePays", foreignKey: "id_pays"});
     }
 
     private initUtilisateurEntity(): void {
-        SequelizeUtils.initRelationBelongsToMany(this.utilisateurEntity, this.roleEntity, "listeRole", "id_utilisateur", "role_utilisateur");
+        SequelizeUtils.initRelationBelongsToMany({fromEntity: this.utilisateurEntity, toEntity: this.roleEntity, alias: "listeRole", foreignKey: "id_utilisateur", throughTable: "role_utilisateur"});
     }
 
     private initRoleEntity(): void {
-        SequelizeUtils.initRelationBelongsToMany(this.roleEntity, this.utilisateurEntity, "listeUser", "id_role", "role_utilisateur");
+        SequelizeUtils.initRelationBelongsToMany({fromEntity: this.roleEntity, toEntity: this.utilisateurEntity, alias: "listeUser", foreignKey: "id_role", throughTable: "role_utilisateur"});
     }
 
     private initPartenaireEntity(): void {
-        SequelizeUtils.initRelationBelongsTo(this.partenaireEntity, this.paysEntity, "laNationalite", "id_pays");
-        SequelizeUtils.initRelationBelongsTo(this.partenaireEntity, this.villeEntity, "laVille", "id_ville");
-        SequelizeUtils.initRelationBelongsTo(this.partenaireEntity, this.civiliteEntity, "laCivilite", "id_civilite");
-        SequelizeUtils.initRelationBelongsToMany(this.partenaireEntity, this.produitEntity, "listeProduit", "id_partenaire", "produit_partenaire");
-        SequelizeUtils.initRelationBelongsTo(this.partenaireEntity, this.photoEntity, "laPhoto", "id_photo");
+        SequelizeUtils.initRelationBelongsTo({fromEntity: this.partenaireEntity, toEntity: this.paysEntity, alias: "laNationalite", foreignKey: "id_pays"});
+        SequelizeUtils.initRelationBelongsTo({fromEntity: this.partenaireEntity, toEntity: this.villeEntity, alias: "laVille", foreignKey: "id_ville"});
+        SequelizeUtils.initRelationBelongsTo({fromEntity: this.partenaireEntity, toEntity: this.civiliteEntity, alias: "laCivilite", foreignKey: "id_civilite"});
+        SequelizeUtils.initRelationBelongsToMany({fromEntity: this.partenaireEntity, toEntity: this.produitEntity, alias: "listeProduit", foreignKey: "id_partenaire", throughTable: "produit_partenaire"});
+        SequelizeUtils.initRelationBelongsTo({fromEntity: this.partenaireEntity, toEntity: this.photoEntity, alias: "laPhoto", foreignKey: "id_photo"});
     }
 
     private initProduitEntity(): void {
-        SequelizeUtils.initRelationBelongsToMany(this.produitEntity, this.partenaireEntity, "partenaires", "id_produit", "produit_partenaire");
+        SequelizeUtils.initRelationBelongsToMany({fromEntity: this.produitEntity, toEntity: this.partenaireEntity, alias: "partenaires", foreignKey: "id_produit", throughTable: "produit_partenaire"});
     }
 }
 ```

@@ -134,8 +134,10 @@ C'est ce fichier qui doit être mis à jour en priorité pour une installation.
     "fullSpa": {
       "enabled": false
     },
-    "cache": {
-      "enabled": false
+    "request": {
+        "cache": {
+          "enabled": false
+        }
     }
 }
 ```
@@ -360,8 +362,10 @@ Ce bloc contient l'ensemble des paramètres destinés à la configuration de hel
 |enabled|Activation du cache de l'application|false|
 
 ```
-"cache": {
-  "enabled": false
+"request": {
+    "cache": {
+      "enabled": false
+    }
 }
 ```
 
@@ -395,10 +399,17 @@ ex : `/etc/nodejs/applitutoriel/log4js-1.json`
 ```json
 {
   "appenders": {
+    "console": {
+      "type": "console",
+      "layout": {
+        "type": "pattern",
+        "pattern": "%[%d{ISO8601}|%x{tid}|%x{user}|%p|%c|%x{fn}|%m%]"
+      }
+    }
     "dateFile": {
       "type": "dateFile",
       "pattern": ".yyyy-MM-dd",
-      "filename":"/var/log/nodejs/applitutoriel-1/applitutoriel-1.log",
+      "filename": "log/{#INSTANCE_NAME}.log", //DEV
       "layout": {
         "type": "pattern",
         "pattern": "%d{ISO8601}|%x{tid}|%x{user}|%p|%c|%x{fn}|%m"
@@ -408,7 +419,7 @@ ex : `/etc/nodejs/applitutoriel/log4js-1.json`
     }
   },
   "categories": {
-    "default": { "appenders": ["dateFile"], "level": "INFO" }
+    "default": { "appenders": ["console" , "dateFile", "level": "INFO" }
   }
 }
 ```

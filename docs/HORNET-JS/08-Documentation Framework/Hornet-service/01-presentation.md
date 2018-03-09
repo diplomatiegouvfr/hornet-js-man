@@ -32,6 +32,10 @@ Fournit un serveur permettant de simuler le fonctionnement d'un serveur ClamAV. 
 
 Couche technique : fournit les différents niveaux d'exceptions, les services d'export vers différents formats de sortie, un service d'envoi de mail, et quelques classes utilitaires.
 
+### hornet-service-data
+
+Couche technique : fournit des éléments et dépendances pour l'utilisation Spring Data.
+
 ### hornet-service-web
 
 Couche technique : fournit des éléments basés sur hornet-service-core ainsi qu'un intercepteur d'exceptions pour les controlleurs web.

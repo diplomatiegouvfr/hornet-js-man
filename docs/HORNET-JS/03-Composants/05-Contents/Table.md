@@ -159,10 +159,12 @@ render(){
 
 propriétés du composant `Table`
 
-| Paramètre | Type | Description  |
-|---------- | ---- | ----------- |
-| isVisible | boolean | Tableau visible ou non |
-| width | number | Largeur du tableau |
+| Attribut | Description  | Obligatoire | Valeur par défaut| Type |
+|----------| ----------- | ---- |---- |---- |
+|id| Identifiant du tableau |Oui||string |
+|className| Classe CSS personnalisée ||"hornet-datatable-header"|string|
+| isVisible| Tableau visible ou non | |true|boolean |
+| width | Largeur du tableau | ||number |
 
 #### Surcharge de style par ligne
 
@@ -241,27 +243,31 @@ Rendu obtenu :
 
 propriétés du composant `Header`
 
-| Paramètre | Type | Description  | Obligatoire |
-|---------- | ---- | ----------- | ----- |
-| id | string | L'id du header | oui |
-| parentId | string | L'id du tableau | non |
-| title | string | Le texte afficher dans le bandeau  | non |
-| libelleNombreTotalItem | string | Info sur le nombre total d'item affiché dans le bandeau (ex: (33 résultat(s)) | non |
-| showIconInfo ![](../sources/common/icone-info.png) | boolean |  Affichage du bouton d'accessibilité  | non |
-| hideMenuactions ![](../sources/common/icone-menu-action.png)  | boolean | Affichage du bouton d'accessibilité et du menu action  | non |
-| toggleColumns ![](../sources/common/icone-toggle-columns.png) | boolean | Affichage de l'action permettant de masquer/afficher les colonnes | non |
-
-
-
+| Attribut | Description  | Obligatoire | Valeur par défaut |Type |
+|---------- | ---- | ----------- | ----- | ----- |
+| id | L'id du header |  ||string |
+| parentId | L'id du tableau |  | |string |
+| title |  Le texte afficher dans le bandeau  | Oui ||string |
+| libelleNombreTotalItem |  Info sur le nombre total d'item affiché dans le bandeau (ex: (33 résultat(s)) |  ||string |
+| showIconInfo ![](../sources/common/icone-info.png) |  Affichage du bouton d'accessibilité  |  | |boolean |
+| hideMenuactions ![](../sources/common/icone-menu-action.png)  | Affichage du bouton d'accessibilité et du menu action  |  | |boolean |
+| toggleColumns ![](../sources/common/icone-toggle-columns.png) |  Affichage de l'action permettant de masquer/afficher les colonnes |  ||boolean |
+|columns|Informations de colonnes|||any|
+|items|Elements du table|||array[any]|
+|selectedItems|Elements sélectionnés du Table|||array[number]|
+|tableState|tableState|||TableState|
+|contentState|content state |||ContentState|
+|dataSourcesList|liste des PaginateDataSource de tous les <Content.tsx> du composant table, s'ils exitent|||array[PaginateDataSource<any>]|
 
 #### `ToggleColumnsButton`
 le composant `ToggleColumnsButton` permet de masquer/afficher les colonnes du tableau
 
-| Paramètre | Type | Description  |
-|---------- | ---- | ----------- |
-| hiddenColumns | Object | Permet de déterminer les colonnes masquées par défaut |
-| onChange | Function | Méthode permettant de récupérer l'état des colonnes |
-| selectAllItem | boolean | Méthode permettant d'afficher l'option de sélection global, default : true |
+| Attribut | Description | Obligatoire | Valeur par défaut | Type  |
+|---------- | ---- |---- |---- | ----------- |
+| columns | Colonnes présentes dans le toggle| ||any|
+| hiddenColumns | Permet de déterminer les colonnes masquées par défaut | ||any |
+| onChange | Méthode permettant de récupérer l'état des colonnes |||(any) => void |
+| selectAllItem | Méthode permettant d'afficher l'option de sélection global ||true|boolean |
 
 
 #### `MenuActions`
@@ -326,37 +332,53 @@ Avec le menu ouvert :
 
 propriétés du composant `ActionButton`
 
-| Paramètre | Type | Description  |
-|---------- | ---- | ----------- |
-| action | Function | Action appelée lors du click sur le bouton |
-| classNameImg | string | Classe css de la balise img |
-| messageAlert | string | Message affiché dans l'alerte |
-| priority | boolean | Action prioritaire ou non |
-| showAlert | Function | fonction d'affichage de l'alerte |
-| srcImg | string | Url de l'image |
-| titleAlert | string | Message affiché dans le titre de l'alerte |
-| typeAction | TypeAction |  URL de l'action serveur d'export |
-| displayedWithoutResult | boolean | Détermine si l'action sera affichée que lorsqu'il y a des data dans le tableau. par défaut à `false` |
+| Attribut | Description  | Obligatoire | Valeur par défaut |Type |
+|---------- | ----------- | ---- |---- |---- |
+| action | Action appelée lors du click sur le bouton ||| Function |
+| classNameImg | Classe css de la balise img | ||string |
+| messageAlert | Message affiché dans l'alerte | ||string |
+| priority | Action prioritaire ou non | ||boolean |
+| showAlert | fonction d'affichage de l'alerte | ||Function |
+| srcImg | Url de l'image | ||string |
+| titleAlert | Message affiché dans le titre de l'alerte | ||string |
+| typeAction |  URL de l'action serveur d'export | ||TypeAction |
+| displayedWithoutResult | Détermine si l'action sera affichée que lorsqu'il y a des data dans le tableau. | |false|boolean |
+| visible | Définit si le bouton est visible ou non | ||boolean|
+|selectedItems| items sélectionnés|||any|
+|items| Items présents|||array[any]|
+|onKeyDown| Fonction appelée lors d'un appui sur une touche du clavier|||any|
+
 Les boutons sont des liens (balise `a`) possédant une image et un label (balise `span`).
 
 S'il n'y a pas de colonnes de type `CheckColumn` dans le tableau, les actions de masse ne sont pas disponibles.
 
 ### Détail du composant `Content`
 
-propriétés du composant `Content`
+Le composant Content possède les propriétés de l'interface [HornetComponentDatasourceProps](/hornetshowroom/composant/page/hornet-js/composants/hornet-component-props)
 
-| Paramètre | Type | Description  |
-|---------- | ---- | ----------- |
-| dataSource | DataSource | Data source qui alimente le tableau |
-| headerFixed | boolean | Determine si le header du tableau doit etre fixe |
-| hideSpinner | boolean | Flag permettant de forcer la suppression du spinner
-| loadingMessage | JSX.Element ou String | Attribut permettant de surcharger le message par défaut du spinner du tableau |
-| notifId | string | L'id du composant "Notification" auquel seront ratachées les notifications. si non present , Les notifications s'affichent au dessus du tableau|
-| onSubmit | Function | Fonction déclenchée lors de la soumission du formulaire |
-| schema | Valideurs customisés | Schéma Json de validation de saisie |
-| title | string | Titre du tableau (utilisé pour le caption lié à l'accessibilité |
-| width | number | Largeur du tableau |
-|toggleColumns|boolean| Détermine si la fonctionnalité permettant d'afficher/masquer les colonnes est présente |
+propriétés du composant `Content` :
+
+| Attribut | Description  | Obligatoire | Valeur par défaut |Type |
+|---------- | ---- |  ---- | ---- |----------- |
+| id | Identifiant du content |||string |
+| idForm| Identifiant du formulaire, obligatoire pour les fonctionnalités de submit| ||string |
+| customRowsClass|Fonction pour modifier le css des lignes du tableau |||Function |
+| contentState | Gestion des events emit du content State ||| ContentState |
+| dataSource | Data source qui alimente le tableau ||| DataSource |
+| headerFixed | Determine si le header du tableau doit etre fixe | ||boolean |
+| hideSpinner | Flag permettant de forcer la suppression du spinner| ||boolean |
+| loadingMessage | Attribut permettant de surcharger le message par défaut du spinner du tableau | ||JSX.Element ou String |
+| notifId | L'id du composant "Notification" auquel seront ratachées les notifications. si non present , Les notifications s'affichent au dessus du tableau| ||string |
+| onSubmit | Fonction déclenchée lors de la soumission du formulaire | ||(data: any, item: any) => void |
+| schema | Schéma Json de validation de saisie | ||Valideurs customisés |
+| title | Titre du tableau (utilisé pour le caption lié à l'accessibilité | ||string |
+| width | Largeur du tableau | ||number |
+| headerHidden | Permet de masquer les entêtes de colonne | ||boolean |
+| hiddenColumns| Détermine si des colonnes sont cachées par défaut ||| any |
+| withoutForm | Détermine si il y a un formulaire ou non |||boolean |
+|isContentVisible| Détermine si le content est visible ou non | ||boolean|
+|summary| Sommaire du tableau ||| string |
+|name | Nom du composant | ||string|
 
 
 L'affichage du `Content` génère un tableau HTML avec la balise `table`....
@@ -387,22 +409,60 @@ Pour trier la colonne dans l'ordre croissant, il faut cliquer sur le nom de colo
 
 Paramètre d'une colonne :
 
-| Paramètre | Type | Obligatoire | Description  |
-|---------- | ---- | --- | ------------ |
-| `abbr` | `string` | non | Texte complet lorsque le titre est un acronyme. La propriété lang devrait être valorisée dans ce cas |
-| `style` | `CSSProperties` | non | Style par defaut de la colonne.|
-| `editable` | `boolean` | non | Propriétés de d'édition sur la colonne |
-| `headerFixed` | `boolean` | non | Indique que le header est fixe |
-| `id` | `string` | non | Id de la colonne |
-| `isHeader` | `boolean` | non | Indicateur de generation d'une cellule header |
-| `keyColumn` | `string` | oui | Nom de la colonne, correspondant au nom de la propriété contenant la valeur d'une cellule |
-| `sortable` | `boolean` | non | Propriétés de tri sur la colonne |
-| `sortByTitle` | `string` | non | Titre du bouton de tri par colonne. Lorsque vide table.sortByTitle est utilisé par défaut.|
-| `style` | `any` | non | Style customisé du header|
-| `title` | `string` | non | Titre de la colonne |
-| `titleCell` | `string` | non | Titre sur les cellules de la colonne |
-| `width` | `number` | non | Taille en pourcentage de la colonne |
-| `hidenable`|`boolean`|non| Par défaut à true - détermine si la colonne est masquable via la fonctionnalité `toggleColumns`|
+| Attribut | Description  | Obligatoire | Valeur par défaut |Type |
+|---------- | ---- | --- |--- | ------------ |
+| `abbr` | Texte complet lorsque le titre est un acronyme. La propriété lang devrait être valorisée dans ce cas |  || `string` |
+| `alt` |Texte alternatif | || string |
+| `actionMassEnabled` | Permettre les actions de masse|||boolean|
+| `cellCoordinate` | Coordonnées de la cellule en cours de génération | ||CellCoordinates |
+| `contentState` | Objet representant l'état du tableau  | || ContentState|
+| `defaultStyle` |Style de la colonne | |{ "width": "10em" }| CSSProperties |
+| `editable` | Propriétés de d'édition sur la colonne |  || `boolean` |
+| `handleChangeKeyboardMode`| Gestion des touches clavier|||any|
+| `headerFixed` | Indique que le header est fixe |  || `boolean` |
+| `hiddenable`| Par défaut à true - détermine si la colonne est masquable via la fonctionnalité `toggleColumns`||true|`boolean`|
+| `id` | Id de la colonne |  || `string` |
+| `isEditing` | Propriété permettant de rendre éditable une cellule | ||`boolean` |
+| `isHeader` | Indicateur de generation d'une cellule header |  || `boolean` |
+| `isSelected` | Indique si la ligne est sélectionnée | ||`boolean` |
+| `keyboardMode` | Specifie le mode d'accessibilité au clavier | || number |
+| `keyColumn` | Nom de la colonne, correspondant au nom de la propriété contenant la valeur d'une cellule | Oui || `string` |
+| `navigateFct` | Fonction appelée par les cellules sur la navigation|||(CellCoordinates, NavigateDirection) => void|
+| `nbColumns` | Nombre de colonne du tableau | || number|
+| `onSort`| Fonction déclenchée lors d'un clic sur une colonne, déclenchant le tri sur celle-ci - | ||(SortData) => void|
+| `sortable` | Propriétés de tri sur la colonne |  |false| `boolean` |
+| `sortByTitle` | Titre du bouton de tri par colonne. Lorsque vide table.sortByTitle est utilisé par défaut.|  || `string` |
+| `sortData` |  Tri en cours sur le tableau | || SortData |
+| `style` | Style customisé du header|  || `any` |
+| `title` | Titre de la colonne |  || `string` |
+| `titleCell` | Titre sur les cellules de la colonne |  || `string` |
+| `toggleSelectLines` |  Fonction déclenchée lors du click sur la checkbox liée aux actions de masse | ||(item: any, all?: boolean) => void |
+| `width` | Taille en pourcentage de la colonne |   ||`number` |
+| `compareMethod` | Méthode de comparaison destinée au tri de la colonne | || `Function` |
+
+
+La propriété `compareMethod` est une fonction de tri de la colonne. sa signature est la suivante:
+- 1er argument: un objet de type `SortData`
+- 2ème argument: un objet "a" correspondant à un item (ligne) du tableau
+- 3ème argument: un objet "b" correspondant à un item (ligne) du tableau
+
+exemple de méthode `compareMethod`: 
+
+```javascript
+
+compareMethod(sortData: sortData, a:item, b:item) {
+    
+    let aValue = a[sortData.key];
+    let bValue = b[sortData.key];
+    
+    if (aValue < bValue) {
+        result = (sortData.dir == SortDirection.ASC) ? -1 : 1;
+        return false;
+    }
+    
+}
+
+```
 
 ##### CheckColumn
 
@@ -451,19 +511,20 @@ Ce type de colonne permet de définir une action à effectuer sur la ligne du ta
 
 Propriétés d'une `ActionColumn`:
 
-| Paramètre | Type | Description  |
-|---------- | ---- | ----------- |
-| action | Function | Action à déclencher |
-| alt | string | Texte alternatif pour les picto/title des images |
-| classNameImg | string | Classe css de l'image |
-| messageAlert | string |  Message de confirmation a afficher sur l'action |
-| replaceUndef | string | Chaîne de replacement des valeurs undefined dans le templating |
-| showAlert | Function | Fonction appelée si une confirmation est demandée |
-| srcImg | string | Icone affiché dans la colonne |
-| titleAlert | string | Titre du message de confirmation à afficher sur l'action |
-| url | string | Url de l'action à déclencher |
-| visible | Function |  Fonction appelée pour rendre visible on non la cellule |
-| disabled | Function ou boolean |  Fonction appelée/booleen pour rendre disabled l'action |
+| Attribut | Description  | Obligatoire | Valeur par défaut | Type |
+|---------- | ---- |---- |---- | ----------- |
+| action | Action à déclencher ||| Function |
+| alt | Texte alternatif pour les picto/title des images ||| string |
+| classNameImg | Classe css de l'image ||| string |
+| messageAlert |  Message de confirmation a afficher sur l'action ||| string |
+| replaceUndef | Chaîne de replacement des valeurs undefined dans le templating ||| string |
+| srcImg | Icone affiché dans la colonne ||| string |
+| titleAlert | Titre du message de confirmation à afficher sur l'action ||| string |
+| url | Url de l'action à déclencher ||| string |
+| visible | Fonction appelée pour rendre visible on non la cellule ||| Function |
+| disabled |  Fonction appelée/booleen pour rendre disabled l'action ||| Function ou boolean |
+| hasPopUp | Pour valoriser l'indicateur aria-has-popup ||| boolean|
+| label | Label de la colonne |||string |
 
 
 Exemple:
@@ -509,15 +570,15 @@ Ce type de colonne permet d'éditer les cellules d'une ligne du tableau.
 
 propriétés du composant `EditionActionColumn`
 
-| Paramètre | Type | Description  |
-|---------- | ---- | ----------- |
-| messageAlert | string | Message affiché dans l'alerte de l'action annuler |
-| replaceUndef | string | Chaîne de replacement des valeurs undefined dans le templating |
-| titleAlert | string | Message affiché dans le titre de l'alerte de l'action annuler|
-| titleCancel | string |  Message affiché dans le titre de l'action annuler |
-| titleEdit | string | Message affiché dans le titre de l'action éditer |
-| titleSave | string | Message affiché dans le titre de l'action enregistrer la modification |
-| visible | Function | Fonction appelée pour rendre visible on non les cellules|
+| Attribut | Description  | Obligatoire | Valeur par défaut |Type |
+|---------- | ---- |---- |---- | ----------- |
+| messageAlert | Message affiché dans l'alerte de l'action annuler ||| string |
+| replaceUndef | Chaîne de replacement des valeurs undefined dans le templating ||| string |
+| titleAlert | Message affiché dans le titre de l'alerte de l'action annuler||| string |
+| titleCancel |  Message affiché dans le titre de l'action annuler ||| string |
+| titleEdit | Message affiché dans le titre de l'action éditer ||| string |
+| titleSave | Message affiché dans le titre de l'action enregistrer la modification ||| string |
+| visible | Fonction appelée pour rendre visible on non les cellules||| Function |
 
 Exemple:
 
@@ -628,22 +689,29 @@ render(){
 
 propriétés de la pagination dans `PaginateDataSource`:
 
-| Paramètre | Type | Description  |
-|---------- | ---- | ----------- |
-| itemsPerPage | number | Nombre d'items par page |
-| nbPages | number | Nombre de page |
-| pageIndex | number | Index de la page actuelle |
-| totalItems | number | Nombre d'items au total |
+| Attribut | Description  | Obligatoire | Valeur par défaut | Type |
+|---------- | ---- | ---- |---- |----------- |
+| itemsPerPage | Nombre d'items par page ||| number |
+| nbPages | Nombre de page ||| number |
+| pageIndex | Index de la page actuelle ||| number |
+| totalItems | Nombre d'items au total ||| number |
+
 
 rendu d'un tableau avec une pagination:
 
+
 ![Tableau avec une pagination](../sources/table/table-partenaire.png)
+
 
 Lorsqu'il n'y a pas de données dans le tableau, la pagination ne s'affiche pas:
 
 ![Tableau vide](../sources/table/empty-table.png)
 
+
 Par défaut, le message affiché dans un tableau vide est celui présent dans `table.emptyResult` du fichier de ressource.
+
+
+# Live coding
 
 ```javascript showroom
 var data = new DataSource<any>([

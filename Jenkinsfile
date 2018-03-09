@@ -18,7 +18,7 @@ pipeline {
         HORNETJSBUILDER_VERSION="1.5.0"
 
         // Publication
-        ARTIFACTORY_URL = ""
+        ARTIFACTORY_URL = "http://your.artifactory"
         REPOSITORY_GROUP="hornet"
         REPOSITORY_NPM_SNAPSHOT = "${REPOSITORY_GROUP}-npm-snapshot"
         REPOSITORY_NPM_RELEASE = "${REPOSITORY_GROUP}-npm-release"
@@ -67,7 +67,7 @@ pipeline {
         stage("Handle Snaphot version") {
             when {
 				anyOf {
-	                branch "develop"
+	                branch "develop-PUB"
 				}
             }
             steps {
@@ -85,7 +85,7 @@ pipeline {
 
         stage("Publish NPM snapshot") {
             when {
-                branch "develop"
+                branch "develop-PUB"
             }
             steps {
                 sh "bash hbw.sh publish --publish-registry ${ARTIFACTORY_URL}/api/npm/${REPOSITORY_NPM_SNAPSHOT}"
@@ -102,7 +102,7 @@ pipeline {
 
         stage("Publish NPM release") {
             when {
-                branch "master"
+                branch "master-PUB"
             }
             steps {
                 sh "bash hbw.sh publish --publish-registry ${ARTIFACTORY_URL}/api/npm/${REPOSITORY_NPM_RELEASE}"

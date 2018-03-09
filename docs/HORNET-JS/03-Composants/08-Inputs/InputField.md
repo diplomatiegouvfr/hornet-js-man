@@ -15,7 +15,7 @@ Champs de saisie d'un formulaire
 render(): JSX.Element {
     return(
     <div>
-        <Form>
+        <Form id="form-example">
             <Row>
                 <InputField name="nom" />
             </Row>
@@ -26,19 +26,29 @@ render(): JSX.Element {
 
 ```
 
-Tous les attributs standart HTML peuvent être utilisé
+Tous les attributs standart HTML peuvent être utilisés
+
+Le composant possède les propriétés des interfaces:
+
+[HornetWrittableProps](/hornetshowroom/composant/page/hornet-js/composants/hornet-component-props)
+
+[HornetClickableProps](/hornetshowroom/composant/page/hornet-js/composants/hornet-component-props)
+
+[HornetBasicFormFieldProps](/hornetshowroom/composant/page/hornet-js/composants/hornet-component-props)
+
+[ReactFocusDOMAttributes](/hornetshowroom/composant/page/hornet-js/composants/hornet-component-props)
+
 Les principaux attributs:
 
-| attribut                | description                                                                   |
-| ----------------------- | ------------------------------------------------------------------------------|
-| id                      | Attribut id dans le DOM                                                       |
-| label                   | Libelle du champ affiché                                                      |
-| name                    | Nom de l'attribut dans le DOM                                                 |
-| required                | Définit si le champ est obligatoire                                           |
-| requiredLabel           | Libelle du label affiche lorsqu'on se positionne sur l'astérisque             |
-| maxLength               | Nombre maximum de caractère autorisé à la saisie                              |
-| maxLength               | Nombre maximum de caractère autorisé à la saisie                              |
-| resettable              | Par défaut à true. Détermine la présence du bouton `reset` dans le champ      |
+| Attribut                | Description                                                                   | Obligatoire | Valeur par défaut | Type |
+| ----------------------- | ------------------------------------------------------------------------------|-------------|-------------------|------|
+| id                      | Attribut id dans le DOM                                                       |             |                   |string|
+| label                   | Libelle du champ affiché                                                      |             |                   |string|
+| name                    | Nom de l'attribut dans le DOM                                                 |             |                   |string|
+| required                | Définit si le champ est obligatoire                                           |             |                   |boolean|
+| requiredLabel           | Libelle du label affiche lorsqu'on se positionne sur l'astérisque             |             |                   |string|
+| maxLength               | Nombre maximum de caractère autorisé à la saisie                              |             |                   |number|
+| resettable              | Par défaut à true. Détermine la présence du bouton `reset` dans le champ      |             |                   |boolean|
 
 ## Live coding
 

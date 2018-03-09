@@ -2,23 +2,27 @@
 
 ## Principe
 
-Toutes les actions hornet coté back-end retournent des promesses de resultat.
-Il suffit de passer ses data dans le bon result et la reponse sera configurée en conséquence
-Il est possible de typer ces resultats avec les hornetResults.
-Ces results permettent de configurer la reponse de la requête http.
+Toutes les actions hornet côté back-end retournent des promesses de résultat.
+Il suffit de passer ses données dans le bonne classe de resultat et la réponse sera configurée en conséquence
+Il est possible de typer ces résultats avec les **HornetResults**.
+Ces résultats permettent de configurer la réponse de la requête http.
 
-il existe un certain nombre de result:
-ResultJSON   : ResultHornet qui configure une réponse http de type JSON.
-ResultCSV    : ResultHornet qui configure une réponse http de type CVS.
-ResultJPG    : ResultHornet qui configure une réponse http de type JPG.
-ResultBMP    : ResultHornet qui configure une réponse http de type BMP.
-ResultPDF    : ResultHornet qui configure une réponse http de type PDF.
-ResultDOC    : ResultHornet qui configure une réponse http de type DOC.
-ResultBatch  : ResultHornet qui configure une réponse http de type Batch.
-ResultODT    : ResultHornet qui configure une réponse http de type ODT.
-ResultODS    : ResultHornet qui configure une réponse http de type ODS.
-ResultStream : ResultHornet qui configure une réponse http de type stream.
+Il en existe un certain nombre de types basiques :
 
+* ResultFile : ResultHornet qui configure une réponse http de type fichier joint. C'est la classe parente de ResultBMP, ResultDOC, ResultCSV, ResultPDF et ResultOpenDocument.
+* ResultStream : ResultHornet qui configure une réponse http de type stream.
+* ResultBatch : ResultHornet qui configure une réponse http de type Batch (hornet-js-batch).
+* ResultOpenDocument : ResultFile avec templating 'carbone.io'.
+
+et ceux avec préconfiguration du mediaType :
+* ResultJSON   : ResultHornet qui configure une réponse http de type JSON.
+* ResultCSV    : ResultHornet qui configure une réponse http de type CVS.
+* ResultJPG    : ResultHornet qui configure une réponse http de type JPG.
+* ResultBMP    : ResultHornet qui configure une réponse http de type BMP.
+* ResultPDF    : ResultHornet qui configure une réponse http de type PDF.
+* ResultDOC    : ResultHornet qui configure une réponse http de type DOC.
+* ResultODT    : ResultHornet qui configure une réponse http de type ODT.
+* ResultODS    : ResultHornet qui configure une réponse http de type ODS.
 
 Exemple 1 :
 ```javascript
@@ -46,49 +50,76 @@ export class ListerSecteurs extends RouteActionService<any, AdministrationSecteu
 }
 
 ```
+## Les options des différentes classes de resultats
 
-** Les options des différents results : **
+Chaque classe de type *Result* utilise des options qui lui permettent de fonctionner correctement.
 
-Chaque result utilise des options qui lui permettent de fonctionner correctement
+### ResultFile
+```javascript
+{
+    `data` : les données
+    `filename` : le nom complet du fichier (avec extension)
+    `encoding` : l'encodage du fichier
+    `size` : la taille du fichier
+    `dispositionType`: entête de réponse de disposition (`attachment` par défaut)
+}
+```
 
--Option disponible pour ResultJSON : {
-                                        `data` : les données à envoyer dans la reponse
-                                     }
+### ResultJSON
+```javascript
+{
+    `data` : les données à envoyer dans la reponse
+}
+```
 
--Option disponible pour ResultCSV (voir https://www.npmjs.com/package/json2csv): {
-                                        `fields` : les colonnes à ajouter dans la reponse
-                                        `fieldNames` : le nom des colonnes
-                                        `del` : le séparateur
-                                        `defaultValue` : la valeur par defaut si le champ est vide
-                                        `quotes` : quotes
-                                        `doubleQuotes` : doubleQuotes
-                                        `hasCSVColumnTitle` : indique si les noms des colonnes doivent être affichés
-                                        `eol` : chaine de caractères ajouter sur chaque ligne
-                                        `newLine` : type de retour à la ligne
-                                        `flatten` : normalise un Json par défaut.
-                                        `unwindPath` : permet de creer plusieurs lignes à partir d'un seul json
-                                        `excelStrings` ; normalise les data pour excel
-                                        `includeEmptyRows` : ne pas ignorer les lignes vides
-                                        `data` : les données
-                                        `filename` : le nom du fichier
-                                        `encoding` : l'encodage du fichier
-                                    }
+### ResultCSV
+(voir https://www.npmjs.com/package/json2csv)
 
--Option disponible pour ResultJPG : {
-                                        `data` : les données
-                                        `filename` : le nom du fichier
-                                        `encoding` : l'encodage du fichier
-                                        `size` : la taille du fichier
-                                    }
+```javascript
+{
+    `fields` : les colonnes à ajouter dans la reponse
+    `fieldNames` : le nom des colonnes
+    `del` : le séparateur
+    `defaultValue` : la valeur par defaut si le champ est vide
+    `quotes` : quotes
+    `doubleQuotes` : doubleQuotes
+    `hasCSVColumnTitle` : indique si les noms des colonnes doivent être affichés
+    `eol` : chaine de caractères ajouter sur chaque ligne
+    `newLine` : type de retour à la ligne
+    `flatten` : normalise un Json par défaut.
+    `unwindPath` : permet de creer plusieurs lignes à partir d'un seul json
+    `excelStrings` ; normalise les data pour excel
+    `includeEmptyRows` : ne pas ignorer les lignes vides
+    `data` : les données
+    `filename` : le nom du fichier
+    `encoding` : l'encodage du fichier
+}
+```
 
--Option disponible pour ResultBMP : {
-                                        `data` : les données
-                                        `filename` : le nom du fichier
-                                        `encoding` : l'encodage du fichier
-                                        `size` : la taille du fichier
-                                    }
+### ResultJPG
+```javascript
+{
+    `data` : les données
+    `filename` : le nom complet du fichier (avec extension)
+    `encoding` : l'encodage du fichier
+    `size` : la taille du fichier
+    `dispositionType`: entête de réponse de disposition (`attachment` par défaut)
+}
+```
 
--Option disponible pour ResultPDF : (voir https://github.com/bpampuch/pdfmake)
+### ResultBMP
+```javascript
+{
+    `data` : les données
+    `filename` : le nom complet du fichier (avec extension)
+    `encoding` : l'encodage du fichier
+    `size` : la taille du fichier
+    `dispositionType`: entête de réponse de disposition (`attachment` par défaut)
+}
+```
+
+### ResultCSV
+(voir https://github.com/bpampuch/pdfmake)
 
 Exemple 3 :
 ```javascript
@@ -152,30 +183,43 @@ new ResultPDF({
                             }} as OptionsPDF);
 
 ```
--Option disponible pour ResultDOC : {
-                                        `data` : les données
-                                        `filename` : le nom du fichier
-                                        `encoding` : l'encodage du fichier
-                                        `size` : la taille du fichier
-                                    }
 
--Option disponible pour ResultBatch : {
-                                          `data` : les données à envoyer dans la réponse
-                                       }
-
--Option disponible pour ResultStream : {
-                                           `data` : les données à envoyer dans la réponse,
-                                           `mimeType` : le mime type du fichier
-                                        }
-Pour le ResultStream il faut utiliser le fetchOnStream pour la partie service:
+### ResultDOC
+```javascript
+{
+    `data` : les données
+    `filename` : le nom complet du fichier (avec extension)
+    `encoding` : l'encodage du fichier
+    `size` : la taille du fichier
+    `dispositionType`: entête de réponse de disposition (`attachment` par défaut)
+}
 ```
+
+### ResultBatch
+```javascript
+{
+    `data` : les données à envoyer dans la réponse
+}
+
+### ResultStream
+```javascript
+{
+    `data` : les données à envoyer dans la réponse,
+    `mimeType` : le mime type du fichier
+}
+```
+
+Pour le ResultStream il faut utiliser le fetchOnStream pour la partie service:
+```javascript
 rechercher(criteres: PartenaireRechercheParameter, reqMimeType: MediaType, res?: NodeJS.WritableStream): Promise<any> {
     logger.trace("SERVICES - rechercher : ", criteres, reqMimeType);
     let request: HornetRequest = { url: this.buildUrl(URL_PARTENAIRES + URL_PAR_RECHERCHE), method: "post", data: criteres, typeMime: reqMimeType };
     return (res) ? this.fetchOnStream(request, res) : this.fetch(request);
 }
 ```
--Options disponibles pour ResultOpenDocument (ODT et ODS) :
+
+### ResultOpenDocument
+(se référer à la documentation officielle : https://github.com/Ideolys/carbone)
 
 ```javascript
     {
@@ -185,5 +229,3 @@ rechercher(criteres: PartenaireRechercheParameter, reqMimeType: MediaType, res?:
         computeOptions: Object;
     }
 ```
-
-pour les options Carbone.io, se référer à la documentation officielle : https://github.com/Ideolys/carbone

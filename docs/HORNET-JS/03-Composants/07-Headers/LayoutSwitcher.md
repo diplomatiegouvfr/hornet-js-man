@@ -58,10 +58,13 @@ L'exemple ci-dessous est tiré d'un composant HornetPage qui possède un state c
 
 Les attributs du composant `LayoutSwitcher` :
 
-| attribut | obligatoire | description |
-| -------- | ----------- | ----------- |
-| switchIcon | | Path vers l'icon à afficher pour le switcher. Par défaut on utilise l'icône ic_screen_ratio embarqué dans le thême hornet |
-| switchTitle | | Label affiché pour le bouton du layout. Par défaut on utilise la ressource `header.expand`  |
+| Attribut | Description | Obligatoire | Valeur par défaut | Type |
+| -------- | ----------- | ----------- | ----------- | ----------- |
+| switchIcon | Path vers l'icon à afficher pour le switcher. Par défaut on utilise l'icône ic_screen_ratio embarqué dans le thême hornet | |LayoutSwitcher.genUrlTheme("/img/header/ic_screen_ratio.svg")|string|
+| switchTitle | Label affiché pour le bouton du layout. Par défaut on utilise la ressource `header.expand`  | ||string|
+|id | Identifiant du composant | ||string|
+
+## Live coding
 
 `Attention: pour le live coding, le composant LayoutSwitcher doit avoir un identifiant "ls-exemple" `
 

@@ -234,3 +234,17 @@ let titre = this.i18n(partenaireFichePage.titre, {
 });
 ...
 ```
+
+## Les classes de chargement
+
+Pour des besoins particuliers un projet peut créer sa propre classe de chargement, pour cela il suffit d'hériter de la classe `AbstractI18nLoader` de hornet-js-coresrc/i18n/abstract-i18n-loader.
+
+### I18nLoader
+
+Le constructeur prend en paramrètre le chemin contenant les différents fichiers de messages. Par défaut c'es le répertoire du point d'entrée suivi de `src\resources`.
+
+### I18nLoaderSubDirectory
+
+Le constructeur prend en paramètre un tableau contenant les répertoires de base pour la recherche des messages. Par défaut c'est initialisé avec le répertoire du point d'entrée suivi de `src\resources`.
+
+

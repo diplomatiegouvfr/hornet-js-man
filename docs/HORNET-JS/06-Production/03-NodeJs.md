@@ -8,7 +8,7 @@ L'installation de Node.js passe par :
 
 ## Installation de Node.js
 
-Récupérer le paquet nodejs sur le site officiel de nodejs.org dans sa version `6.10.X` `linux x64`.
+Récupérer le paquet nodejs sur le site officiel de nodejs.org dans sa version `8.9.X` `linux x64`.
 
 Dézipper celui-ci dans le répertoire : `/usr/local`
 
@@ -189,22 +189,29 @@ Extrait :
 
 ```json
 {
-   "appenders": {
-      "dateFile": {
-         "type": "dateFile",
-         "pattern": ".yyyy-MM-dd",
-         "filename":"/var/log/nodejs/#{INSTANCE_NAME}/#{INSTANCE_NAME}.log",
-         "layout": {
-            "type": "pattern",
-            "pattern": "%d{ISO8601}|%x{tid}|%x{user}|%p|%c|%x{fn}|%m"
-         },
-         "compress": true,
-         "keepFileExt": true
+  "appenders": {
+    "console": {
+      "type": "console",
+      "layout": {
+        "type": "pattern",
+        "pattern": "%[%d{ISO8601}|%x{tid}|%x{user}|%p|%c|%x{fn}|%m%]"
       }
-   },
-   "categories": {
-      "default": { "appenders": ["dateFile"], "level": "INFO" }
-   }
+    }
+    "dateFile": {
+      "type": "dateFile",
+      "pattern": ".yyyy-MM-dd",
+      "filename": "log/{#INSTANCE_NAME}.log", //DEV
+      "layout": {
+        "type": "pattern",
+        "pattern": "%d{ISO8601}|%x{tid}|%x{user}|%p|%c|%x{fn}|%m"
+      },
+      "compress": true,
+      "keepFileExt": true
+    }
+  },
+  "categories": {
+    "default": { "appenders": ["console" , "dateFile", "level": "INFO" }
+  }
 }
 ```
   
@@ -226,7 +233,7 @@ Mettre le contenu suivant :
 [Service]
 WorkingDirectory=/var/lib/nodejs/MON_APPLI
 ExecStartPre=/bin/echo "Demarrage de l'application MON_APPLI-INSTANCE"
-ExecStartPre=/bin/bash -c "/bin/tar -zcf /var/log/nodejs/MON_APPLI-INSTANCE/log-gc-INSTANCE-$$(date +%%Y-%%m-%%d_%%H%%M%%S).tar.gz /var/log/nodejs/MON_APPLI-INSTANCE/log-gc-INSTANCE.log --remove-files --ignore-failed-read"
+ExecStartPre=/bin/bash -c "/bin/tar -zcf /var/log/nodejs/#{INSTANCE_NAME}/log-gc-#{INSTANCE}-$$(date +%%Y-%%m-%%d_%%H%%M%%S).tar.gz -C /var/log/nodejs/#{INSTANCE_NAME} log-gc-#{INSTANCE}.log --remove-files --ignore-failed-read"
 ExecStart=/bin/bash -c "/usr/bin/node --harmony --stack-size=1024 --trace_gc --trace_gc_verbose index.js > /var/log/nodejs/MON_APPLI/log-gc-INSTANCE.log 2>&1"
 ExecStopPost=/bin/echo "Arret de l'application MON_APPLI-INSTANCE"
 Restart=no
@@ -333,8 +340,8 @@ Résultat :
 ```shell
 { name: 'node',
   lts: 'Argon',
-  sourceUrl: 'https://nodejs.org/download/release/v6.10.X/node-v6.10.X.tar.gz',
-  headersUrl: 'https://nodejs.org/download/release/v6.10.X/node-v6.10.X-headers.tar.gz' }
+  sourceUrl: 'https://nodejs.org/download/release/v8.9.X/node-v8.9.X.tar.gz',
+  headersUrl: 'https://nodejs.org/download/release/v8.9.X/node-v8.9.X-headers.tar.gz' }
 ```
 
 Pour une utilisation en environnement cloisonné, l'option `dist-url` permet de récupérer le header nodejs préalablement installé sur un repository privé. 

@@ -168,6 +168,9 @@ Liste des élements de configuration :
 |csp.reportOnly|Si valorisé à true, génération d'un rapport d'erreur uniquement| `false`|
 |csp.setAllHeaders|Valorisé à true si tous les headers doivent être settés| `true`|
 |csp.disableAndroid|Permet de désactiver la navigation via Android| `false`|
+|frameguard.enabled|Activation du pluging de sécurité pour la prévention des 'Clickjacking attacks'| `true`|
+|frameguard.action|Action CORS ( `'deny'`ou `'sameorigin'` ou `'allow-from'`)| `'deny'`|
+|frameguard.domain|Domaine CORS associé à l'action `'allow-from'`| `'self'`|
 |xss.enabled|Activation de la protection contre les failles XSS| `true`|
 |xss.setOnOldIE|Force le header X-XSS-Protection sur les anciens IE| `true`|
 |hpkp.enabled|Activation du Public Key Pinning: HPKP, HTTPS certificates can be forged, allowing man-in-the middle attacks|true|

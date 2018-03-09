@@ -9,13 +9,13 @@ Il s'agit d'un [archétype maven](https://maven.apache.org/archetype/index.html)
 Exécuter la commande Maven suivante pour démarrer l'initialisation d'un nouveau projet basé sur Hornet Service :
 
 ```shell
-mvn archetype:generate -DarchetypeGroupId=fr.gouv.diplomatie.hornet -DarchetypeArtifactId=hornet-service-archetype -DarchetypeVersion=${hornetservicesversion}
+mvn archetype:generate -DarchetypeGroupId=fr.gouv.diplomatie.hornet -DarchetypeArtifactId=archetype-hornet-service -DarchetypeVersion=${hornetservicesversion}
 ```
 
 Pour configurer le settings.xml il est possible d'utiliser la commande suivante à la place de la précédente:
 
 ```shell
-mvn archetype:generate -DarchetypeCatalog=PROTOCOL://HOST_REPOSITORY/repository-mvn/archetype-catalog.xml -DarchetypeGroupId=fr.gouv.diplomatie.hornet -DarchetypeArtifactId=hornet-service-archetype -DarchetypeVersion=${hornetservicesversion}
+mvn archetype:generate -DarchetypeCatalog=PROTOCOL://HOST_REPOSITORY/repository-mvn/archetype-catalog.xml -DarchetypeGroupId=fr.gouv.diplomatie.hornet -DarchetypeArtifactId=archetype-hornet-service -DarchetypeVersion=${hornetservicesversion}
 ```
 
 Le générateur va vous demander plusieurs informations nécessaires à l'initialisation de votre projet Hornet Service :

@@ -22,7 +22,7 @@ L'applitutoriel est une mise en pratique du RGAA V3 au travers du framework Horn
 
 ## Prérequis
 
-* NodeJS 6.10
+* NodeJS 8.9
 * hornet-js-builder 1.X installé en global:
 
 ### Installation du Hornet Builder
@@ -43,8 +43,8 @@ il faudra alors créer des liens symboliques vers le builder:
 
 ```
 cd ~/bin
-	ln -s ~/Dev/node-v6.10.0-linux-x64/bin/hb
-	ln -s ~/Dev/node-v6.10.0-linux-x64/bin/hornetbuilder
+	ln -s ~/Dev/node-v8.9.0-linux-x64/bin/hb
+	ln -s ~/Dev/node-v8.9.0-linux-x64/bin/hornetbuilder
 ```
 
 * checkout du projet `applitutoriel-js`

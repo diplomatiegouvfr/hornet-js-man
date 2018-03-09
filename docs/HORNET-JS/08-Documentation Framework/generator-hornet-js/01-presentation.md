@@ -4,7 +4,7 @@ Le module Node « generator-hornet-js » contient les éléments de création d'
 
 ## Pré-requis
 
-* NodeJS 6.10.x LTS
+* NodeJS 8.9.x LTS
 * hornet-js-builder 1.x.x (le builder) installé globalement avec la commande `npm install -g hornet-js-build`
 
 ## Yeoman
@@ -23,7 +23,7 @@ Dans un terminal, taper les commandes suivantes:
 
 ```
 cd ~/bin
-ln -s ~/Dev/node-v6.10.3-linux-x64/bin/yo
+ln -s ~/Dev/node-v8.9.3-linux-x64/bin/yo
 ```
 
 ## Initialisation d'un projet Hornet avec Yeoman
@@ -64,7 +64,7 @@ This generator can also be run with: yo hornet-js
 Le générateur demande plusieurs informations nécessaires à l'initialisation de votre projet Hornet JS :
 
 * `Nom de votre projet: (nom_de_l_application) ` : par défaut, le nom du répertoire courant est suggéré comme nom technique du projet
-* `Version de votre projet:` `(1.0.0)` : version du projet (`1.0.0` par défaut). **Ajouter -rc.X  ou X numéro de la version  d'hornetJS. [Ex: 1.0.0-rc.2]**
+* `Version de votre projet:` `(1.0.0)` : version du projet (`1.0.0` par défaut). **Ajouter -rc.X  ou X numéro de la version  d'hornetJS. [Ex: 1.0.0]**
 * `Description de votre projet ` : un texte court présentant succintement le projet.
 * `Version du framework (hornet-js):` `(5.x.x)` : version du framework hornet-js.
 * `Thème de l'application` : hornet-themes-intranet par défaut
@@ -72,11 +72,11 @@ Le générateur demande plusieurs informations nécessaires à l'initialisation 
 * `Host de la partie service` : URL où sont accessibles les services (partie Java Tomcat) de votre application ( par défaut : localhost:8080)
 * `ContextPath de la partie service` : nom de l'application fournissant les services (partie Java Tomcat) de votre application.
 
-Pour un projet fonctionnel avec hornet-js rc.2:
+Pour un projet fonctionnel avec hornet-js :
 
-* ` Version de votre projet:` `(1.0.0)` :  1.0.0-rc.2
-* ` Version du framework (hornet-js):` : 5.1.0-rc.2
-* ` Version du thème de l'application` : 5.1.0-rc.2
+* ` Version de votre projet:` `(1.0.0)` :  1.0.0
+* ` Version du framework (hornet-js):` : 5.1.1
+* ` Version du thème de l'application` : 5.1.1
 
 Le processus d'initialisation vous indique ensuite les fichiers créés :
 

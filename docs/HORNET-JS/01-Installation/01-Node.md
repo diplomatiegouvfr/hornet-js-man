@@ -6,49 +6,66 @@ Ce document a pour but de décrire les opérations à effectuer pour installer e
 
 L’environnement d’exécution Hornet est composé des éléments suivants :
 
-- `NodeJS 6.10 LTS`
+- `NodeJS 8.9 LTS`
 
-L’environnement de développement intégré (IDE) retenu est `Webstorm 2017.2.5`. Il est aussi possible d'utiliser Visual Studio Code.
+L’environnement de développement intégré (IDE) retenu est `Webstorm 2017.3.4`. Il est aussi possible d'utiliser Visual Studio Code.
 
 ## Configuration de l'environnement d'exécution ##
 
-La version de NodeJS supportée par Hornet est la `6.10 LTS`
+La version de NodeJS supportée par Hornet est la `8.9 LTS`
 
 ### Installation de NodeJS ###
 
-- Récupérer le binaire correspondant sur le site de nodejs
+Récupérer le package DEB
 
-[https://nodejs.org/en/download/releases/](https://nodejs.org/en/download/releases/)
+Dans un terminal, taper la commande suivante:
+```
+sudo dpkg -i nodejs-8.9.4.deb
+```
 
-- dézipper le sources sous ~/Dev/tools/node/node-6.10LTS
+### Paramétrage des installations de package globaux ###
 
-### Création de lien symbolique ###
-
-Dans un terminal, taper les commandes suivantes:
+1. Créer un répertoire pour les installations globales:
 
 ```
-cd  ~/bin
-
-ln -s ~/Dev/node-v6.10.3-linux-x64/bin/node
-ln -s ~/Dev/node-v6.10.3-linux-x64/bin/npm
+mkdir ~/.npm-global
 
 ```
+
+2. Configurer NPM pour utiliser le nouveau chemin du répertoire
+
+```
+npm config set prefix '~/.npm-global'
+
+```
+3. Ouvrir ou créer un fichier `~/.profile` et ajouter cette ligne (à adapter selon le shell utilisé):
+
+```
+export PATH=~/.npm-global/bin:$PATH
+```
+
+4. de retour sur la ligne de commande, mettre à jour les variables systèmes : 
+```
+ source ~/.profile
+```
+
 
 ### Vérifier NodeJS ###
 
 - Ouvrir une console
 - Taper `node --version`
-- Doit s'afficher en retour : `v6.10.x`
+- Doit s'afficher en retour : `v8.9.x`
 
 ### Vérifier NPM ###
 
 - Ouvrir une console
 - Taper `npm --version`
-- Doit s'afficher en retour : `3.10.10`
+- Doit s'afficher en retour : `5.6.0`
 
 #### Configuration NPM
 
-Dans votre répertoire bin, modifier ou créer le fichier .npmrc :
+A la racine de votre répertoire utilisateur (~/) , modifier ou créer le fichier .npmrc,
+ en ajoutant les lignes suivantes :
 
 ```
 registry={URL_REGISTRY}

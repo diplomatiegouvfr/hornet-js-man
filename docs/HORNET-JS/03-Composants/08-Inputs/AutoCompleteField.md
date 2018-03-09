@@ -47,21 +47,34 @@ render(): JSX.Element {
 ```
 
 
+Le composant possède les propriétés des interfaces:
+
+[HornetWrittableProps](/hornetshowroom/composant/page/hornet-js/composants/hornet-component-props)
+
+[HornetClickableProps](/hornetshowroom/composant/page/hornet-js/composants/hornet-component-props)
+
+[HornetBasicFormFieldProps](/hornetshowroom/composant/page/hornet-js/composants/hornet-component-props)
+
+[HornetComponentDatasourceProps](/hornetshowroom/composant/page/hornet-js/composants/hornet-component-props)
+
+[HornetComponentChoicesProps](/hornetshowroom/composant/page/hornet-js/composants/hornet-component-props)
+
 Les attributs proposés par le composant:
 
-| attribut |   description | valeur par défaut |
-| -------- | ----------- | ----------- |
-| autocompleteState | Ecoute l'évenements onFocus sur le compostant | |
-| dataSource | Données passée à l'autocomplete | |
-| delay | Délai minimal en millisecondes entre deux déclenchements de l'action de chargement de choix | 500 |
-| init | Lance un init sur le datasource à l'initialisation du composant | |
-| itemSelectedLabel | Message qui s'affiche lors de la selection des items | |
-| maxElements | Nombre maximum de choix à proposer | |
-| maxHeight | Hauteur maximum de la popin de choix à proposer (en pixels) | |
-| minValueLength | Longueur minimale de texte libre permettant la proposition des choix | 3 |
-| writable | Autorise la saisie dans le champs du formulaire afin de filter | true/false |
-| filterText | Définit la manière dont sont filtrés les résultats affichés en fonction des caractères saisis (FilterTextType.indexOf ou FilterTextType.beginWith ou fonction custom | FilterTextType.indexOf |
-
+| Attribut |   Description | Obligatoire | Valeur par défaut | Type |
+| -------- | ----------- | ----------- |----------- | ----------- |
+| autocompleteState | Ecoute l'évenements onFocus sur le compostant | ||AutoCompleteState|
+| dataSource | Données passée à l'autocomplete | ||Datasource|
+| delay | Délai minimal en millisecondes entre deux déclenchements de l'action de chargement de choix | |1000 |number|
+| init | Lance un init sur le datasource à l'initialisation du composant | ||boolean|
+| itemSelectedLabel | Message qui s'affiche lors de la selection des items | ||string|
+| maxElements | Nombre maximum de choix à proposer | ||number|
+| maxHeight | Hauteur maximum de la popin de choix à proposer (en pixels) | ||number|
+| minValueLength | Longueur minimale de texte libre permettant la proposition des choix | |1 |number|
+| writable | Autorise la saisie dans le champs du formulaire afin de filter || true |boolean|
+| filterText | Définit la manière dont sont filtrés les résultats affichés en fonction des caractères saisis (FilterTextType.indexOf ou FilterTextType.beginWith ou fonction custom |FilterTextType.indexOf |FilterTextType | Function|
+| name| Nom du composant | Oui | |string |
+|noResultLabel | surcharge du label lorsque l'on n'a pas de resultat| ||String|
 
 Il est préférable pour l'accessibilité, de valoriser l'attribut toolTip du composant avec les informations aidant à la compréhension de l'utilisation du composant
 ```javascript
@@ -99,9 +112,9 @@ Identique à l'auto-complète, il permet à l'utilisateur de sélectionner plusi
 
 Les attributs propre Auto-Completion choix Mulitiple:
 
-| attribut |  type  |description |
-| -------- | ----------- | ----------- |
-| itemSelectedLabel | string | Message qui s'affiche lors de la selection des items |
+| Attribut | Description |  Obligatoire  | Valeur par défaut  | type  |
+| -------- | ----------- | ----------- |----------- |----------- |
+| cleanFilterOnBlur | Force de nettoyage de la zone de saisie sur la sortie du champ | | | boolean|
 
 
 ### Accessibilité
@@ -154,7 +167,7 @@ let listeCivilites = [
 
 let dataSourceCivilite = new DataSource<any>(listeCivilites, {value: "id", text: "libelle"}, [new DefaultSort([{key : "text"}])]);
 return(
-<Form addButtonArea={false}>
+<Form addButtonArea={false} id="form-example">
 	<AutoCompleteField
 		dataSource={dataSourceCivilite}
 		name="Civilité"

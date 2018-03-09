@@ -171,9 +171,11 @@ description `HornetRequest` :
 | cacheKey | | Algorythme de génération des clés du cache (par défaut 'url')
 | cacheLinkKey | | Liste des clés à supprimer du cache (surtout utilisable avec l'algorythme url)
 | progress | | Fonction à appeler lors des events progress de superagent
+| manageBusiness | | surcharger la gestion des erreurs business coté application. Par défaut à false [c'est à dire gérer par le framework]
 | ca | | Certificat
 | cert | | Certificat
 | key | | Certificat
+| manageBusiness||Permet de surcharger la gestion des erreurs business par rapport au framework|
 
 (1) spinnerType permet de préciser l'évènement déclenché avant et après les appels aux services. Par défaut c'est un 'ASYNCHRONOUS_REQUEST_EVENT' (hornet-event) qui est déclanché, pour SpinnerType.Component c'est un 'ASYNCHRONOUS_REQUEST_EVENT_COMPONENT' (hornet-event).
 

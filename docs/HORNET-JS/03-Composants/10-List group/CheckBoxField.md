@@ -32,17 +32,22 @@ Cochée:
 
 ![checkbox cochée](../sources/form/checkbox-field/checkbox-checked.png)
 
+Le composant possède les propriétés des interfaces:
 
-Descriptif des attributs du composant `CheckBoxField` :
+[HornetClickableProps](/hornetshowroom/composant/page/hornet-js/composants/hornet-component-props)
 
-| attribut | description | valeur par défaut |
-| -------- | ----------- | ----------------- |
-| currentChecked | Si oui ou non la case est cochée | |
-| label | Libellé du champ de saisie de date |  |
-| inline | Type d'affichage du champs | CheckBoxField.Inline.NONE |
-| labelOnOff | Label affiché en mode switch (format: {"on" : "", "off": ""}) |
-| required | Indique si la saisie du champ est obligatoire pour valider le formulaire | false |
-| swicth | Si le champs est un switch ou non | false|
+[HornetBasicFormFieldProps](/hornetshowroom/composant/page/hornet-js/composants/hornet-component-props)
+
+Attributs du composant `CheckBoxField` :
+
+| Attribut | Description | Obligatoire | Valeur par défaut | Type |
+| -------- | ----------- | ----------------- |----------- |----------- |
+| currentChecked | Si oui ou non la case est cochée | ||boolean|
+| label | Libellé du champ de saisie de date |  ||string|
+| inline | Type d'affichage du champs | |CheckBoxField.Inline.NONE| CheckBoxField.Inline |
+| labelOnOff | Label affiché en mode switch (format: {"on" : "", "off": ""}) ||| any |
+| required | Indique si la saisie du champ est obligatoire pour valider le formulaire | |false|boolean|
+| swicth | Si le champs est un switch ou non | |false|boolean|
 
 
 le champ dispose également d'un attribut inline qui permet de définir comment est affichée la case:

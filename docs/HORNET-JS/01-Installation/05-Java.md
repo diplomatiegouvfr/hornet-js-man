@@ -6,7 +6,7 @@ Ce document a pour but de décrire les opérations à effectuer pour installer e
 
 L’environnement d’exécution Hornet est composé des éléments suivants :
 
-- `Java 1.8.x`
+- `Java 1.9.x`
 - `Tomcat 8.0.x`
 
 La gestion des dépendances et la construction des livrables est assurée par `Maven 3.3.9`.
@@ -17,15 +17,15 @@ L’application `Graphviz` (version `2.30.1`) est également utilisée pour la p
 
 ## Configuration de l'environnement d'exécution ##
 
-### Java Development Kit 1.8.X ###
+### Java Development Kit 1.9.X ###
 
-La version de Java supportée par Hornet est la `1.8.0` en version `OpenJDK`. Pour l'environnement windows, il faut utiliser la version Oracle, mais il ne s'agit pas de la version utilisée en production.
+La version de Java supportée par Hornet est la `1.9.4` en version `OpenJDK`. Pour l'environnement windows, il faut utiliser la version Oracle, mais il ne s'agit pas de la version utilisée en production.
 
 De préférence, il est conseillé de développer dans un environnement linux avec `OpenJDK`.
 
 - Récupérer le binaire correspondant au système d’exploitation de développement depuis le site d'oracle 
 
-[http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+[http://www.oracle.com/technetwork/java/javase/downloads/jdk9-downloads-3848520.html](http://www.oracle.com/technetwork/java/javase/downloads/jdk9-downloads-3848520.html)
 
 - Exécuter l’installation en gardant les options par défaut.
 
@@ -146,7 +146,7 @@ Pour le configurer :
 - Choisir le menu `Window > Preferences puis sélectionner Server > Runtime Environnements`
 - Cliquer sur `Add`
 - Choisir `Apache Tomcat 8.0` puis `Next`
-- Choisir le nom par défaut `Apache Tomcat v8.0`, renseigner le champ Tomcat installation directory  en sélectionnant le répertoire d’installation de Tomcat puis choisir `jdk1.8.0_XX` pour le champ JRE :
+- Choisir le nom par défaut `Apache Tomcat v8.0`, renseigner le champ Tomcat installation directory  en sélectionnant le répertoire d’installation de Tomcat puis choisir `jdk1.9.4_XX` pour le champ JRE :
 
 ![Server env](./sources/eclipse/server-runtime-env.png)
 
