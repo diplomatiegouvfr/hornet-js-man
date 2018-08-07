@@ -50,23 +50,24 @@ private renderPreviewUploadFile(file: UploadedFile): React.ReactElement<any> {
 
 Le composant possède les propriétés des interfaces:
 
-[HornetClickableProps](/hornetshowroom/composant/page/hornet-js/composants/hornet-component-props)
+[HornetClickableProps](/hornetshowroom/composant/page/hornet-js/composants/proprietes-hornet-component)
 
-[HornetMediaProps](/hornetshowroom/composant/page/hornet-js/composants/hornet-component-props)
+[HornetMediaProps](/hornetshowroom/composant/page/hornet-js/composants/proprietes-hornet-component)
 
-[HornetBasicFormFieldProps](/hornetshowroom/composant/page/hornet-js/composants/hornet-component-props)
+[HornetBasicFormFieldProps](/hornetshowroom/composant/page/hornet-js/composants/proprietes-hornet-component)
 
 Les attributs utilisables sont ceux définis pour le type `AbstractField` ainsi que :
 
-| Attribut                | Description                                                     | Obligatoire | Valeur par défaut | Type |
-| ----------------------- | ----------------------------------------------------------------| -------| -------| -------|
-| buttonLabel             | Texte affiché dans le bouton si aucun fichier n'est sélectionné |||string|
-| classNameDelete         | Permet de surcharger le css du bouton de suppression |||string|
-| defaultFile             | Fichier sélectionné accessible en consultation |||UploadedFile|
-| fileSelectedLabel       | Texte affiché si un ou plusieurs fichiers sont sélectionnés ||UploadFileField.getI18n("uploadFile.selectedFile", {"count": 0})|string|
-| name                    | Permet la liaison entre le label et le button : labelfor  |||string|
-| renderPreviewFile       | Méthode de rendu du composant en lecture seule |||any|
-| i18nLabelKey            | clé i18n pour le label ||"uploadFile.selectedFile"|string|
+| Attribut                | Description                                                     | Obligatoire | Valeur par défaut | Type         |
+| ----------------------- | ----------------------------------------------------------------| ------------| ------------------| -------------|
+| buttonLabel             | Texte affiché dans le bouton si aucun fichier n'est sélectionné | &nbsp;      | &nbsp;            | string       |
+| classNameDelete         | Permet de surcharger le css du bouton de suppression            | &nbsp;      | &nbsp;            | string       |
+| defaultFile             | Fichier sélectionné accessible en consultation                  | &nbsp;      | &nbsp;            | UploadedFile |
+| fileSelectedLabel       | Texte affiché si un ou plusieurs fichiers sont sélectionnés | &nbsp; | UploadFileField.getI18n("uploadFile.selectedFile", {"count": 0}) | string |
+| name                    | Permet la liaison entre le label et le button : labelfor        | &nbsp;      | &nbsp;            | string       |
+| renderPreviewFile       | Méthode de rendu du composant en lecture seule                  | &nbsp;      | &nbsp;            | any          |
+| i18nLabelKey            | clé i18n pour le label                                          | &nbsp;      |"uploadFile.selectedFile" | string|
+| resettable        | Indique si le champs peut etre réinitialisé ou non                    | &nbsp;      | true              | boolean      |
 
 [UploadFileField - attributs]
 

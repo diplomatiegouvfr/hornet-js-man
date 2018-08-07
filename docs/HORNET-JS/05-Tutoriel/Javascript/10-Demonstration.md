@@ -2,6 +2,6 @@
 
 ![hornet.js](./sources/hornet-js.png)
 
-Accès à `applitutoriel` :
+Accès à `applitutoriel` dans l'environnement
 
 - [github](https://diplomatiegouvfr.github.io/applitutoriel-online)

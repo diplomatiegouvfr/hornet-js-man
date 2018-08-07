@@ -8,22 +8,22 @@ Composant informel sur les actions d'accessibilité clavier
 
 Attributs du composant :
 
-| Attribut             |Description                                          | Obligatoire | Valeur par défaut | Type             |
-| ---------------------|-----------------------------------------------------| ------------|-------------------|------------------|
-| message              | Messages internationalisés                          |             | ""                | any              |
-| shortcutDescriptions | Descriptions de raccourcis clavier                  |             | []                |array[ShortcutDescription]          |
-| srcImg               | Source de l'image associé                           |             |                   |string                       |
+| Attribut             |Description                                          | Obligatoire | Valeur par défaut | Type                      |
+| ---------------------|-----------------------------------------------------| ------------|-------------------|---------------------------|
+| message              | Messages internationalisés                          | &nbsp;      | ""                | any                       |
+| shortcutDescriptions | Descriptions de raccourcis clavier                  | &nbsp;      | []                |array[ShortcutDescription] |
+| srcImg               | Source de l'image associé                           | &nbsp;      | &nbsp;            |string                     |
 
 
 
 Attributs de l'objet shortcutDescriptions:
 
 | Attribut     | Description                                                                                  | Obligatoire |Valeur par défaut | Type |
-|--------------|----------------------------------------------------------------------------------------------|-------------| -----|-----|
-| and          | Lorsque shortcuts contient plusieurs éléments, indique si tous les éléments sont nécessaires |   | | boolean |
-| description  | Description de l'action correspondante                                                       | Oui | |string |
-| or           | Lorsque shortcuts contient plusieurs éléments, indique si l'un OU l'autre de ces éléments peut-être utilisé| |  |boolean |
-| shortcuts    | Représentation(s) de la ou des touches du clavier                                                          | Oui |  |array[string] |
+|--------------|----------------------------------------------------------------------------------------------|-------------| -----------------|------|
+| and          | Lorsque shortcuts contient plusieurs éléments, indique si tous les éléments sont nécessaires | &nbsp;      | &nbsp;           | boolean |
+| description  | Description de l'action correspondante                                                       | Oui         | &nbsp;           | string |
+| or           | Lorsque shortcuts contient plusieurs éléments, indique si l'un OU l'autre de ces éléments peut-être utilisé| &nbsp;| &nbsp;   | boolean |
+| shortcuts    | Représentation(s) de la ou des touches du clavier                                            | Oui         | &nbsp;           | array[string] |
 
 
 ## Utilisation

@@ -47,11 +47,11 @@ export class Routes extends AbstractRoutes {
 
 Cette fonction prend les arguments suivants:
 
-| Paramètre | Description |
-|------- | ----------- |
-| path | L'url de la route. Nous préconisons une regex. |
-| handler | La méthode qui est appelée par le routeur lorsque la route est activée |
-| [authorisation](##authorisations) | Les rôles qui ont accès à la route |
+| Paramètre                         | Description                                                            |
+|---------------------------------- | ---------------------------------------------------------------------- |
+| path                              | L'url de la route. Nous préconisons une regex.                         |
+| handler                           | La méthode qui est appelée par le routeur lorsque la route est activée |
+| [authorisation](##authorisations) | Les rôles qui ont accès à la route                                     |
 
 Lorsqu'une route est activée, le routeur appelle automatiquement la fonction '*handler*' avec les arguments suivants:
 
@@ -244,7 +244,7 @@ Pour ces évènements l'action par défaut est annulée et le contenu de la prop
 
 Cet évènement permet ainsi d'avoir un fonctionnement SPA sans avoir à gérer explicitement l'évènement du click sur un lien.
 
-   - le routeur est accessible dans l'objet **window** (*ce comportement est susceptible d'être modifié dans les versions supérieures de hornet 5.1.X*)
+   - le routeur est accessible dans l'objet **window** (*ce comportement est susceptible d'être modifié dans les versions supérieures de hornet 5.x.x*)
 
 ```javascript
 

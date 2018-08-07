@@ -49,32 +49,40 @@ render(): JSX.Element {
 
 Le composant possède les propriétés des interfaces:
 
-[HornetWrittableProps](/hornetshowroom/composant/page/hornet-js/composants/hornet-component-props)
+[HornetWrittableProps](/hornetshowroom/composant/page/hornet-js/composants/proprietes-hornet-component)
 
-[HornetClickableProps](/hornetshowroom/composant/page/hornet-js/composants/hornet-component-props)
+[HornetClickableProps](/hornetshowroom/composant/page/hornet-js/composants/proprietes-hornet-component)
 
-[HornetBasicFormFieldProps](/hornetshowroom/composant/page/hornet-js/composants/hornet-component-props)
+[HornetBasicFormFieldProps](/hornetshowroom/composant/page/hornet-js/composants/proprietes-hornet-component)
 
-[HornetComponentDatasourceProps](/hornetshowroom/composant/page/hornet-js/composants/hornet-component-props)
+[HornetComponentDatasourceProps](/hornetshowroom/composant/page/hornet-js/composants/proprietes-hornet-component)
 
-[HornetComponentChoicesProps](/hornetshowroom/composant/page/hornet-js/composants/hornet-component-props)
+[HornetComponentChoicesProps](/hornetshowroom/composant/page/hornet-js/composants/proprietes-hornet-component)
 
-Les attributs proposés par le composant:
+Les attributs proposés par le composant :
 
-| Attribut |   Description | Obligatoire | Valeur par défaut | Type |
-| -------- | ----------- | ----------- |----------- | ----------- |
-| autocompleteState | Ecoute l'évenements onFocus sur le compostant | ||AutoCompleteState|
-| dataSource | Données passée à l'autocomplete | ||Datasource|
-| delay | Délai minimal en millisecondes entre deux déclenchements de l'action de chargement de choix | |1000 |number|
-| init | Lance un init sur le datasource à l'initialisation du composant | ||boolean|
-| itemSelectedLabel | Message qui s'affiche lors de la selection des items | ||string|
-| maxElements | Nombre maximum de choix à proposer | ||number|
-| maxHeight | Hauteur maximum de la popin de choix à proposer (en pixels) | ||number|
-| minValueLength | Longueur minimale de texte libre permettant la proposition des choix | |1 |number|
-| writable | Autorise la saisie dans le champs du formulaire afin de filter || true |boolean|
-| filterText | Définit la manière dont sont filtrés les résultats affichés en fonction des caractères saisis (FilterTextType.indexOf ou FilterTextType.beginWith ou fonction custom |FilterTextType.indexOf |FilterTextType | Function|
-| name| Nom du composant | Oui | |string |
-|noResultLabel | surcharge du label lorsque l'on n'a pas de resultat| ||String|
+| Attribut          |   Description                                                          | Obligatoire | Valeur par défaut | Type              |
+| ----------------- | ---------------------------------------------------------------------- | ----------- |------------------ | ----------------- |
+| autocompleteState | Ecoute l'évenements onFocus sur le compostant                          | &nbsp;      | &nbsp;            | AutoCompleteState |
+| dataSource        | Données passée à l'autocomplete                                        | &nbsp;      | &nbsp;            | Datasource        |
+| delay             | Délai minimal en millisecondes entre deux déclenchements de l'action de chargement de choix | &nbsp; | 1000 | number         |
+| init              | Lance un init sur le datasource à l'initialisation du composant        | &nbsp;      | &nbsp;            | boolean           |
+| itemSelectedLabel | Message qui s'affiche lors de la selection des items                   | &nbsp;      | &nbsp;            | string            |
+| maxElements       | Nombre maximum de choix à proposer                                     | &nbsp;      | &nbsp;            | number            |
+| maxHeight         | Hauteur maximum de la popin de choix à proposer (en pixels)            | &nbsp;      | &nbsp;            | number            |
+| minValueLength    | Longueur minimale de texte libre permettant la proposition des choix   | &nbsp;      | 1                 | number            |
+| writable          | Autorise la saisie dans le champs du formulaire afin de filter         | &nbsp;      | true              | boolean           |
+| filterText        | Définit la manière dont sont filtrés les résultats affichés en fonction des caractères saisis (FilterTextType.indexOf ou FilterTextType.beginWith ou fonction custom | &nbsp; | &nbsp; | FilterTextType \| Function |
+| name              | Nom du composant                                                       | Oui         | &nbsp;             | string           |
+| noResultLabel     | surcharge du label lorsque l'on n'a pas de resultat                    | &nbsp;      | &nbsp;             | String           |
+| resettable        | Indique si le champs peut etre réinitialisé ou non                     | &nbsp;      | true               | boolean          |
+| labelKey&#42;        | clé indiquant le champ de libellé des données                      | &nbsp;      | text               | string          |
+| valueKey&#42;        | clé indiquant le champ de valeur des données                      | &nbsp;      | id               | string          |
+
+
+
+&#42; Ces 2 props `labelKey` et `valueKey` sont également à déclarer dans le datasource afin d'alimenter correctement la liste de choix.
+
 
 Il est préférable pour l'accessibilité, de valoriser l'attribut toolTip du composant avec les informations aidant à la compréhension de l'utilisation du composant
 ```javascript
@@ -114,7 +122,7 @@ Les attributs propre Auto-Completion choix Mulitiple:
 
 | Attribut | Description |  Obligatoire  | Valeur par défaut  | type  |
 | -------- | ----------- | ----------- |----------- |----------- |
-| cleanFilterOnBlur | Force de nettoyage de la zone de saisie sur la sortie du champ | | | boolean|
+| cleanFilterOnBlur | Force de nettoyage de la zone de saisie sur la sortie du champ | &nbsp; | &nbsp; | boolean |
 
 
 ### Accessibilité

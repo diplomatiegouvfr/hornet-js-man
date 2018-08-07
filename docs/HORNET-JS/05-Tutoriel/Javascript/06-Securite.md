@@ -157,7 +157,7 @@ Liste des élements de configuration :
 |csp.manifestSrc|Définit le manifest qui doit être appliqué à la ressource| `["'self'"]`|
 |csp.mediaSrc|Définit une source audio ou vidéo valide | `["'self'"]`|
 |csp.objectSrc|Définit un source valide pour les object : embed, ou bien les applets| `["'self'"]`|
-|csp.pluginTypes|Définit la liste des plugins invoqué par le navigateur| |
+|csp.pluginTypes|Définit la liste des plugins invoqué par le navigateur | &nbsp; |
 |csp.referrer|Définition de l'information "referrer" dans l'entête de requête| `"origin-when-cross-origin"`|
 |csp.reflectedXss|Control les fonctionnalités du navigateur contre les attaques XSS| `"block"`|
 |csp.reportUri|Noms de domaine des différentes ressources d'images scripts du site | `["'self'"]`|

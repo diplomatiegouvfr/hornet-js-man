@@ -14,11 +14,11 @@ Chacun de ces blocs est rétractable, ce qui permet d'afficher ou non, le conten
 
 Les attributs `Accordions`:
 
-| Attribut |   Description | Obligatoire | Valeur par défaut | Type |
-| -------- | ----------- | ----------- |----------- |----------- |
-| multiSelectable | Indicateur pour autoriser à avoir plusieurs accordions ouverts ou non | |false |boolean|
-| beforeHideAccordion    | Méthode appelée avant la fermeture d'un accordion       |  ||(accordionRef?: Accordion, index?: number) => void|
-| afterShowAccordion     | Méthode appelée après l'ouverture d'un accordion       | ||(accordionRef?: Accordion, index?: number) => void|
+| Attribut               |   Description                                                         | Obligatoire | Valeur par défaut | Type       |
+| ---------------------- | --------------------------------------------------------------------- | ----------- |------------------ |----------- |
+| multiSelectable        | Indicateur pour autoriser à avoir plusieurs accordions ouverts ou non | &nbsp;      | false             | boolean    |
+| beforeHideAccordion    | Méthode appelée avant la fermeture d'un accordion                     | &nbsp;      | &nbsp;            | (accordionRef?: Accordion, index?: number) => void |
+| afterShowAccordion     | Méthode appelée après l'ouverture d'un accordion                      | &nbsp;      | &nbsp;            | (accordionRef?: Accordion, index?: number) => void |
 
 
 ## Le composant Accordion
@@ -29,17 +29,17 @@ Le composant `Accordions` est à voir comme un conteneur, et Accordion comme un 
 
 Les attributs `Accordion` :
 
-| Attribut | Description | Obligatoire | Valeur par défaut | Type |
-| -------- | ----------- | ----------- | ----------- | ----------- |
-| id | Préfixe de l'identifiant de l'accordéon | | | string |
-| key | Key de l'accordéon | | | string |
-| title | Titre de l'accordion, affiché tout en haut de l'accordion | ||string|
-| isOpen | Indicateur pour l'état de l'accordion déplié / rétracté | ||boolean|
-| panelIndex | Index pour le panel portant le contenu de l'accordion | ||number|
-| handleClickAccordion | Méthode exécutée au click sur l'accordion | ||Function|
-| handleFocusAccordion | Méthode exécutée au focus sur l'accordion | ||Function|
-| tabIndex | Valeur de tabulation pour la navigation clavier | |-1 | string|
-| infoAccordion | Texte mentionnant des informations au sujet de l'accordion | |&nbsp; |string|
+| Attribut             | Description                                                | Obligatoire | Valeur par défaut | Type        |
+| -------------------- | ---------------------------------------------------------- | ----------- | ----------------- | ----------- |
+| id                   | Préfixe de l'identifiant de l'accordéon                    | &nbsp;      | &nbsp;            | string      |
+| key                  | Key de l'accordéon                                         | &nbsp;      | &nbsp;            | string      |
+| title                | Titre de l'accordion, affiché tout en haut de l'accordion  | &nbsp;      | &nbsp;            | string      |
+| isOpen               | Indicateur pour l'état de l'accordion déplié / rétracté    | &nbsp;      | &nbsp;            | boolean     |
+| panelIndex           | Index pour le panel portant le contenu de l'accordion      | &nbsp;      | &nbsp;            | number      |
+| handleClickAccordion | Méthode exécutée au click sur l'accordion                  | &nbsp;      | &nbsp;            | Function    |
+| handleFocusAccordion | Méthode exécutée au focus sur l'accordion                  | &nbsp;      | &nbsp;            | Function    |
+| tabIndex             | Valeur de tabulation pour la navigation clavier            | &nbsp;      | -1                | string      |
+| infoAccordion        | Texte mentionnant des informations au sujet de l'accordion | &nbsp;      | &nbsp;            | string      |
 
 ### Header personnalisé
 

@@ -157,25 +157,24 @@ Cette méthode lance la requête.
 
 description `HornetRequest` :
 
-| attribut | Obligatoire | Description 
-|------- | ----------- | --- |
-| url | X | Url de la requête |
-| method | | Méthode http à utilisé (par défaut 'get');
-| headers | | En-têtes à ajouter
-| data | | Données
-| spinnerType | | Type d'évènement Spinner à déclencher (pour les composants graphiques) (1)
-| typeMine | | MediaType;
-| attach | | Flux à attachés;
-| noCached | | true pour ne pas mettre cette requête en cache applicatif
-| timeToLiveInCache | | Durée de vie dans le cache en seconde
-| cacheKey | | Algorythme de génération des clés du cache (par défaut 'url')
-| cacheLinkKey | | Liste des clés à supprimer du cache (surtout utilisable avec l'algorythme url)
-| progress | | Fonction à appeler lors des events progress de superagent
-| manageBusiness | | surcharger la gestion des erreurs business coté application. Par défaut à false [c'est à dire gérer par le framework]
-| ca | | Certificat
-| cert | | Certificat
-| key | | Certificat
-| manageBusiness||Permet de surcharger la gestion des erreurs business par rapport au framework|
+| attribut          | Obligatoire | Description                                                                     |
+|------------------ | ----------- | ------------------------------------------------------------------------------- |
+| url               | X           | Url de la requête                                                               |
+| method            | &nbsp;      | Méthode http à utilisé (par défaut 'get');                                      |
+| headers           | &nbsp;      | En-têtes à ajouter                                                              |
+| data              | &nbsp;      | Données                                                                         |
+| spinnerType       | &nbsp;      | Type d'évènement Spinner à déclencher (pour les composants graphiques) (1)      |
+| typeMine          | &nbsp;      | MediaType;                                                                      |
+| attach            | &nbsp;      | Flux à attachés;                                                                |
+| noCached          | &nbsp;      | true pour ne pas mettre cette requête en cache applicatif                       |
+| timeToLiveInCache | &nbsp;      | Durée de vie dans le cache en seconde                                           |
+| cacheKey          | &nbsp;      | Algorythme de génération des clés du cache (par défaut 'url')                   |
+| cacheLinkKey      | &nbsp;      | Liste des clés à supprimer du cache (surtout utilisable avec l'algorythme url)  |
+| progress          | &nbsp;      | Fonction à appeler lors des events progress de superagent                       |
+| manageError       | &nbsp;      | surcharger la gestion des erreurs coté application. Par défaut à false [c'est à dire gérer par le framework] (ErrorManagementType : None, Business, Technical, All) |
+| ca                | &nbsp;      | Certificat                                                                      |
+| cert              | &nbsp;      | Certificat                                                                      |
+| key               | &nbsp;      | Certificat                                                                      |
 
 (1) spinnerType permet de préciser l'évènement déclenché avant et après les appels aux services. Par défaut c'est un 'ASYNCHRONOUS_REQUEST_EVENT' (hornet-event) qui est déclanché, pour SpinnerType.Component c'est un 'ASYNCHRONOUS_REQUEST_EVENT_COMPONENT' (hornet-event).
 

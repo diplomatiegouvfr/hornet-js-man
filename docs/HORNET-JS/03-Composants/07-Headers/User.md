@@ -30,15 +30,15 @@ import {User} from "hornet-js-react-components/src/widget/header/user";
 
 Les attributs du composant `User` :
 
-| Attribut | Description | Obligatoire | Valeur par défaut | Type |
-| -------- | ----------- | ----------- | ----------- | ----------- |
-| defaultUserLabel | Label affiché par défault lorsque l'utilisateur n'est pas connecté. Par défaut on utilise la ressource `application.user.guest` | ||string|
-| id |Identifiant du composant | ||string|
-| loginLabel | Label du bouton de connexion. Par défaut on utilise la ressource `navigation.connect` | ||string|
-| loginUrl | Url d'accès à la page d'authentification. Par défaut on utilise la propriété `loginUrl` du `default.json` | |Utils.appSharedProps.get("loginUrl")|string|
-| logoutLabel | Label du bouton de déconnexion. Par défaut on utilise la ressource `navigation.disconnect` | ||string|
-| logoutUrl | Url d'accès à la page de déconnexion. Par défault on utilise la propriété `logoutUrl` du `default.json` | |Utils.appSharedProps.get("logoutUrl")|string|
-| title     | Titre du composant | ||string|
+| Attribut         | Description                                                                       | Obligatoire | Valeur par défaut | Type        |
+| ---------------- | --------------------------------------------------------------------------------- | ----------- | ----------------- | ----------- |
+| defaultUserLabel | Label affiché par défault lorsque l'utilisateur n'est pas connecté. Par défaut on utilise la ressource `application.user.guest` | &nbsp;  | &nbsp;  |string|
+| id               | Identifiant du composant                                                          | &nbsp;      | &nbsp;            | string      |
+| loginLabel       | Label du bouton de connexion. Par défaut on utilise la ressource `navigation.connect` | &nbsp;  | &nbsp;            | string      |
+| loginUrl         | Url d'accès à la page d'authentification. Par défaut on utilise la propriété `loginUrl` du `default.json` | &nbsp; | Utils.appSharedProps.get("loginUrl") | string |
+| logoutLabel      | Label du bouton de déconnexion. Par défaut on utilise la ressource `navigation.disconnect` | &nbsp; | &nbsp;        | string      |
+| logoutUrl        | Url d'accès à la page de déconnexion. Par défault on utilise la propriété `logoutUrl` du `default.json` | &nbsp;  | Utils.appSharedProps.get("logoutUrl") | string |
+| title            | Titre du composant                                                                | &nbsp;      | &nbsp;            | string      |
 
 ## Live coding
 

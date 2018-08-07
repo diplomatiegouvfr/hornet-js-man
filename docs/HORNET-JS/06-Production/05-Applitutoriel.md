@@ -23,13 +23,13 @@ Le serveur de thèmes mutualisé hornet-themes est livré séparément sur un CD
 
 ### Liste des livrables
 
-- applitutoriel-5.1.X-dynamic.zip
-- applitutoriel-5.1.X-static.zip
-- applitutoriel-5.1.X-environment.zip
+- applitutoriel-5.x.x-dynamic.zip
+- applitutoriel-5.x.x-static.zip
+- applitutoriel-5.x.x-environment.zip
 
-- applitutoriel-service-5.1.X-config.zip
-- applitutoriel-service-5.1.X-context.zip
-- applitutoriel-service-5.1.X.war
+- applitutoriel-service-5.x.x-config.zip
+- applitutoriel-service-5.x.x-context.zip
+- applitutoriel-service-5.x.x.war
 
 ## Configuration pré-déploiement
 
@@ -240,7 +240,7 @@ Ce bloc contient l'ensemble des paramètres destinés à la configuration de hel
 |-----------|-------------|--------|
 |remote| Logger sur un ordinateur distant | false |
 |level|Niveau de log|INFO|
-|appenders.type|Type d'appender|  |
+|appenders.type|Type d'appender | &nbsp; |
 |appenders.layout.type| Type d'affichage des messages|THIN/BASIC/pattern/...|
 
 ```json
@@ -276,9 +276,9 @@ Ce bloc contient l'ensemble des paramètres destinés à la configuration de hel
 
 | Paramètre | Description | Valeur |
 |-----------|-------------|--------|
-|host| URL de déploiement | |
-|port| Port de déploiement| |
-|timeout|Timeout des réponses| |
+|host| URL de déploiement | &nbsp; |
+|port| Port de déploiement| &nbsp; |
+|timeout|Timeout des réponses| &nbsp; |
 
 ```
 "antivirus" : {
@@ -292,15 +292,15 @@ Ce bloc contient l'ensemble des paramètres destinés à la configuration de hel
 
 | Paramètre | Description | Valeur |
 |-----------|-------------|--------|
-|config| Configuration du server de mail | |
-|config.host| URL de déploiement | |
-|config.port| Port de déploiement| |
+|config| Configuration du server de mail | &nbsp; |
+|config.host| URL de déploiement | &nbsp; |
+|config.port| Port de déploiement | &nbsp; |
 |config.secure| Laisse la décision d’envoi ou non du cookie au navigateur (false: le navigateur enverra le cookie dans tous les cas)| false |
-|config.connectionTimeout|Timeout de connexion| |
-|config.tls.rejectUnauthorized| Indique si l'identité du serveur doit être vérifiée| |
-|condif.auth| Authentification | |
-|mailReceiver| Receveur du mail | |
-|mailSender| Expéditeur du mail |  |
+|config.connectionTimeout|Timeout de connexion | &nbsp; |
+|config.tls.rejectUnauthorized| Indique si l'identité du serveur doit être vérifiée | &nbsp; |
+|condif.auth| Authentification | &nbsp; |
+|mailReceiver| Receveur du mail | &nbsp; |
+|mailSender| Expéditeur du mail | &nbsp; |
 
 
 ```
@@ -476,7 +476,7 @@ Se positionner dans le répertoire d'installation de l'application :
 Dézipper le livrable :
 
 ```shell
-unzip applitutoriel-5.1.X.dynamic.zip /var/lib/nodejs/applitutoriel
+unzip applitutoriel-5.x.x.dynamic.zip /var/lib/nodejs/applitutoriel
 ```
 
 Appliquer la configuration des fichiers : `/etc/nodejs/applitutoriel`
@@ -535,7 +535,7 @@ systemctl stop tomcat8
 Déposer les fichiers de configurations à l’emplacement indiqué dans le fichier de paramétrage du contexte de l’application (variable `conf/applitutorielprop`).
 
 ```shell
-unzip applitutoriel-service-5.1.X-config.zip /etc/tomcat8/appli/applitutoriel-service
+unzip applitutoriel-service-5.x.x-config.zip /etc/tomcat8/appli/applitutoriel-service
 ```
 
 Déposer le fichier de paramétrage du contexte de l’application dans le répertoire du serveur Tomcat situé sous : `/etc/tomcat8/Catalina/localhost/`
@@ -548,7 +548,7 @@ Déposer le fichier de paramétrage du contexte de l’application dans le répe
 
 Déployer le war sur le serveur applicatif :
 
-- `applitutoriel-service-5.1.X.war`
+- `applitutoriel-service-5.x.x.war`
 
 Renommer le fichier en `applitutoriel.war` avant de le déposer dans le répertoire tomcat 8 : `/var/lib/tomcat8/webapps`
 

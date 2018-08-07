@@ -104,17 +104,17 @@ render(): JSX.Element {
 
 Descriptif des attributs du menu :
 
-| Attribut | Description | Obligatoire | Valeur par défaut | Type |
-| -------- | ----------- |----------- | ----------- | ----------- |
-| closeOnClickOutside |  Indique si le menu doit se fermer lors d'un clic en dehors de la zone ||true|boolean|
-| closeOnLinkClick | Indique si le menu doit se fermer lors d'un clic sur un lien ||true|boolean|
-| closeOnTabOutside | Indique si le menu doit se fermer lors d'une tabulation en dehors de celui-ci ||true|boolean|
-| configMenu  | Surcharge de la configuration du menu |||array[MenuItemConfig]|
-| dataPassThru | Indique si les liens ne passent pas par le routeur |||boolean|
-| onToggleClick | Fonction appelée lors du clic sur le toggle du menu |||Function|
-| showIconInfo  | Affichage du bouton d'accessibilité |||boolean|
-| vertical | Affichage du menu de façon verticale |||boolean|
-| workingZoneWidth | Largeur maximale de la zone de travail en pixel. Utilisé par le composant LayoutSwitcher pour agrandir ou rétrécir la zone de travail |||string|
+| Attribut            | Description                                                           | Obligatoire | Valeur par défaut | Type        |
+| ------------------- | --------------------------------------------------------------------- |------------ | ----------------- | ----------- |
+| closeOnClickOutside | Indique si le menu doit se fermer lors d'un clic en dehors de la zone | &nbsp;      | true              | boolean     |
+| closeOnLinkClick    | Indique si le menu doit se fermer lors d'un clic sur un lien          | &nbsp;      | true              | boolean     |
+| closeOnTabOutside   | Indique si le menu doit se fermer lors d'une tabulation en dehors de celui-ci | &nbsp; | true           | boolean     |
+| configMenu          | Surcharge de la configuration du menu                                 | &nbsp;      | &nbsp;            | array[MenuItemConfig] |
+| dataPassThru        | Indique si les liens ne passent pas par le routeur                    | &nbsp;      | &nbsp;            | boolean     |
+| onToggleClick       | Fonction appelée lors du clic sur le toggle du menu                   | &nbsp;      | &nbsp;            | Function    |
+| showIconInfo        | Affichage du bouton d'accessibilité                                   | &nbsp;      | &nbsp;            | boolean     |
+| vertical            | Affichage du menu de façon verticale                                  | &nbsp;      | &nbsp;            | boolean     |
+| workingZoneWidth    | Largeur maximale de la zone de travail en pixel. Utilisé par le composant LayoutSwitcher pour agrandir ou rétrécir la zone de travail | &nbsp; | &nbsp; | string |
 
 ### Personnalisation du style
 

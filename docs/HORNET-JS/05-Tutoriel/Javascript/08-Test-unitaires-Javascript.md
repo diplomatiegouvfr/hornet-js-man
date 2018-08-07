@@ -289,7 +289,8 @@ Un rapport au format HTML est accessible sous target/istanbul/reports/**.
 
 #### Création d'un test basique
 
-Pour créer un test, il faut creer une classe qui hérite de BaseTest dans le répertoire de test du projet.
+Pour créer un test, il faut creer une classe qui hérite de BaseTest(ou une de ses filles, par exemple HornetReactTest) dans le répertoire de test du projet.
+L'import de BaseTest ou d'une classe en héritant doit se faire avant tout import de composant.
 L'api de test repose sur des décorateurs suivants:
 -`@Decorators.describe` : permet de donner un nom à la classe de test
 -`@Decorators.it` : permet de définir un bloc de test
@@ -300,9 +301,27 @@ L'api de test repose sur des décorateurs suivants:
 
 et sur la fonction runTest() qui permet de lancer le test.
 
+La classe `HornetReactTest` contient des méthodes permettant de simuler les évènements de souris/clavier sur le composant testé:
+- triggerMouseEvent(node, eventType: string) : Propage sur le noeud `node` l'évènement de la souris de type `eventType`
+- handleChangeValueOnElement(changeValue: boolean, element: any, valueKey: string): Déclenche l'évènement `change` sur le noeud `element`. `changeValue` indique si la valeur de `element` se change ou pas et `valueKey` correspond à la valeur de la touche clavier.
+- triggerKeydownEvent(element: any, valueKey: string, keyCodeParam: number, changeValue?: boolean): Déclenche l'evènement de `keyDown` sur l'élément du DOM `element`. `valueKey` correspond à la valeur de la touche, `keyCodeParam` correspondant au code ASCII de `valueKey`. `changeValue` indique si la valeur de `element` sera changée ou pas.
+- triggerKeyPressEvent(element: any, valueKey: string, keyCodeParam?: number, changeValue?: boolean): Déclenche l'evènement de `keyPress` sur l'élément du DOM `element`. `valueKey` correspond à la valeur de la touche, `keyCodeParam` correspondant au code ASCII de `valueKey`. `changeValue` indique si la valeur de `element` sera changée ou pas.
+- triggerFocusOnElement(element: any): Donne le focus à l'élément `element`
+
+
+La classe `HornetTestAssert` contient des méthodes statiques permettant de gérer les assertions.
+- assertEquals(expected: any, actual: any, message: string): Valide que `expected` et `actual` sont égaux (deep comparaison) et affiche le message d'erreur `message` sinon
+- assertNotEquals(expected: any, actual: any, message: string): Valide que `expected` et `actual` ne sont égaux (deep comparaison) et affiche le message d'erreur `message` sinon
+- assertNull(object: any, message: string): Valide que `object` est null et affiche le message `message` sinon
+- assertNotNull(object: any, message: string): Valide que `object` n'est pas null et affiche le message `message` sinon
+- assertTrue(condition: boolean, message: string): Valide que `condition` est true et affiche le message `message` sinon
+- assertFalse(condition: boolean, message: string): Valide que `condition` n'est pas true et affiche le message `message` sinon
+- assertGreaterThan(reference: any, actual: any, message: string): Valide que `reference` est supérieur à `actual` et affiche le message `message` sinon
+- assertLesserThan(reference: any, actual: any, message: string): Valide que `reference` est inférieur à `actual` et affiche le message `message` sinon
+
 
 ``` javascript
-import { BaseTest } from "hornet-js-core/src/test/abstract-test";
+import { BaseTest } from "hornet-js-test/src/base-test";
 import { Decorators } from "hornet-js-test/src/decorators";
 import { runTest } from "hornet-js-test/src/test-run";
 import * as assert from "assert";
@@ -340,7 +359,7 @@ La classe BaseTest propose des méthodes de 3 methodes utiles au développeur
 ##### exemple d'une classe testant le click sur un button
 
 ```javascript
-import { BaseTest } from "hornet-js-core/src/test/abstract-test";
+import { BaseTest } from "hornet-js-test/src/base-test";
 import { Decorators } from "hornet-js-test/src/decorators";
 import { runTest } from "hornet-js-test/src/test-run";
 import * as React from "react";
@@ -397,7 +416,7 @@ const expect = chai.expect;
 import * as _ from "lodash";
 import * as React from "react";
 
-import { BaseTest } from "hornet-js-core/src/test/abstract-test";
+import { BaseTest } from "hornet-js-test/src/base-test";
 import { runTest } from "hornet-js-test/src/test-run";
 import { Decorators } from "hornet-js-test/src/decorators";
 import * as assert from "assert";

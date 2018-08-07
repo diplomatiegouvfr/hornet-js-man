@@ -54,9 +54,9 @@ Le composant `top-button` utilise le header pour détecter quand s'afficher ou n
 
 Les attributs du composant `HeaderPage` :
 
-| Attribut | Description | Obligatoire | Valeur par défaut | Type |
-| -------- | ----------- | ----------- |----------- |----------- |
-| scrollHeight | Hauteur en pixel du header | | | number |
+| Attribut     | Description                | Obligatoire | Valeur par défaut | Type       |
+| ------------ | -------------------------- | ----------- |------------------ |----------- |
+| scrollHeight | Hauteur en pixel du header | &nbsp;      | &nbsp;            | number     |
 
 
 Les composants du `HeaderPage` étant customisables par l'application, le style associé est présent dans les thèmes de l'application et non dans ceux de hornet.

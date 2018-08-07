@@ -6,14 +6,14 @@ Le composant `HornetPage` est un composant de "haut-niveau", il correspond à un
 
 ### Propriétés React du composant
 
-|        Attribut           | Description                                                                                | Obligatoire | Valeur par défaut | Type |
-| ------------------------- | ------------------------------------------------------------------------------------------ |-------------|-------------|-------------|
-| classNameExpanded         | Nom du className a utiliser pour les layout sensitive components (composant qui s'étendent)|||string|
-| currentWorkingZoneWidth   | Largeur maximale de la zone de travail en pixel utilisée                                   |||string|
-| navigateData              | Données transmises par la page précédente                                                  |||any|
-| workingZoneWidth          | Largeur maximale de la zone de travail en pixel                                            |||string|
-| hasError                  | Définit si le composant contient des erreurs                                               |||boolean|
-| error                     | Erreurs du composant                                                                       |||any|
+|        Attribut           | Description                                                                                | Obligatoire | Valeur par défaut | Type        |
+| ------------------------- | ------------------------------------------------------------------------------------------ |-------------|-------------------|-------------|
+| classNameExpanded         | Nom du className a utiliser pour les layout sensitive components (composant qui s'étendent)| &nbsp;      | &nbsp;            | string      |
+| currentWorkingZoneWidth   | Largeur maximale de la zone de travail en pixel utilisée                                   | &nbsp;      | &nbsp;            | string      |
+| navigateData              | Données transmises par la page précédente                                                  | &nbsp;      | &nbsp;            | any         |
+| workingZoneWidth          | Largeur maximale de la zone de travail en pixel                                            | &nbsp;      | &nbsp;            | string      |
+| hasError                  | Définit si le composant contient des erreurs                                               | &nbsp;      | &nbsp;            | boolean     |
+| error                     | Erreurs du composant                                                                       | &nbsp;      | &nbsp;            | any         |
 
 ### Méthodes / attributs
 

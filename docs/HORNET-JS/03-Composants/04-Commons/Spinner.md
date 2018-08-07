@@ -25,14 +25,14 @@ import { Spinner } from "hornet-js-react-components/src/widget/spinner/spinner";
 
 Les attributs du composant `Spinner` sont les suivants:
 
-| Attribut | Description | Obligatoire | Valeur par défaut | Type |
-|---------- | ----------- |------------ | ----------------- |----|
-| imageLoadingUrl | Url de l'image à afficher |  |  |string|
-| loadingTitle | Titre du panel |  | Chargement... |string|
-| loadingText | Message à afficher |  | Action en cours, veuillez patienter ... |string|
-| minimalShowTimeInMs | Le temps minimal (en millisecondes) durant lequel le composant doit rester affiché. Cette configuration permet de maintenir un temps d'affichage correct à l'utilisateur tout en permettant un temps de reaction rapide grâce au paramètre précédent. |  | 500 | number|
-| isVisible | Détermine si le composant est visible ou non |  | false |boolean|
-| onHideSpinner | méthode appelée lors de la fermeture du spinner|||Function|
+| Attribut            | Description                                     | Obligatoire | Valeur par défaut | Type   |
+|-------------------- | ----------------------------------------------- |------------ | ----------------- |--------|
+| imageLoadingUrl     | Url de l'image à afficher                       | &nbsp;      | &nbsp;            | string |
+| loadingTitle        | Titre du panel                                  | &nbsp;      | Chargement...     | string |
+| loadingText         | Message à afficher                              | &nbsp;      | Action en cours, veuillez patienter ... |string|
+| minimalShowTimeInMs | Le temps minimal (en millisecondes) durant lequel le composant doit rester affiché. Cette configuration permet de maintenir un temps d'affichage correct à l'utilisateur tout en permettant un temps de reaction rapide grâce au paramètre précédent. | &nbsp; | 500 | number|
+| isVisible           | Détermine si le composant est visible ou non    | &nbsp;      | false             | boolean |
+| onHideSpinner       | méthode appelée lors de la fermeture du spinner | &nbsp;      | &nbsp;            | Function |
 
 **Exemple d'utilisation :**
 

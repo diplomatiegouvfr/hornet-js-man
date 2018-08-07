@@ -30,35 +30,36 @@ Un `Tab` ne peut avoir qu'un seul TabHearder et 1 seul TabContent:
 
 Les attributs du composant `Tabs` sont les suivants:
 
-| Attribut         | Description                                         | Obligatoire |Valeur par défaut                    | Type |
-| ---------------- | --------------------------------------------------- | ------------| ------------------------------------|------|
-| id               | Identifiant de l'onglet                             | Oui | |string |
-| panelId          | Préfixe des id's de chaque div contenant l'onglet   || "panel"                                          |string|
-| selectedTabIndex | Index de l'onglet à afficher                        || 0                                                |number|
-| dataSource       | Données passée au tabs                              |||DataSource<any>|
-| beforeHideTab    | Méthode appelée avant le masquage d'un onglet       ||                                                  |(tabRef?: Tab, index?: number) => void|
-| afterShowTab     | Méthode appelée après l'affichage d'un onglet       ||                                                  |(tabRef?: Tab, index?: number) => void|
-| addTabFunction   | Méthode appelée lors d'un click sur le bouton d'ajout d'onglet ||                                       |void/Function|
-| addButtonTtitle  | Title du buton d'ajout d'onglet                     ||                                                  |string|
-| deleteTabFunction| Méthode appelée lors d'un click sur le bouton de suppression d'un onglet ||                             |void/Function|
-| deleteButtonTitle| Title du buton de suppression d'un onglet           ||                                                  |string|
+| Attribut         | Description                                         | Obligatoire | Valeur par défaut                   | Type   |
+| ---------------- | --------------------------------------------------- | ------------| ------------------------------------|--------|
+| id               | Identifiant de l'onglet                             | Oui         | &nbsp;                              | string |
+| panelId          | Préfixe des id's de chaque div contenant l'onglet   | &nbsp;      | "panel"                             | string |
+| selectedTabIndex | Index de l'onglet à afficher                        | &nbsp;      | 0                                   | number |
+| dataSource       | Données passée au tabs                              | &nbsp;      | &nbsp;                              | DataSource<any> |
+| beforeHideTab    | Méthode appelée avant le masquage d'un onglet       | &nbsp;      | &nbsp;                              | (tabRef?: Tab, index?: number) => void |
+| afterShowTab     | Méthode appelée après l'affichage d'un onglet       | &nbsp;      | &nbsp;                              | (tabRef?: Tab, index?: number) => void |
+| addTabFunction   | Méthode appelée lors d'un click sur le bouton d'ajout d'onglet | &nbsp; | &nbsp;                        | void/Function |
+| addButtonTtitle  | Title du buton d'ajout d'onglet                     | &nbsp;      | &nbsp;                              | string |
+| deleteTabFunction| Méthode appelée lors d'un click sur le bouton de suppression d'un onglet | &nbsp; | &nbsp;              | void/Function |
+| deleteButtonTitle| Title du buton de suppression d'un onglet           | &nbsp;      | &nbsp;                              | string |
 
 Les attributs du composant `Tab` sont les suivants:
 
-| Attribut         | Description                                                     | Obligatoire | valeur par défaut                                |Type|
-| ---------------- | --------------------------------------------------------------- |  -----------| ------------------------------------------------ |----|
-| forceRender      | Définit si l'onglet sera rendu de force ou non (depreceated)    ||false                                                  |boolean|
-| id               | Identifiant du tab                                              ||"tab"|string|
-| index            | Index du tab                                                    |||number|
-| isVisible        | Définit si l'onglet est visible ou non                          ||                                                  |boolean|
-| mount            | Définit la méthode de chargement de l'onglet                    || true                                             |boolean|
-| onSelect         | Méthode appelée lorsque l'onglet est sélectionné ou sélectionné ||                                                  |Function|
-| panelId          | Id du contenu de l'onglet                                       ||                                             |string|
-| prefixId         | Préfixe de l'identifiant de la section                          ||                                                  |string|
-| title            | Titre de l'onglet                                               ||                                                  |string|
-| isDeletable      | Définit si l'onglet est supprimable                             ||                                                  |boolean|
-| deleteButtonTitle| Titre du bouton de suppression de l'onglet                      ||                                                  |string|
-| deleteTabFunction|Méthode appelée lors d'un click sur le bouton de suppressiond de onglet (sera appelée en priorité sur la méthode définit dans tab)|  | |void/Function|
+| Attribut         | Description                                                     | Obligatoire | valeur par défaut                                |Type      |
+| ---------------- | --------------------------------------------------------------- |  -----------| ------------------------------------------------ |----------|
+| forceRender      | Définit si l'onglet sera rendu de force ou non (depreceated)    | &nbsp;      | false                                            | boolean  |
+| id               | Identifiant du tab                                              | &nbsp;      | "tab"                                            | string   |
+| index            | Index du tab                                                    | &nbsp;      | &nbsp;                                           | number   |
+| isVisible        | Définit si l'onglet est visible ou non                          | &nbsp;      | &nbsp;                                           | boolean  |
+| mount            | Définit la méthode de chargement de l'onglet                    | &nbsp;      | true                                             | boolean  |
+| onSelect         | Méthode appelée lorsque l'onglet est sélectionné ou sélectionné | &nbsp;      | &nbsp;                                           | Function |
+| panelId          | Id du contenu de l'onglet                                       | &nbsp;      | &nbsp;                                           | string   |
+| prefixId         | Préfixe de l'identifiant de la section                          | &nbsp;      | &nbsp;                                           | string |
+| title            | Titre de l'onglet                                               | &nbsp;      | &nbsp;                                           | string |
+| isDeletable      | Définit si l'onglet est supprimable                             | &nbsp;      | &nbsp;                                           | boolean |
+| deleteButtonTitle| Titre du bouton de suppression de l'onglet                      | &nbsp;      | &nbsp;                                           | string |
+| deleteTabFunction| Méthode appelée lors d'un click sur le bouton de suppressiond de onglet (sera appelée en priorité sur la méthode définit dans tab)| &nbsp; | &nbsp; | void/Function |
+| style            | Permet de spécifier du CSS inline                               | &nbsp;      |  &nbsp;                                          | CSSProperties |      
 
 Les attributs du composant `TabHeader` sont les suivants:
 Elle permet de surcharger le titre de l'onglet.
@@ -73,7 +74,7 @@ Permet de lier l'état (in progress/idle) d'un datasource à celui de l'onglet (
 
 | Attribut              | Description                                                   | Obligatoire | Valeur par défaut                                | Type |
 | --------------------- | ------------------------------------------------------------- | ------------| ------------------------------------------------ |------|
-| dataSource            | DataSource                                                    | |none (optionnel)                                 |DataSource<any> |
+| dataSource            | DataSource                                                    | &nbsp;      | none (optionnel)                                 |DataSource<any> |
 
 
 Les méthodes du composant `Tabs` sont les suivants:

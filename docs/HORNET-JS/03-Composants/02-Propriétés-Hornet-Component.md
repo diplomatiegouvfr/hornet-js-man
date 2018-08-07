@@ -156,6 +156,27 @@ Attributs de l'interface HTMLStandardPresentationAttributes:
     step?: number | string;
     width?: number | string;
 
+#### HornetFormFieldProps
+Attributs de l'interface HornetFormFieldProps
+
+    name: string;
+    label?: string;
+    abbr?: string;
+    groupClass?: string;
+    labelClass?: string;
+    fieldClass?: string;
+    toolTip?: string;
+    icoToolTip?: string;
+    prefix?: any;
+    suffix?: any;
+    markRequired?: boolean;
+    requiredLabel?: string;
+    imgFilePath?: string;
+    currentValue?: string | string[];
+    errorComponent?: ComponentClass<FieldErrorProps>;
+    errors?: INotificationType[];
+    inline?: InlineStyle;
+    reverseLabel?: boolean;
 
 #### HTMLRDFaAttributes
 

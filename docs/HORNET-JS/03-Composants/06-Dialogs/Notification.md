@@ -23,18 +23,20 @@ Le composant permet d'afficher des messages de plusieurs types :
 
 Le Composant Notification sert à afficher les messages d'erreurs.
 
-| Attibut          | Description                                                        | Obligatoire | Valeur par défaut                         | Type|
-| ---------------- | ------------------------------------------------------------------ | ------------| ----------------------------------------- |-----|
-| errors           | Messages d'erreur passés à la notification                         | ||any|
-| errorsTitle      | Titre de la section des erreurs                                    | |this.i18n("notification.errorsTitle")     |string|
-| exceptions       | Messages d'exceptions passés à la notification                     |  ||Array<BaseError>|
-| id               | Identifiant de la notification                                     |Oui ||string|
-| infos            | Messages d'informations passés à la notification                   | ||any|
-| infosTitle       | Titre de la section des informations                               | |this.i18n("notification.infosTitle")      |string|
-| personnals       | Messages personnels passés à la notification                       | ||any|
-| personnalsTitle  | Titre de la section des messages personnalisable                   | |this.i18n("notification.personnalsTitle") |string|
-| warnings         | Warnings passés à la notification                                  | ||any|
-| warningsTitle    | Titre de la section des warnings                                   | |this.i18n("notification.warningsTitle")   |string|
+| Attibut          | Description                                                        | Obligatoire | Valeur par défaut                         | Type    |
+| ---------------- | ------------------------------------------------------------------ | ------------| ----------------------------------------- |---------|
+| errors           | Messages d'erreur passés à la notification                         | &nbsp;      | &nbsp;                                    | any     |
+| errorsTitle      | Titre de la section des erreurs                                    | &nbsp;      | this.i18n("notification.errorsTitle")     | string  |
+| exceptions       | Messages d'exceptions passés à la notification                     | &nbsp;      | &nbsp;                                    |Array<BaseError> |
+| id               | Identifiant de la notification                                     | Oui         | &nbsp;                                    | string  |
+| infos            | Messages d'informations passés à la notification                   | &nbsp;      | &nbsp;                                    | any     |
+| infosTitle       | Titre de la section des informations                               | &nbsp;      | this.i18n("notification.infosTitle")      | string  |
+| personnals       | Messages personnels passés à la notification                       | &nbsp;      | &nbsp;                                    | any     |
+| personnalsTitle  | Titre de la section des messages personnalisable                   | &nbsp;      |this.i18n("notification.personnalsTitle")  | string  |
+| warnings         | Warnings passés à la notification                                  | &nbsp;      | &nbsp;                                    | any     |
+| warningsTitle    | Titre de la section des warnings                                   | &nbsp;      | this.i18n("notification.warningsTitle")   | string  |
+| color            | Permet de déterminer la couleur de bordure et de texte             | &nbsp;      | &nbsp;                                    | string  |
+| logo             | url du pictogramme à afficher                                      | &nbsp;      | &nbsp;                                    | string  |
 
 ## Création d'une notification
 

@@ -37,28 +37,28 @@ Tous les attributs standards de la balise html select peuvent être utilisés.
 
 Le composant possède les propriétés des interfaces:
 
-[HornetWrittableProps](/hornetshowroom/composant/page/hornet-js/composants/hornet-component-props)
+[HornetWrittableProps](/hornetshowroom/composant/page/hornet-js/composants/proprietes-hornet-component)
 
-[HornetClickableProps](/hornetshowroom/composant/page/hornet-js/composants/hornet-component-props)
+[HornetClickableProps](/hornetshowroom/composant/page/hornet-js/composants/proprietes-hornet-component)
 
-[HornetBasicFormFieldProps](/hornetshowroom/composant/page/hornet-js/composants/hornet-component-props)
+[HornetBasicFormFieldProps](/hornetshowroom/composant/page/hornet-js/composants/proprietes-hornet-component)
 
-[HornetComponentDatasourceProps](/hornetshowroom/composant/page/hornet-js/composants/hornet-component-props)
+[HornetComponentDatasourceProps](/hornetshowroom/composant/page/hornet-js/composants/proprietes-hornet-component)
 
-[HornetComponentChoicesProps](/hornetshowroom/composant/page/hornet-js/composants/hornet-component-props)
+[HornetComponentChoicesProps](/hornetshowroom/composant/page/hornet-js/composants/proprietes-hornet-component)
 
 Les principaux attributs:
 
-| Attribut                | Description                     | Obligatoire | Valeur par défaut | Type |
-| ----------------------- | --------------------------------|-----------|-----------|-----------|
-| label                   | Libellé                         ||"blocLabelUp"|string|
-| labelClass              | Classe du label                 |||string|
-| dataSource              | Liste des options               |||Datasource|
-| data                    | Liste des options sans passer par un datasource|||any|
-| name                    | Nom du champs         |Oui||string|
-| valueKey                | clé indiquant le champs de valeur des données ||"value"|string|
-| labelKey                | clé indiquant le champs de libellé des données ||"label"|string|
-
+| Attribut                | Description                                    | Obligatoire | Valeur par défaut | Type      |
+| ----------------------- | -----------------------------------------------|-------------|-------------------|-----------|
+| label                   | Libellé                                        | &nbsp;      | "blocLabelUp"     | string    |
+| labelClass              | Classe du label                                | &nbsp;      | &nbsp;            | string    |
+| dataSource              | Liste des options                              | &nbsp;      | &nbsp;            | Datasource|
+| data                    | Liste des options sans passer par un datasource| &nbsp;      | &nbsp;            | any       |
+| name                    | Nom du champs                                  | Oui         | &nbsp;            | string    |
+| valueKey                | clé indiquant le champ de valeur des données  | &nbsp;      | "value"           | string    |
+| labelKey                | clé indiquant le champ de libellé des données | &nbsp;      | "label"           | string    |
+| nullable                | Indique si la valeur par défaut peut être à null | &nbsp;      | false             | boolean   |
 
 
 ## Live coding

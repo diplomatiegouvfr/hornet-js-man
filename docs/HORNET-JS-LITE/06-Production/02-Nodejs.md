@@ -215,7 +215,27 @@ Extrait :
 }
 ```
   
-Les fichiers production.json et production-instance.json peuvent être fusionnée dans le cas d'un serveur mono-instance.
+Les fichiers production.json et production-instance.json peuvent être fusionnés dans le cas d'un serveur mono-instance.
+
+### Logs attendues
+Le chargement de la configuration server se fait en deux étapes. 
+Dans un premier temps, la configuration présente dans le dossier donné par la variable HORNET_CONFIG_DIR_APPLI est chargée. Ce dossier ne contenant pas les fichiers production.json et production-1.json, les lignes suivantes apparaîtront alors dans les logs de démarrage (ce qui est normal) :
+
+```shell
+NO_TID|NO_USER|ERROR|hornet-js.console|Logger.(anonymous function)|WARNING: NODE_ENV value of 'production' did not match any deployment config file names.
+NO_TID|NO_USER|ERROR|hornet-js.console|Logger.(anonymous function)|WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+NO_TID|NO_USER|ERROR|hornet-js.console|Logger.(anonymous function)|WARNING: NODE_APP_INSTANCE value of '1' did not match any instance config file names.
+NO_TID|NO_USER|ERROR|hornet-js.console|Logger.(anonymous function)|WARNING: See https://github.com/lorenwest/node-config/wiki/Strict-Mode
+```
+Ensuite est chargée la configuration présente dans le dossier donné par la variable HORNET_CONFIG_DIR_INFRA qui contient les fichiers production.json et production-1.json.
+Ces deux configurations sont par la suite mergées ce qui constitue la configuration des instances.
+
+La ligne suivante doit apparaître dans les logs une fois que le merge des deux configurations est effectué :
+
+```
+NO_TID|NO_USER|INFO|hornet-js-utils.config-lib|Logger.(anonymous function)|Configuration mergée :  ...
+
+```
   
 ## Configuration de SystemD
 
@@ -233,7 +253,7 @@ Mettre le contenu suivant :
 [Service]
 WorkingDirectory=/var/lib/nodejs/MON_APPLI
 ExecStartPre=/bin/echo "Demarrage de l'application MON_APPLI-INSTANCE"
-ExecStartPre=/bin/bash -c "/bin/tar -zcf /var/log/nodejs/#{INSTANCE_NAME}/log-gc-#{INSTANCE}-$$(date +%%Y-%%m-%%d_%%H%%M%%S).tar.gz -C /var/log/nodejs/#{INSTANCE_NAME} log-gc-#{INSTANCE}.log --remove-files --ignore-failed-read"
+ExecStartPre=/bin/bash -c "/bin/tar -zcvf /var/log/nodejs/MON_APPLI-INSTANCE/log-gc-INSTANCE-$$(date +%%Y%%m%%d%%H%%M%%S).tar.gz /var/log/nodejs/MON_APPLI-INSTANCE/log-gc-INSTANCE.log --remove-files --ignore-failed-read"
 ExecStart=/bin/bash -c "/usr/local/bin/node --harmony --stack-size=1024 --trace_gc --trace_gc_verbose index.js > /var/log/nodejs/MON_APPLI/log-gc-INSTANCE.log 2>&1"
 ExecStopPost=/bin/echo "Arret de l'application MON_APPLI-INSTANCE"
 Restart=no
@@ -287,6 +307,8 @@ registry = [PROTOCOLE]://[HOST][PORT]/artifactory/api/npm/repository-npm
 _auth = XXXXXX
 always-auth = true
 email = dev@diplomatie.gouv.fr
+phantomjs_cdnurl = [PROTOCOLE]://[HOST][PORT]/[URL_ARTIFACTORY]/repository-npm-tiers/phantomjs
+disturl = [PROTOCOLE]://[HOST][PORT]/[URL_ARTIFACTORY]/repository-npm-tiers
 ```
 
 ### Installation

@@ -23,9 +23,9 @@ java -version
 ```
 
 ```shell
-openjdk version "1.9.4_X-internal"
-OpenJDK Runtime Environment (build 1.9.v_X-internal-b22)
-OpenJDK 64-Bit Server VM (build 25.40-b25, mixed mode)
+openjdk version "1.8.0_151"
+OpenJDK Runtime Environment (build 1.8.0_151-8u151-b12-1~deb9u1-b12)
+OpenJDK 64-Bit Server VM (build 25.151-b12, mixed mode)
 ```
 
 Si le jdk installé n’est pas dans la bonne version : 
@@ -46,7 +46,7 @@ apt-get remove lejdkinstalle
 
 ### Installation du package
 
-Installer le paquet tomcat8 (8.5.14-1).
+Installer le paquet tomcat8 (8.5).
 
 ```shell
 apt-get install tomcat8

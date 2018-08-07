@@ -27,17 +27,17 @@ let item: ButtonProps[] = {
 
 | Attribut   | Description                                                       | Obligatoire | Valeur par défaut | Type |
 | --------- | ------------------------------------------------------------------ |-------------|------------------ |------|
-| className | Style appliqué sur le bouton                                       |             |                   | string     |
-| disabled  | Bouton désactivé ou non                                            |             | false             | boolean     |
-| hasPopUp  | [Accessibilité] Indicateur si le bouton ouvre un popup             |             |                   | boolean     |
-| id        | Identifiant unique du bouton                                       |             |                   | string     |
-| label     | Texte sur du bouton                                                |             |                   | string     |
-| name      | Nom du bouton                                                      |             |                   | string     |
-| onClick   | Fonction exécutée sur le click                                     |             |                   | React.MouseEventHandler<HTMLElement>     |
-| title     | Title sur du bouton                                                |             |                   | string     |
-| type      | Le type input html submit, button, radio, checkbox, etc            |             |                   | string     |
-| value     | Valeur correspondante à ce bouton pour la soumission du formulaire |             |                   | string     |
-| url       | Url sur laquelle redirige le bouton                                |             |                   | string     |
+| className | Style appliqué sur le bouton                                       | &nbsp;      | &nbsp;            | string     |
+| disabled  | Bouton désactivé ou non                                            | &nbsp;      | false             | boolean     |
+| hasPopUp  | [Accessibilité] Indicateur si le bouton ouvre un popup             | &nbsp;      | &nbsp;            | boolean     |
+| id        | Identifiant unique du bouton                                       | &nbsp;      | &nbsp;            | string     |
+| label     | Texte sur du bouton                                                | &nbsp;      | &nbsp;            | string     |
+| name      | Nom du bouton                                                      | &nbsp;      | &nbsp;            | string     |
+| onClick   | Fonction exécutée sur le click                                     | &nbsp;      | &nbsp;            | React.MouseEventHandler<HTMLElement>     |
+| title     | Title sur du bouton                                                | &nbsp;      | &nbsp;            | string     |
+| type      | Prend les valeurs: link, button, submit, reset                     | &nbsp;      | &nbsp;            | string     |
+| value     | Valeur correspondante à ce bouton pour la soumission du formulaire | &nbsp;      | &nbsp;            | string     |
+| url       | Url sur laquelle redirige le bouton                                | &nbsp;      | &nbsp;            | string     |
 [Button - attributs]
 
 Exemple d'utilisation:
@@ -62,6 +62,8 @@ let props: ButtonProps[] = {
 />
 ```
 
+
+Un bouton ayant la propriété url doit être de type link.
 
 Voir la documentation de [Form](../Layouts/Form.md).
 

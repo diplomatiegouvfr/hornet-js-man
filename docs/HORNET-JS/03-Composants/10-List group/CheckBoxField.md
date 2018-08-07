@@ -34,32 +34,30 @@ Cochée:
 
 Le composant possède les propriétés des interfaces:
 
-[HornetClickableProps](/hornetshowroom/composant/page/hornet-js/composants/hornet-component-props)
+[HornetClickableProps](/hornetshowroom/composant/page/hornet-js/composants/proprietes-hornet-component)
 
-[HornetBasicFormFieldProps](/hornetshowroom/composant/page/hornet-js/composants/hornet-component-props)
+[HornetBasicFormFieldProps](/hornetshowroom/composant/page/hornet-js/composants/proprietes-hornet-component)
 
 Attributs du composant `CheckBoxField` :
 
-| Attribut | Description | Obligatoire | Valeur par défaut | Type |
-| -------- | ----------- | ----------------- |----------- |----------- |
-| currentChecked | Si oui ou non la case est cochée | ||boolean|
-| label | Libellé du champ de saisie de date |  ||string|
-| inline | Type d'affichage du champs | |CheckBoxField.Inline.NONE| CheckBoxField.Inline |
-| labelOnOff | Label affiché en mode switch (format: {"on" : "", "off": ""}) ||| any |
-| required | Indique si la saisie du champ est obligatoire pour valider le formulaire | |false|boolean|
-| swicth | Si le champs est un switch ou non | |false|boolean|
+| Attribut       | Description                                                   | Obligatoire       | Valeur par défaut | Type       |
+| -------------- | ------------------------------------------------------------- | ----------------- |------------------ |----------- |
+| currentChecked | Si oui ou non la case est cochée                              | &nbsp;            | &nbsp;            | boolean    |
+| label          | Libellé du champ de saisie de date                            | &nbsp;            | &nbsp;            | string     |
+| inline         | Type d'affichage du champs                                    | &nbsp;            | CheckBoxField.Inline.NONE | CheckBoxField.Inline |
+| labelOnOff     | Label affiché en mode switch (format: {"on" : "", "off": ""}) | &nbsp;            | &nbsp;            | any        |
+| required       | Indique si la saisie du champ est obligatoire pour valider le formulaire | &nbsp; | false             | boolean    |
+| swicth         | Si le champs est un switch ou non                             | &nbsp;            | false             | boolean    |
 
 
 le champ dispose également d'un attribut inline qui permet de définir comment est affichée la case:
 
 ```javascript
-...
 <CheckBoxField
  name="exempleCheckbox"
  label={"VIP"}
  inline={CheckBoxField.Inline.ALL}
 />
-...
 ```
 
 ![checkbox inline](../sources/form/checkbox-field/checkbox-inline.png)
@@ -68,13 +66,11 @@ le champ dispose également d'un attribut inline qui permet de définir comment 
 L'attribut switch permet de définir si le champ sera affiché sous forme de switch :
 
 ```javascript
-...
 <CheckBoxField
  name="exempleCheckbox"
  label={"VIP"}
  switch={true}
 />
-...
 ```
 
 ![switch](../sources/form/checkbox-field/switch.png)
@@ -94,7 +90,6 @@ Son format est : {"on":"", "off":""} :
  switch={true}
  labelOnOff={{"on":"On", "off":"Off"}}
 />
-...
 ```
 
 ## Live coding

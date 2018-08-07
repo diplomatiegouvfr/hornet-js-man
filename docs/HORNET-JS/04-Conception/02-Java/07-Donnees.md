@@ -559,7 +559,7 @@ LIMIT 30 OFFSET 10
 | Avantages | Inconvénients |
 | --------- | ------------- |
 | Ne retourne que le resultset de la page souhaitée | on exécute la requête à chaque fois (ou du moins à chaque changement de page) |
-| | Dépendant SGBD |
+| &nbsp; | Dépendant SGBD |
 [postgreSQL - paginer - avantages-inconvenients]
 
 ### Paginer sur le sgbd (2)

@@ -47,21 +47,21 @@ private closeAlert(): void {
 
 Les attributs du composant `Alert` :
 
-| Attribut | Description | Obligatoire | Valeur par défaut | Type |
-| -------- | ----------- | ----------- |----------- |----------- |
-| message| Message affiché dans la popup | Oui | |string |
-| isVisible| Rendre le composant visible |  |false |boolean |
-| onClickOk| Passer la méthode à appeler lorsque l'utilisateur clique sur le bouton `Valider`| | | React.MouseEventHandler<HTMLInputElement>|
-| onClickClose | Passer la méthode à appeler lorsque l'utilisateur clique sur la croix (en haut à droite) ou sur le bouton `Annuler`  | | | React.MouseEventHandler<HTMLInputElement>|
-| title | Titre de l'alerte | | |string |
-| valid | Fonction de validation | | |string |
-| cancel | Fonction appelé lors de l'annulation de la modale | | | string|
-| validTitle | Title du bouton de validation | | |string |
-| cancelTitle | Title du bouton d'annulation | | |string |
-| underlayClickExits | Permet de sortir de l'alerte lors d'un clique en dehors de celle-ci | |false |boolean |
-| escapeKeyExits | Permet de spécifier si on peut utiliser la touche "Echappe" pour sortir de l'alerte | | false| boolean|
-| notificationId | Identifiant des notifications| | | string|
-| dialogId| identifiant de l'alerte | | |string |
+| Attribut             | Description                                                                    | Obligatoire | Valeur par défaut | Type       |
+| -------------------- | ------------------------------------------------------------------------------ | ----------- |------------------ |----------- |
+| message              | Message affiché dans la popup                                                  | Oui         | &nbsp;            | string     |
+| isVisible            | Rendre le composant visible                                                    | &nbsp;      | false             | boolean    |
+| onClickOk            | Passer la méthode à appeler lorsque l'utilisateur clique sur le bouton `Valider` | &nbsp; | &nbsp; | React.MouseEventHandler<HTMLInputElement> |
+| onClickClose         | Passer la méthode à appeler lorsque l'utilisateur clique sur la croix (en haut à droite) ou sur le bouton `Annuler` | &nbsp; | &nbsp; | React.MouseEventHandler<HTMLInputElement> |
+| title                | Titre de l'alerte                                                              | &nbsp;      | &nbsp;            | string     |
+| valid                | Fonction de validation                                                         | &nbsp;      | &nbsp;            | string     |
+| cancel               | Fonction appelé lors de l'annulation de la modale                              | &nbsp;      | &nbsp;            | string     |
+| validTitle           | Title du bouton de validation                                                  | &nbsp;      | &nbsp;            | string     |
+| cancelTitle          | Title du bouton d'annulation                                                   | &nbsp;      | &nbsp;            | string     |
+| underlayClickExits   | Permet de sortir de l'alerte lors d'un clique en dehors de celle-ci            | &nbsp;      | false             | boolean    |
+| escapeKeyExits       | Permet de spécifier si on peut utiliser la touche "Echappe" pour sortir de l'alerte | &nbsp; | false             | boolean    |
+| notificationId       | Identifiant des notifications                                                  | &nbsp;      | &nbsp;            | string     |
+| dialogId             | identifiant de l'alerte                                                        | &nbsp;      | &nbsp;            | string     |
 
 
 ### Alerte sur une action d'un tableau

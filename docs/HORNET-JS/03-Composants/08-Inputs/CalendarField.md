@@ -60,26 +60,26 @@ render(): JSX.Element {
 
 Le composant possède les propriétés des interfaces:
 
-[HornetWrittableProps](/hornetshowroom/composant/page/hornet-js/composants/hornet-component-props)
+[HornetWrittableProps](/hornetshowroom/composant/page/hornet-js/composants/proprietes-hornet-component)
 
-[HornetClickableProps](/hornetshowroom/composant/page/hornet-js/composants/hornet-component-props)
+[HornetClickableProps](/hornetshowroom/composant/page/hornet-js/composants/proprietes-hornet-component)
 
-[HornetBasicFormFieldProps](/hornetshowroom/composant/page/hornet-js/composants/hornet-component-props)
+[HornetBasicFormFieldProps](/hornetshowroom/composant/page/hornet-js/composants/proprietes-hornet-component)
 
-[ReactFocusDOMAttributes](/hornetshowroom/composant/page/hornet-js/composants/hornet-component-props)
+[ReactFocusDOMAttributes](/hornetshowroom/composant/page/hornet-js/composants/proprietes-hornet-component)
 
 Attributs du composant CalendarField :
 
-| Attribut | Description | Obligatoire |Valeur par défaut | Type |
-| -------- | ----------- | ----------------- |----------------- |----------------- |
-| dateFormats | Liste de formats de saisie de date (ex. \["%d/%m/%Y","%d-%m-%Y"\] ) || valeur de calendar.dateFormat dans messages.json |array[string]|
-| isDatePicker | Affiche ou non l'icone de sélection d'une date  || true |boolean|
-| label | Libellé du champ de saisie de date ||| string |
-| placeHolder | Texte présent dans le champ de saisie lorsque la date n'est pas renseignée ||string|
-| title | Libellé utilisé comme texte alternatif à l'image du bouton d'ouverture de calendrier  |  ||string|
-| valideOnForm | Indicateur qui précise que la validation (format) est portée par le formulaire qui contient le composant ou sinon par lui-même | |true |boolean|
-| onValueChange | Fonction appelé à chaque modification du champs input (prend la valeur en paramètre) | ||(value: string) => void|
-
+| Attribut      | Description                                                          | Obligatoire | Valeur par défaut | Type             |
+| ------------- | -------------------------------------------------------------------- | ----------- |------------------ |----------------- |
+| dateFormats   | Liste de formats de saisie de date (ex. \["%d/%m/%Y","%d-%m-%Y"\] )  | &nbsp;      | valeur de calendar.dateFormat dans messages.json | array[string] |
+| isDatePicker  | Affiche ou non l'icone de sélection d'une date                       | &nbsp;      | true              | boolean          |
+| label         | Libellé du champ de saisie de date                                   | &nbsp;      | &nbsp;            | string           |
+| placeHolder   | Texte présent dans le champ de saisie lorsque la date n'est pas renseignée | &nbsp;| &nbsp;            | string           |
+| title         | Libellé utilisé comme texte alternatif à l'image du bouton d'ouverture de calendrier | &nbsp; | &nbsp; | string           |
+| valideOnForm  | Indicateur qui précise que la validation (format) est portée par le formulaire qui contient le composant ou sinon par lui-même | &nbsp; | true | boolean |
+| onValueChange | Fonction appelé à chaque modification du champs input (prend la valeur en paramètre) | &nbsp; | &nbsp; | (value: string) => void |
+| resettable        | Indique si le champs peut etre réinitialisé ou non                     | &nbsp;      | true               | boolean          |
 
 ## Live coding
 

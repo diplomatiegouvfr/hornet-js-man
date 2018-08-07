@@ -32,7 +32,6 @@ render(): JSX.Element {
                   name="exampleRadio"
                   label={"Type de partenaire"}
                   dataSource={this.data}
-                  currentChecked={true}
                 />
             </Form>
         </div>
@@ -46,25 +45,25 @@ Aperçu :
 
 Le composant possède les propriétés des interfaces:
 
-[HornetClickableProps](/hornetshowroom/composant/page/hornet-js/composants/hornet-component-props)
+[HornetClickableProps](/hornetshowroom/composant/page/hornet-js/composants/proprietes-hornet-component)
 
-[HornetBasicFormFieldProps](/hornetshowroom/composant/page/hornet-js/composants/hornet-component-props)
+[HornetBasicFormFieldProps](/hornetshowroom/composant/page/hornet-js/composants/proprietes-hornet-component)
 
-[HornetComponentDatasourceProps](/hornetshowroom/composant/page/hornet-js/composants/hornet-component-props)
+[HornetComponentDatasourceProps](/hornetshowroom/composant/page/hornet-js/composants/proprietes-hornet-component)
 
-[HornetComponentChoicesProps](/hornetshowroom/composant/page/hornet-js/composants/hornet-component-props)
+[HornetComponentChoicesProps](/hornetshowroom/composant/page/hornet-js/composants/proprietes-hornet-component)
 
 Attributs du composant RadiosField :
 
-| Attribut | Description | Obligatoire |Valeur par défaut | Type |
-| -------- | ----------- | --------- |----------------- |--------- |
-| id | Information optionnelle, valorisée par le name si non indiquée | ||string|
-| defaultValue | Indique et définit si la valeur par défaut selectionné | ||any|
-| dataSource | Données des boutons radio, format: {{"value":"", "label":""}...}|| |Datasource|
-| data | Données des boutons radio en ne passant pas par un Datasource| ||any|
-| label | Libellé du champ de saisie de date |  ||string|
-| name  | Nom du radio field | ||string|
-| required | Indique si la saisie du champ est obligatoire pour valider le formulaire || false |boolean|
+| Attribut     | Description                                                         | Obligatoire |Valeur par défaut | Type     |
+| ------------ | ------------------------------------------------------------------- | ----------- |----------------- |--------- |
+| id           | Information optionnelle, valorisée par le name si non indiquée      | &nbsp;      | &nbsp;           | string   |
+| defaultValue | Indique et définit si la valeur par défaut selectionné              | &nbsp;      | &nbsp;           | any      |
+| dataSource   | Données des boutons radio, format: {{"value":"", "label":""}...}    | &nbsp;      | &nbsp;           |Datasource|
+| data         | Données des boutons radio en ne passant pas par un Datasource       | &nbsp;      | &nbsp;           | any      |
+| label        | Libellé du champ de saisie de date                                  | &nbsp;      | &nbsp;           | string   |
+| name         | Nom du radio field                                                  | &nbsp;      | &nbsp;           | string   |
+| required     | Indique si la saisie du champ est obligatoire pour valider le formulaire | &nbsp; | false            | boolean  |
 
 le champ dispose également d'un attribut inline qui permet de définir comment sont affichés les boutons:
 

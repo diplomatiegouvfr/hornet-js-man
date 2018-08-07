@@ -35,10 +35,10 @@ Exemple :
 ### Installation custom typescript
 
 
-Installer `typescript` en version `2.5.2` en global.
+Installer `typescript` en global.
 
 ``` shell
-npm install -g typescript@2.5.2
+npm install -g typescript
 ```
 
 Récupérer le prefix npm pour localiser l'installation de typescript global.
@@ -112,10 +112,16 @@ Sélectionner : Node.js : Lancer un programme
 }
 ```
 
-## Formattage de code
+## Formattage de code (In progres)
 
-TODO
+Configuration possible de l'éditeur
 
-## Configuration tslint
+Modifier les paramètres utilisateurs de vscode : ~/.config/Code/User/settings.json ou bien le raccourci : `Ctrl+,`
+``` json
+"editor.tabSize": 4,
+"editor.insertSpaces": true,
+"editor.renderWhitespace": "all",
+```
 
-TODO
+## Configuration tslint (In progress)
+

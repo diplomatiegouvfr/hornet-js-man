@@ -14,21 +14,22 @@ Dans l'application tutoriel, le Dropdown est utilisé à différents endroits :
 
 | Attribut         | Description                                         | Obligatoire |Valeur par défaut |  Type           |
 | ---------------- | --------------------------------------------------- | ------------| -----------------|-----------------|
-| ariaLabel       | Valeur de aria-label pour l'accessibilité           ||                   | String               |
-| className        | Classname Css pour l'affichage                      ||                   | String               |
-| closeClick       | Cache ou non le dropdown après le click sur un item || True              | Boolean              |
-| disabled         | Activé ou désactivé un item                         || False             | Boolean              |
-| drawArrow        | Affiche ou non la flèche sur le dropdown déroulé    || True              | Boolean              |
-| icon             | Classe Css pour l'affichage d'un icon en Bouton     ||                   | String               |
-| id               | Id du composant                                     ||                   | String               |
-| items            | Liste des différentes options possibles             ||                   | any              |
-| label            | Label du composant ("Affichage")                    ||                   | String               |
-| labelClassName   | Style css du label                                  ||                   | String               |
-| onClick          | Méthode appelée lors d'un click sur le dropdown     |||React.MouseEventHandler<HTMLInputElement>|
-| position         | La position du dropdown déroulé                     || Position.BOTTOMRIGHT       | Enum Position : BOTTOMLEFT, BOTTOMRIGHT, TOPLEFT, TOPRIGHT  |
-| valueCurrent     | Valeur qui est sélectionnée                         ||                   | Number               |
-| title            | Titre du dropdown                                   ||                   | String               |
-| type             | Détermine si l'élement est affiché comme un button  ||                   | String               |
+| ariaLabel        | Valeur de aria-label pour l'accessibilité           | &nbsp;      | &nbsp;           | String          |
+| className        | Classname Css pour l'affichage                      | &nbsp;      | &nbsp;           | String          |
+| closeClick       | Cache ou non le dropdown après le click sur un item | &nbsp;      | True             | Boolean         |
+| disabled         | Activé ou désactivé un item                         | &nbsp;      | False            | Boolean         |
+| drawArrow        | Affiche ou non la flèche sur le dropdown déroulé    | &nbsp;      | True             | Boolean         |
+| icon             | Classe Css pour l'affichage d'un icon en Bouton     | &nbsp;      | &nbsp;           | String          |
+| id               | Id du composant                                     | &nbsp;      | &nbsp;           | String          |
+| items            | Liste des différentes options possibles             | &nbsp;      | &nbsp;           | any             |
+| label            | Label du composant ("Affichage")                    | &nbsp;      | &nbsp;           | String          |
+| labelClassName   | Style css du label                                  | &nbsp;      | &nbsp;           | String          |
+| onClick          | Méthode appelée lors d'un click sur le dropdown     | &nbsp;      | &nbsp;           |React.MouseEventHandler<HTMLInputElement>|
+| position         | La position du dropdown déroulé                     | &nbsp;      | Position.BOTTOMRIGHT | Enum Position : BOTTOMLEFT, BOTTOMRIGHT, TOPLEFT, TOPRIGHT  |
+| valueCurrent     | Valeur qui est sélectionnée                         | &nbsp;      | &nbsp;           | Number          |
+| title            | Titre du dropdown                                   | &nbsp;      | &nbsp;           | String          |
+| type             | Détermine si l'élement est affiché comme un button  | &nbsp;      | &nbsp;           | String          |
+|ariaLabelledById  | Identifiant de l'élément lié répresentant le label du composant| &nbsp;  | &nbsp;    | String          |
 
 Voici les différentes positions pour le Dropdown déroulé: 
 
@@ -52,18 +53,18 @@ Le composant dropdown utilise un autre composant : `dropdown-item`.
 ### Dropdown-Items
 Il faut créer une liste des items du dropdown qui contiendra plusieurs attributs :
 
-| Attribut         | Description                                         | Obligatoire |Valeur par défaut           |Type |
-| ---------------- | --------------------------------------------------- | ------------|--------------------------- |-----|
-| action           | La fonction javascript à exécuter en cas de clics   ||                             |Function|
-| className        | Le style css de l'item                              ||                             |string|
-| disabled         | Activer ou non l'item                               ||                             |boolean|
-| getRef           | Fonction de gestion de la ref                       |||Function|
-| handleKeyDown    | Fonction appelée lors de l'evennement onKeyDown     |||Function|
-| label            | Label de l'item                                     ||                             |string|
-| lang             | Langue du dropdown item                             |||string|
-| srcImg           | Chemin du logo pour l'item                          ||                             |string|
-| url              | Une url pour la navigation en cas de clique         ||                             |string|
-| valueCurrent     | Valeur qui est sélectionnée                         ||                   | Number |
+| Attribut         | Description                                         | Obligatoire |Valeur par défaut           |Type       |
+| ---------------- | --------------------------------------------------- | ------------|--------------------------- |-----------|
+| action           | La fonction javascript à exécuter en cas de clics   | &nbsp;      | &nbsp;                     | Function  |
+| className        | Le style css de l'item                              | &nbsp;      | &nbsp;                     | string    |
+| disabled         | Activer ou non l'item                               | &nbsp;      | &nbsp;                     | boolean   |
+| getRef           | Fonction de gestion de la ref                       | &nbsp;      | &nbsp;                     | Function  |
+| handleKeyDown    | Fonction appelée lors de l'evennement onKeyDown     | &nbsp;      | &nbsp;                     | Function  |
+| label            | Label de l'item                                     | &nbsp;      | &nbsp;                     | string    |
+| lang             | Langue du dropdown item                             | &nbsp;      | &nbsp;                     | string    |
+| srcImg           | Chemin du logo pour l'item                          | &nbsp;      | &nbsp;                     | string    |
+| url              | Une url pour la navigation en cas de clique         | &nbsp;      | &nbsp;                     | string    |
+| valueCurrent     | Valeur qui est sélectionnée                         | &nbsp;      | &nbsp;                     | Number    |
 
 Enfin, si l'on désire voir quel item est actif, il ne faut pas oublier de créer la condition pour changer l'attribut `disabled`.
 

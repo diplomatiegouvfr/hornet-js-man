@@ -13,6 +13,7 @@ Exemple de formulaire simple :
 Exemple d'un formulaire simple:
 
 ```javascript
+
 import { Form } from "hornet-js-react-components/src/widget/form/form";
 
 /**
@@ -76,31 +77,33 @@ messages.json:
     "validTitle": "Validation de la saisie du formulaire de contact",
     "cancelTitle": "Annulation de la saisie du formulaire de contact"
 }
+
 ```
 
 Descriptif des attributs du composant formulaire Hornet :
 
-| Attribut                | Description                                                                                    | Obligatoire | Valeur par défaut | Type |
-| ----------------------- | ---------------------------------------------------------------------------------------------- | ------------|------------------ | -----|
-| className               | Nom de la classe CSS à affecter au formulaire.                                                 | |"formRecherche"   |string|
-| customValidators        | Valideurs customisés : permettent d'implémenter et de chaîner des règles de validation difficiles à mettre en oeuvre simplement avec un schéma json-schema. Ils sont appliqués après la validation basée sur le schéma de validation, donc les données du formulaire ont déjà éventuellement bénéficié de la coercition de types.| |[]|array[ICustomValidation]|
-| defaultValues           | Données initiales du formulaire                                                                | | |any |
-| formMessages            | Messages spécifiques à ce formulaire : utilisés pour la génération des messages d'erreur de validation |||any|
-| hideButtons             | Lorsqu'égal à true, les boutons de validation ne sont pas affichés                             || false             |boolean|
-| id                      | Identifiant du formulaire                                                                      | Oui | |string|
-| imgFilePath             | Surcharge de l'url des images (ex. : http://localhost:7777/internet), notamment les icônes indiquant la présence d'une infobulle. Il faut que les images se situent au même niveau d'arborescence que celles du thème intranet et que leurs noms soient identiques (ex. : "/img/tooltip/ico_tooltip.png"). | ||string|
-| isMandatoryFieldsHidden | Lorsque mis à true, le message d'information concernant les champs obligatoires est masqué     || false             |boolean|
-| markRequired            | Lorsqu'égal à false,les libellés des champs obligatoires ne sont pas marqués avec un astérisque|| true              |boolean|
-| name                    | Nom du formulaire                                                                              |||string|
-| notifId                 |  Identifiant du groupe de notifications auquel seront rattachées les notifications d'erreurs de validation de ce formulaire| | | string|
-| onBeforeSubmit          | Fonction déclenchée lors de la soumission du formulaire, avant la validation                   |||(data: any) => void|
-| onFormChange            | Fonction déclenchée lors de la modification d'un champ du formulaire                           ||| function(){}      |
-| onSubmit                | Fonction déclenchée lors de la soumission du formulaire, lorsque celui-ci est valide           ||| React.FormEventHandler<HTMLElement> |
-| schema                  | Schema JSON de validation                                                                      |||any|
-| subTitle                | Sous-titre éventuel                                                                            || null              |string|
-| text                    | Texte descriptif éventuel                                                                      ||                   |string|
-| textLang                | Langue du texte descriptif                                                                     |||string|
-| validationOptions       | Options de validation ajv (cf. http://epoberezkin.github.io/ajv/#options)                      ||DataValidator.DEFAULT_VALIDATION_OPTIONS |ajv.Options|
+| Attribut                | Description                                                                                    | Obligatoire | Valeur par défaut | Type    |
+| ----------------------- | ---------------------------------------------------------------------------------------------- | ------------|------------------ | ------- |
+| className               | Nom de la classe CSS à affecter au formulaire.                                                 | &nbsp;      |"formRecherche"    | string  |
+| customValidators        | Valideurs customisés : permettent d'implémenter et de chaîner des règles de validation difficiles à mettre en oeuvre simplement avec un schéma json-schema. Ils sont appliqués après la validation basée sur le schéma de validation, donc les données du formulaire ont déjà éventuellement bénéficié de la coercition de types. | &nbsp; | [] | array[ICustomValidation] |
+| defaultValues           | Données initiales du formulaire                                                                | &nbsp;       | &nbsp;           | any     |
+| formMessages            | Messages spécifiques à ce formulaire : utilisés pour la génération des messages d'erreur de validation | &nbsp; | &nbsp;         | any     |
+| hideButtons             | Lorsqu'égal à true, les boutons de validation ne sont pas affichés                             | &nbsp;       | false            | boolean |
+| id                      | Identifiant du formulaire                                                                      | Oui          | &nbsp;           | string  |
+| imgFilePath             | Surcharge de l'url des images (ex. : http://localhost:7777/internet), notamment les icônes indiquant la présence d'une infobulle. Il faut que les images se situent au même niveau d'arborescence que celles du thème intranet et que leurs noms soient identiques (ex. : "/img/tooltip/ico_tooltip.png"). | &nbsp; | &nbsp; | string |
+| isMandatoryFieldsHidden | Lorsque mis à true, le message d'information concernant les champs obligatoires est masqué     | &nbsp;       | false            | boolean |
+| markRequired            | Lorsqu'égal à false,les libellés des champs obligatoires ne sont pas marqués avec un astérisque| &nbsp;       | true             | boolean |
+| name                    | Nom du formulaire                                                                              | &nbsp;       | &nbsp;           | string  |
+| notifId                 |  Identifiant du groupe de notifications auquel seront rattachées les notifications d'erreurs de validation de ce formulaire | &nbsp; | &nbsp; | string |
+| onBeforeSubmit          | Fonction déclenchée lors de la soumission du formulaire, avant la validation                   | &nbsp;       | &nbsp;           | (data: any) => void |
+| onFormChange            | Fonction déclenchée lors de la modification d'un champ du formulaire                           | &nbsp;       | &nbsp;           | function(){} |
+| onSubmit                | Fonction déclenchée lors de la soumission du formulaire, lorsque celui-ci est valide           | &nbsp;       | &nbsp;           | React.FormEventHandler<HTMLElement> |
+| schema                  | Schema JSON de validation                                                                      | &nbsp;       | &nbsp;           | any     |
+| subTitle                | Sous-titre éventuel                                                                            | &nbsp;       | null             | string  |
+| text                    | Texte descriptif éventuel                                                                      | &nbsp;       | &nbsp;           | string  |
+| textLang                | Langue du texte descriptif                                                                     | &nbsp;       | &nbsp;           | string  |
+| validationOptions       | Options de validation ajv (cf. http://epoberezkin.github.io/ajv/#options)                      | &nbsp;       | DataValidator.DEFAULT_VALIDATION_OPTIONS |ajv.Options |
+| omitNull                | Transmettre les informations non renseignées lors de la soumission                             | &nbsp;       | false            |boolean  |
 
 Il existe d'autres types de champs :
 
@@ -118,6 +121,24 @@ Exemple avec une adresse mail non valide, lors de la soumission du formulaire, l
 Les notifications s'affichent également au dessus du formulaire si la balise `<Notification id="notif"/>` est présente dans le code (cf exemple).
 
 ![formulaire_validation_sur_champ](../sources/form/form/formulaire-erreur.png)
+
+Le composant Form met à disposition les méthodes publiques suivantes afin de réaliser de la validation de formulaire hors soumission :
+
+```
+        /**
+	     * Retourne le résultat de la validation et ses éventuelles erreurs
+	     * @param schema : schéma de validation, par défaut celui du formulaire
+	     */
+	    getValidationResult(schema?: any): IValidationResult;
+
+	    /**
+	     * Déclenche une validation du formulaire basée sur un schéma précis ou celui défini pour le formulaire
+	     * @param schema : schéma de validation, par défaut celui du formulaire
+	     */
+	    validate(notifyErrors: boolean, schema?: any): boolean;
+```
+
+Par défaut, lors de la validation d'un formulaire les données non renseignées ne sont pas transmises. La props omitNull sert à autoriser la transmission de ces données. Par défaut ces données sont valorisées par une chaîne vide. Il est possible de transmettre à null à la place en valorisant la props nullable du composant en question.
 
 ## Gestion des messages d'erreur
 
@@ -154,6 +175,7 @@ il faut déclarer dans le fichier i18n `messages-fr-FR.json` (selon la langue de
     }
   }
 }
+
 ```
 
 Enfin, il faut déclarer un schéma de validation ([ajv](https://github.com/epoberezkin/ajv)):
@@ -182,6 +204,21 @@ Enfin, il faut déclarer un schéma de validation ([ajv](https://github.com/epob
 
 #### Type spécifique
 
+##### Validation CheckBox required
+
+Si l'on souhaite mettre en place une CheckBoxField obligatoire, il faut préciser dans la déclaration ajv: 
+
+```json
+
+    "vip": {
+      "description": "Indique si le partenaire est VIP",
+      "type": "boolean",
+      "const": true
+    },
+
+
+```
+
 Lorsque l'on veut valider un champ de type `number`, `boolean`, `string`, il faut déclarer au niveau du fichier i18n (`messages-fr-FR.json`), la propriété : `invalid`
 
 ```json
@@ -193,19 +230,20 @@ Lorsque l'on veut valider un champ de type `number`, `boolean`, `string`, il fau
     }
   }
 }
+
 ```
 
 
 ##### Gestion des types sous ajv
 
-| Type d'erreur | attribut ajv | exemple avj |  attribut dans fichier i18n |
-| ----------------------- | ----------------------- | ----------------------- | ----------------------- |
-| Longueur maximum de la valeur du champ | maxLength |"maxLength": 8  | formatMaximum |
-| Longueur minimum de la valeur du champ | minLength |  "minLength": 8  | formatMinimum|
-| Format mail | format | "format": "mail" | format |
-| Type de champ (number, boolean, string) | type | "type": "string" | invalid |
-| Champ de type téléphone | $ref |  "$ref": "#/definitions/telephone" * | pattern |
-| Champ sans espace | $ref | "$ref": "#/definitions/noWhiteSpace" * | pattern |
+| Type d'erreur                           | attribut ajv | exemple avj                              |  attribut dans fichier i18n |
+| --------------------------------------- | ------------ | ---------------------------------------- | --------------------------- |
+| Longueur maximum de la valeur du champ  | maxLength    | "maxLength": 8                           | formatMaximum               |
+| Longueur minimum de la valeur du champ  | minLength    |  "minLength": 8                          | formatMinimum               |
+| Format mail                             | format       | "format": "mail"                         | format                      |
+| Type de champ (number, boolean, string) | type         | "type": "string"                         | invalid                     |
+| Champ de type téléphone                 | $ref         |  "$ref": "#/definitions/telephone" *     | pattern                     |
+| Champ sans espace                       | $ref         | "$ref": "#/definitions/noWhiteSpace" *   | pattern                     |
 
 
 \*Dans ce cas précis, il faut, au préalable, définir dans le schéma l'expression régulière adéquate:
@@ -226,6 +264,20 @@ Lorsque l'on veut valider un champ de type `number`, `boolean`, `string`, il fau
  }
 
 ```
+##### Contrôles de surface et champs liés
+
+Il est possible d'afficher deux champs en erreur (champs entourés en rouge) lors d'une customValidation. Il suffit de paramétrer l'erreur du champ A en mentionnant le champ B grâce au paramètre `linkedFieldsName`:
+
+```javascript
+
+errors.push({
+    dataPath: "champA",
+    keyword: "sectorBetweenDate",
+    schemaPath: "/",
+    params: { linkedFieldsName: [ "champB" ] },
+});
+
+```
 
 ## Evènements
 
@@ -239,7 +291,7 @@ Un formulaire Hornet peut être utilisé pour présenter des données en lecture
 Dans ce cas la propriété readOnly du formulaire doit être valorisée à `true`.  
 
 ```javascript
-...
+
 <Form id="form-example"
      schema={schema}
      formMessages={formI18n}
@@ -247,7 +299,7 @@ Dans ce cas la propriété readOnly du formulaire doit être valorisée à `true
      readOnly={true}
  >
 </Form>
-...
+
 ```
 
 
@@ -343,7 +395,7 @@ Les fieldsets permettent de structurer le formulaire en sous parties.
 Exemple de formulaire avec des fieldsets:
 
 ```javascript
-...
+
 <Form id="form-example"
     schema={schema}
     formMessages={formI18n}
@@ -361,7 +413,7 @@ Exemple de formulaire avec des fieldsets:
             className="hornet-button" label="Valider" title="Validation du formulaire" />
     </ButtonsArea>
 </Form>
-...
+
 ```
 
 ![formulaire_fieldset](../sources/form/form/fieldset.png)
@@ -369,12 +421,20 @@ Exemple de formulaire avec des fieldsets:
 ### Les rows
 
 Les rows permettent de définir des "blocs" de champs.
-Si la taille des champs n'est pas définit dans le formulaire, elle sera calculée en fonction du nombre de champs dans la row.
+Si la taille des champs n'est pas définie dans le formulaire, elle sera calculée en fonction du nombre de champs dans la row.
+Le composant `Row` peut être défini avec les paramètres suivants:
+
+| Attribut  | Description                                                                   | Obligatoire | Valeur par défaut | Type       |
+| ----------| ------------------------------------------------------------------------------|-------------|-------------------|------------|
+| className | Nom des classes CSS, séparés par un espace, à utiliser                        | &nbsp;      | &nbsp;            | String     |
+| fraction  | Indique le nombre de colonnes à construire                                    | &nbsp;      | &nbsp;            | number     |
+
+Lorsque la props `fraction` est définie, il est possible de surcharger la classe css ```.grid-{valeur-de-l'attribut-fraction}.fraction>.abstractfield-container>.label-row-inline``` pour gérer l'alignement des éléments présents dans le `Row`. 
+
 
 Exemple:
 
 ```javascript
-...
 <Form id="form-example"
     schema={schema}
     formMessages={formI18n}
@@ -392,7 +452,6 @@ Exemple:
             className="hornet-button" label="Valider" title="Validation du formulaire" />
     </ButtonsArea>
 </Form>
-...
 ```
 
 Aperçu :

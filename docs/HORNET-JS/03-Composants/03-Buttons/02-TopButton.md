@@ -12,12 +12,12 @@ Attributs du composant :
 
 | Attibut   | Description                                                        | Obligatoire | Valeur par défaut | Type |
 | --------- | ------------------------------------------------------------------ | --------- | ------------------- | -----|
-| className | Classes css du bouton|   | | string |
-| footer    | Identifiant de la balise du footer || "footer-container" | string |
-| header    | Identifiant de la balise du header | | "header-container" |string |
-| id        | Identifiant unique du bouton |  | |string |
-| name      | Nom du bouton | | |string |
-| title     | Titre du bouton | |  |string |
+| className | Classes css du bouton                                              | &nbsp;    | &nbsp;              | string |
+| footer    | Identifiant de la balise du footer                                 | &nbsp;    | "footer-container"  | string |
+| header    | Identifiant de la balise du header                                 | &nbsp;    | "header-container"  | string |
+| id        | Identifiant unique du bouton                                       | &nbsp;    | &nbsp;              | string |
+| name      | Nom du bouton                                                      | &nbsp;    | &nbsp;              | string |
+| title     | Titre du bouton                                                    | &nbsp;    | &nbsp;              | string |
 
 
 ## Live coding
@@ -26,8 +26,6 @@ Attributs du composant :
 
 ```javascript showroom
 return(
-    <main id="page">
-        <TopButton id="top-button-exemple"/>
-    </main>
+    <TopButton id="top-button-exemple"/>
 );
 ```

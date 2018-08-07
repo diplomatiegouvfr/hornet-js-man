@@ -94,7 +94,7 @@ L'arboressence obtenue doit ressembler à ceci :
 ```
 [DocumentRoot ou Alias]
 	/hornet
-		/5.1.X
+		/5.x.x
 			/NOM_THEME
 ```
 
@@ -102,4 +102,4 @@ L'arboressence obtenue doit ressembler à ceci :
 
 Accès aux ressources du CDN :
 
-- Saisir l’url ` [PROTOCOLE]://[URL]:[PORT]/hornet/5.1.X/NOM_THEME/css/theme.css` dans un navigateur web.
+- Saisir l’url ` [PROTOCOLE]://[URL]:[PORT]/hornet/5.x.x/NOM_THEME/css/theme.css` dans un navigateur web.

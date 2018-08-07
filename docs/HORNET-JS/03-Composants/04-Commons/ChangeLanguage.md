@@ -41,13 +41,13 @@ Exemple : messages-en-EN.json
 
 ## Utilisation
 
-|        Attribut       | Description                                                      | Obligatoire | Valeur par défaut | Type |
-| --------------------- | -----------------------------------------------------------------|-------------|-------------------| -----|
-| id                    | Identifiant du composant                                         |             |                   |string|
-| isOpen                | Boolean permettant de savoir si la liste deroulante est affiché  |             | false             |boolean|
-| handleChangeLanguage  | Fonction appelée pour changer la langue                          |             |                   |(locale: string) => void|
-| switchTitle           | Titre du composant                                               |             |                   |string|
-| position              | Détermine la position de la flèche                               |             | Position.BOTTOMLEFT |Position|
+|        Attribut       | Description                                                      | Obligatoire | Valeur par défaut | Type     |
+| --------------------- | -----------------------------------------------------------------|-------------|-------------------| ---------|
+| id                    | Identifiant du composant                                         | &nbsp;      | &nbsp;            | string   |
+| isOpen                | Boolean permettant de savoir si la liste deroulante est affiché  | &nbsp;      | false             | boolean  |
+| handleChangeLanguage  | Fonction appelée pour changer la langue                          | &nbsp;      | &nbsp;            | (locale: string) => void|
+| switchTitle           | Titre du composant                                               | &nbsp;      | &nbsp;            | string   |
+| position              | Détermine la position de la flèche                               | &nbsp;      | Position.BOTTOMLEFT |Position|
 
 Pour information, la liste des langues est créée automatiquement en analysant le dossier **resources** . Cette dernière est stockée dans utils **appSharedProps** sous la variable **listLanguage**
 Le format json de la liste est :
