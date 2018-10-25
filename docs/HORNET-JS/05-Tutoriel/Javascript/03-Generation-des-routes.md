@@ -8,7 +8,7 @@ Il faut avoir créé un projet Hornet JS à l'aide du [template Yeoman](/hornets
 
 Sous le projet créé : 
 
-```shell
+```
 
 npm install
 
@@ -18,7 +18,7 @@ npm install
 
 Sous le projet : 
 
-```shell
+```
 
 npm run plop
 

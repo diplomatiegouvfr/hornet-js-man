@@ -211,6 +211,8 @@ return (
 
 ### Formater un message complexe
 
+Pour plus d'informations consulter le lien https://www.npmjs.com/package/intl-messageformat
+
 #### A l'aide de la  méthode `i18n`
 
 
@@ -233,6 +235,30 @@ let titre = this.i18n(partenaireFichePage.titre, {
     prenom: this.state.form.data.prenom
 });
 ...
+```
+
+#### Gestion du pluriel
+
+Il est possible de conditionner les messages suivant des valeurs particulières d'une variable, ce qui peut être pratique pour la gestion du pluriel par exemple :
+
+
+```javascript   
+let mess = this.i18n("{nbClient, plural, =0 {Aucun client de sélectionné} =1 {1 client de sélectionné} other {# clients de sélectionnés}}", {nbClient: 0})
+console.log(mes); // => Aucun client de sélectionné
+let mess = this.i18n("{nbClient, plural, =0 {Aucun client de sélectionné} =1 {1 client de sélectionné} other {# clients de sélectionnés}}", {nbClient: 10})
+console.log(mes); // => 10 clients de sélectionnés
+```
+le `plural` peut aussi gérer la valeur `undefined` en précisant `=undefined`
+
+#### Gestion du select
+
+Il est possible de conditionner les messages suivant des valeurs particulières ( dont `undefined` ) :
+
+```javascript   
+let mess = this.i18n("Supprimer le client {nom, select, undefined {} others {{nom} - {prenom}}}", {nom: undefined, prenom: "lePrenom"})
+console.log(mes); // => Supprimer le client
+mess = this.i18n("Supprimer le client {nom, select, undefined {} others {{nom} - {prenom}}}", {nom: "leNom", prenom: "lePrenom"})
+console.log(mes); // => Supprimer le client leNom - lePrenom
 ```
 
 ## Les classes de chargement

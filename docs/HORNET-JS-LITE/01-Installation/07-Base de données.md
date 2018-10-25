@@ -1,0 +1,344 @@
+# Installation base de données
+
+## Installation et Configuration Debian
+
+Postgresql et PGAdminIII sont déjà installés sur les postes Debian.
+Voici 4 scripts fournis qui permettent de faciliter la gestion et l'utilisation de postgresql.
+
+ - pg_creationInstanceUser.sh :
+
+```
+ #!/bin/sh
+
+
+
+ localPath="Postgresql_DB"
+
+ ###Creation instance
+
+ #Creation d'une instance postgresql vide dans le repertoire ${localPath}
+
+ /usr/lib/postgresql/9.5/bin/initdb ~/${localPath}
+
+ #Utilisation socket sur /tmp (droit utilisateur)
+
+ sed -i "s/^#unix_socket_directories = '\/var\/run\/postgresql'/unix_socket_directories = '\/tmp'        # default  var run postgresql/"  ~/${localPath}/postgresql.conf
+ ```
+
+  - pg_demarrageBase.sh :
+
+```
+#!/bin/sh
+
+localPath="Postgresql_DB"
+
+##Start
+
+/usr/lib/postgresql/9.5/bin/pg_ctl -D ~/${localPath} -l ~/postgresql.log start
+
+echo "Ne pas oublier de faire la commande suivante dans votre shell : export PGHOST=/tmp si vous souhaitez etre DBA"
+```
+
+ - pg_arretBase.sh:
+
+```
+#!/bin/sh
+
+localPath="Postgresql_DB"
+
+###Stop
+
+/usr/lib/postgresql/9.5/bin/pg_ctl -D ~/${localPath} stop
+```
+
+ - pg_creationBaseEtRoles.sh:
+
+```
+#!/bin/sh
+
+#User a utiliser : user local avec droit admin sur son instance PG
+
+
+
+
+
+export PGHOST=/tmp
+
+portdb=5432
+
+
+
+# Verification de la version
+
+versionAttendue="9.5"
+
+version=$(psql -p $portdb -A -t -c  "show server_version;" postgres)
+
+major=$(echo $version | cut -d. -f1,2)
+
+minor=$(echo $version | cut -d. -f3)
+
+if [ "$major" != "$versionAttendue" ]; then
+
+        echo "Erreur!! Version validee = $versionAttendue";
+
+        exit 20;
+
+fi
+
+
+
+dbproject="applitutorielDB"
+
+dbenv="dvlt"
+
+dbinstance="00"
+
+dbname="${dbproject}_${dbenv}_${dbinstance}"
+
+
+
+# Creation du script SQL de creation de base et roles
+
+cat << EOF_SCRIPTSQL > /tmp/creationDBetRole.sql
+
+/* Creation du role $dbname#usr pour acces en ecriture (et lecture) */
+
+CREATE ROLE "${dbname}#usr" NOSUPERUSER NOINHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
+
+GRANT SELECT,INSERT,UPDATE,DELETE ON ALL TABLES IN SCHEMA public TO "${dbname}#usr";
+
+GRANT SELECT,UPDATE ON ALL SEQUENCES IN SCHEMA public TO "${dbname}#usr";
+
+
+
+/* Creation du role $dbname#lec pour acces en lecture */
+
+CREATE ROLE "${dbname}#lec" NOSUPERUSER NOINHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;
+
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO "${dbname}#lec";
+
+
+
+/* Privilege lecture par defaut a la creation */
+
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO "${dbname}#lec";
+
+
+
+/* Creation du role $dbname_dbo : modification de schema */
+
+CREATE ROLE ${dbname}_dbo WITH NOSUPERUSER NOCREATEDB LOGIN PASSWORD 'pwd_dbo';
+
+ALTER DATABASE ${dbname} OWNER TO ${dbname}_dbo;
+
+
+
+/* Creation du role $dbname_lec : lecture seule */
+
+CREATE ROLE ${dbname}_lec WITH LOGIN PASSWORD 'pwd_lec' IN ROLE "${dbname}#lec";
+
+
+
+/* Creation du role $dbname_usr : lecture/ecriture */
+
+CREATE ROLE ${dbname}_usr WITH LOGIN PASSWORD 'pwd_usr' IN ROLE "${dbname}#usr";
+
+
+
+
+
+EOF_SCRIPTSQL
+
+echo "Le fichier /tmp/creationDBetRole.sql est pret"
+
+echo "# export PGHOST=/tmp && psql -c 'CREATE DATABASE applitutorielDB_dvlt_00;' postgres && psql -d applitutorielDB_dvlt_00 -c 'CREATE EXTENSION btree_gist;' &&  psql -d applitutorielDB_dvlt_00 -f /tmp/creationDBetRole.sql"
+
+
+
+
+
+# Creation du fichier .pgpass local (pour les postes de dev)
+
+cat << EOF_PGPASS > /tmp/.pgpass
+
+localhost:5433:${dbname}:${dbname}_lec:pwd_lec
+
+localhost:5433:${dbname}:${dbname}_usr:pwd_usr
+
+localhost:5433:${dbname}:${dbname}_dbo:pwd_dbo
+
+EOF_PGPASS
+
+echo "Le fichier /tmp/pgpass est pret"
+
+
+
+
+
+
+
+# Creation du script SQL de SUPPRESSION de base et roles
+
+cat << EOF_SCRIPTSQL2 > /tmp/suppressionDBetRole.sql
+
+
+
+
+
+DROP DATABASE ${dbname};
+
+DROP ROLE ${dbname}_lec;
+
+DROP ROLE "${dbname}#lec";
+
+DROP ROLE "${dbname}#usr";
+
+DROP ROLE ${dbname}_usr;
+
+DROP ROLE ${dbname}_dbo;
+
+
+
+EOF_SCRIPTSQL2
+
+echo "Le fichier /tmp/suppressionDBetRole.sql est pret"
+
+echo "#  export PGHOST=/tmp &&  psql  -f /tmp/suppressionDBetRole.sql postgres"
+
+```
+
+
+ - Exécution des scripts :
+
+1°) pg_creationInstanceUser.sh
+
+2°) pg_demarrageBase.sh
+
+3°) pg_creationBaseEtRoles.sh (Optionnel)
+
+4°) pg_arretBase.sh
+
+
+## Conversion Script SQL
+
+Pour créer une base de données postgresql, il faut réadapter les scripts  SQL de création des tables et d'insertion de données.
+Les modifications suivantes sont à opérer sur les fichiers createTablesPosgres.sql et initDataPostgres.sql.
+
+ - Remplacer la valeur des champs de type Boolean par TRUE au lieu de 1 et FALSE à la place de 0.
+
+Exemple:
+
+Avant
+
+```
+UTI_ENABLED BOOLEAN DEFAULT '0' NOT NULL
+```
+
+Apres
+
+```
+UTI_ENABLED BOOLEAN DEFAULT FALSE NOT NULL
+```
+
+ - Pour les clés primaires on va utiliser SERIAL pour indiquer que le champ est autoincrement. Ce qui va automatiquement créer une séquence. Pas besoin de préciser l'id lors du insert into.
+
+
+Exemple:
+
+Avant
+
+```
+ID_SECTEUR INTEGER GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY
+```
+
+Apres
+
+```
+ID_SECTEUR SERIAL PRIMARY KEY
+```
+
+ - Si on veut récupérer le dernier ID inséré :
+
+```
+SELECT max(ID_SECTEUR) FROM SECTEUR;
+```
+
+ - Le type BLOB est remplacé par le type BYTEA.
+
+Exemple:
+
+Avant
+
+```
+CONTENU BLOB
+```
+
+Apres
+
+```
+CONTENU BYTEA
+```
+
+ - Le type DATETIME est remplacé par TIMESTAMP.
+
+Exemple:
+
+Avant
+
+```
+ PAR_DATE_CREATION DATETIME NULL
+```
+
+Apres
+
+```
+PAR_DATE_CREATION TIMESTAMP NULL
+```
+
+Remplacer la fonction CURDATE() par LOCALTIMESTAMP.
+
+## Initialisation de la Base
+
+Ouvrir pgAdmin dans l'arborescence navigateur d'objet.
+
+Cliquer sur Serveur puis Double cliquer sur Postgres 9.3 localjost:5432 pour se connecter.
+
+Faire un clique droit sur Base de donnée --> Ajouter une base.
+
+Saisir le nom de la base  dans le champs nom et selectionné postgres en tant que propriétaire puis valider.
+
+Double cliquer sur la base nouvellement créée.
+
+Selectionner l'icon loupe avec marqué SQL.
+
+Importer le script SQL createTablesPostgres se trouvant dans le dossier Database du projet
+
+```
+Query returned successfully with no result.
+```
+
+Exécuter le scipt
+Importer le script SQL initDataPostgres
+
+```
+Query returned successfully with no result.
+```
+
+Lors de la création des tables, des séquences sont créées pour les champs clés primaire auto incrémenté. Il n'est donc pas nécessaire de préciser la valeur de l'id dans l'insert.
+
+Note : Sous Debian, pour se connecter à l'instance de postgresql du user :
+
+* Name : localhost
+* Host : 127.0.0.1
+* Port : 5432
+* Username : votreUserDebian
+* Password : ne rien mettre ou ressaisir mot de passe compte Debian
+
+Issu de la documentation de postgresql :
+
+```
+Tip: It is good practice to create a role that has the CREATEDB and CREATEROLE privileges, but is not a superuser, and then use this role for all routine management of databases and roles. This approach avoids the dangers of operating as a superuser for tasks that do not really require it.
+```
+
+Il est donc conseillé de ne pas utiliser votre user de session mais de créer un user "manager" que vous utiliserez pour créer les rôles, bases de données et autres objets liés aux tâches de gestion de la base.

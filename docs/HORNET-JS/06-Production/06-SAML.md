@@ -26,7 +26,3 @@ La liste des profils alloués à l'utilisateur pour l'application cliente.
 
 &#42;&#42; IdP: Identity Provider - fournisseur d'identité répondant à la demande du SP. Il est chargé d'authentifier l'utilisateur et de forger la réponse contenant les informations associées à l’identité (groupe en général) et demandées par le SP.
 
-
-## Plus d'informations
-
-[Page wiki SAML](https://cognitium.forge.dsinet.diplomatie.gouv.fr/wiki/index.php/SAML)

@@ -1,4 +1,4 @@
-# Le composant Table
+-# Le composant Table
 
 ## Description
 
@@ -373,7 +373,9 @@ propriétés du composant `Content` :
 | loadingMessage   | Attribut permettant de surcharger le message par défaut du spinner du tableau | &nbsp;| &nbsp; | JSX.Element ou String |
 | notifId          | L'id du composant "Notification" auquel seront ratachées les notifications. si non present , Les notifications s'affichent au dessus du tableau | &nbsp; | &nbsp; | string |
 | onSubmit         | Fonction déclenchée lors de la soumission du formulaire | &nbsp;   | &nbsp;           | (data: any, item: any) => void |
-| schema           | Schéma Json de validation de saisie                 | &nbsp;       | &nbsp;           | Valideurs customisés |
+| schema           | Schéma Json de validation de saisie                 | &nbsp;       | &nbsp;           | Valideurs |
+| customValidators | Tableau de class de validation custom               | &nbsp;       | &nbsp;           | Valideurs customisés |
+| formMessages     | Messages custom à utiliser pour la validation       | &nbsp;       | &nbsp;           | Objet      |
 | title            | Titre du tableau (utilisé pour le caption lié à l'accessibilité | &nbsp; | &nbsp;     | string     |
 | width            | Largeur du tableau                                  | &nbsp;       | &nbsp;           | number     |
 | headerHidden     | Permet de masquer les entêtes de colonne            | &nbsp;       | &nbsp;           | boolean    |
@@ -581,6 +583,7 @@ propriétés du composant `EditionActionColumn`
 | titleEdit    | Message affiché dans le titre de l'action éditer                | &nbsp;      | &nbsp;            | string      |
 | titleSave    | Message affiché dans le titre de l'action enregistrer la modification | &nbsp;| &nbsp;            | string      |
 | visible      | Fonction appelée pour rendre visible on non les cellules        | &nbsp;      | &nbsp;            | Function    |
+| handleCancel | Fonction exécutée au moment de l'annulation de l'edition d'une ligne | &nbsp; | &nbsp;            | Function    |
 
 Exemple:
 

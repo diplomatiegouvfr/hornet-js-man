@@ -4,13 +4,13 @@
 
 Le composant `Alert` affiche un message avec une demande de confirmation par l'utilisateur (boutons `valider` et `annuler`).
 
-![Boîte de confirmation](../sources/dialog/alert.png)
+![Boîte de confirmation](../sources/dialog/alert-only-valid.png)
 
 Alert reprend le comportement et donc les principes du composant Modal.
 
 ## Utilisation
 
-Nous retrouvons donc les attributs: `isVisible`, `onClickClose`, `onClickOutsideDialog` et `className`.
+Nous retrouvons donc les attributs: `isVisible`, `onClickOk`, `onClickOutsideDialog` et `className`.
 
 Dans l'exemple suivant, la popup affiche un formulaire et ses boutons.
  
@@ -28,7 +28,6 @@ render(): JSX.Element {
                 message={"Etes-vous sûr(e) de vouloir supprimer ce secteur?"}
                 isVisible={this.state.isOpenAlertDelete}
                 onClickOk={this._supprimer}
-                onClickCancel={this.closeAlert}
                 onClickClose={this.closeAlert}
                 title={"Suppression de secteur"}
             />
@@ -55,41 +54,11 @@ Les attributs du composant `Alert` :
 | onClickClose         | Passer la méthode à appeler lorsque l'utilisateur clique sur la croix (en haut à droite) ou sur le bouton `Annuler` | &nbsp; | &nbsp; | React.MouseEventHandler<HTMLInputElement> |
 | title                | Titre de l'alerte                                                              | &nbsp;      | &nbsp;            | string     |
 | valid                | Fonction de validation                                                         | &nbsp;      | &nbsp;            | string     |
-| cancel               | Fonction appelé lors de l'annulation de la modale                              | &nbsp;      | &nbsp;            | string     |
 | validTitle           | Title du bouton de validation                                                  | &nbsp;      | &nbsp;            | string     |
-| cancelTitle          | Title du bouton d'annulation                                                   | &nbsp;      | &nbsp;            | string     |
 | underlayClickExits   | Permet de sortir de l'alerte lors d'un clique en dehors de celle-ci            | &nbsp;      | false             | boolean    |
 | escapeKeyExits       | Permet de spécifier si on peut utiliser la touche "Echappe" pour sortir de l'alerte | &nbsp; | false             | boolean    |
 | notificationId       | Identifiant des notifications                                                  | &nbsp;      | &nbsp;            | string     |
 | dialogId             | identifiant de l'alerte                                                        | &nbsp;      | &nbsp;            | string     |
-
-
-### Alerte sur une action d'un tableau
-
-Les composants `Table` possèdent des colonnes d'action `ActionColumn` qui permettent d'effectuer des actions sur les éléments du tableau.
-Il est possible d'afficher une alerte avant d'effectuer cette action.
-
-Exemple:
-
-```
-render(): JSX.Element {
-    return(
-        <div>
-             <Table>
-                ...
-                <Columns>
-                    ...
-                    <ActionColumn
-                        ...
-                        messageAlert={"Etes-vous sûr(e) de vouloir supprimer ce secteur?"}
-                        titleAlert={"Suppression de secteur"}
-                    />
-                </Columns>
-             </Table>
-        </div>
-    );
-}
-```
 
 ## Live coding
 
@@ -105,7 +74,6 @@ render(): JSX.Element {
                     message={"Etes-vous sûr(e) de vouloir supprimer ce secteur?"}
                     isVisible={false}
                     onClickOk={function() {alert("onClickOk")}}
-                    onClickCancel={function() {alert("onClickCancel")}}
                     title={"Suppression de secteur"}
                 />
             </div>

@@ -115,9 +115,9 @@ Dans notre exemple, le formulaire est inclus dans le premier des deux onglets.
 
 return (
     <Tabs id="tabsExemple" selectedTabIndex={0}>
-        <Tab title={"Onglet 1"}>
+        <Tab title={"Onglet 1"} id={"onglet1"}>
         </Tab>
-        <Tab title={"Onglet 2"}>
+        <Tab title={"Onglet 2"} id={"onglet2"}>
         </Tab>
     </Tabs>
  );

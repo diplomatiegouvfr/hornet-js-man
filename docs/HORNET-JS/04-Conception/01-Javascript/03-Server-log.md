@@ -63,7 +63,7 @@ ou avec rotation de date :
       "dateFile": {
          "type": "dateFile",
          "pattern": ".yyyy-MM-dd",
-         "filename":"/var/log/nodejs/#{INSTANCE_NAME}/#{INSTANCE_NAME}.log",
+         "filename":"#{NODE_LOG_DIR}-#{INSTANCE}/#{APPLICATION_CONTEXT_ROOT}/#{APPLICATION_CONTEXT_ROOT}.log",
          "layout": {
             "type": "pattern",
             "pattern": "%d{ISO8601}|%x{tid}|%x{user}|%p|%c|%x{fn}|%m"

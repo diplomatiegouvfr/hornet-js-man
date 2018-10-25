@@ -1,4 +1,4 @@
-# Hornet-js-man 
+# Hornet-js-man
 
 Le projet `hornet-js-man` regroupe toute la documentation du projet hornet.js au format **Flavored Markdown**.
 

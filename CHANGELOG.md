@@ -1,1 +1,1 @@
-# Hornet-js-man 5.1.0
+# Hornet-js-man 5.2.2

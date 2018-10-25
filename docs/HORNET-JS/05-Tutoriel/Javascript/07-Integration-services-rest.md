@@ -175,8 +175,21 @@ description `HornetRequest` :
 | ca                | &nbsp;      | Certificat                                                                      |
 | cert              | &nbsp;      | Certificat                                                                      |
 | key               | &nbsp;      | Certificat                                                                      |
+| progress          | &nbsp;      | fonction pour tracker l'état d'avancement de la requête et reçoit en paramètre un event de type (2) (cf superagent.progress https://visionmedia.github.io/superagent/)|
+| timeout           | &nbsp;      | permet de definir les timeout de la requête (cf superagent.timeout https://visionmedia.github.io/superagent/) |
+| resultDisposition | &nbsp;      | permet de gérer l'affichage côté client (nouvelle fenêtre, téléchargement, ...) |
+| clientTimeout     | &nbsp;      | gestion pour la notification du timeout de session |
+| manageError       | &nbsp;      | Permet d'indique comment gérer la gestion des erreurs sur une requête pour une gestion spécifique |
 
 (1) spinnerType permet de préciser l'évènement déclenché avant et après les appels aux services. Par défaut c'est un 'ASYNCHRONOUS_REQUEST_EVENT' (hornet-event) qui est déclanché, pour SpinnerType.Component c'est un 'ASYNCHRONOUS_REQUEST_EVENT_COMPONENT' (hornet-event).
+
+(2) event attributs : 
+```
+direction: "upload" or "download"
+percent: 0 to 100 // may be missing if file size is unknown
+total: // total file size, may be missing
+loaded: // bytes downloaded or uploaded so far
+```
 
 
 ### les services sécurisés 

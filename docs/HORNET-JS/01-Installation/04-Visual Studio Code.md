@@ -123,5 +123,76 @@ Modifier les paramètres utilisateurs de vscode : ~/.config/Code/User/settings.j
 "editor.renderWhitespace": "all",
 ```
 
-## Configuration tslint (In progress)
+## Configuration tslint 
 
+
+### Pré-requis
+
+- installer en global typescript et créer un lien symbolique de tsc
+- installer le plugin TSLint dans vscode
+- 
+
+### Configuration
+
+Insérer la configuration suivante dans le fichier `settings.json`:
+
+```
+
+    "extensions.autoUpdate": false,
+    // Always show rule failures as warnings, independent of the tslint configuration.
+    "tslint.alwaysShowRuleFailuresAsWarnings": true,
+    // Always show the TSlint status bar item, not only when there are errors or warnings.
+    "tslint.alwaysShowStatus": false,
+    // Turns auto fix on save on or off, or defines which rules (e.g. `no-var-keyword`) to auto fix on save.
+    "tslint.autoFixOnSave": true,
+    // A path added to NODE_PATH when resolving the tslint module.
+    "tslint.nodePath": "${pathNode}",
+    "tslint.configFile": "${pathNode}/lib/node_modules/hornet-js-builder/src/conf/tslint.json",
+
+```
+
+penser à remplacer la variable `${pathNode}` afin de pointer vers le répertoire d'installation de node.js
+
+
+## Activer watcher typescript et exécution automatique au démarrage de vscode
+
+### Pré-requis
+
+- installer en global typescript et créer un lien symbolique de tsc
+- installer le plugin Blade Runner
+
+### Configuration
+
+Insérer la configuration suivante dans le fichier `tasks.json`:
+
+```
+
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Watcher Typescript",
+            "command": "tsc",
+            "args": [
+                "-p",
+                "${path/workspace/}",
+                "--pretty",
+                "-w",
+                "--sourceMap"
+            ],
+            "problemMatcher": [
+                "$tsc-watch"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "isBackground": true
+        }
+    ]
+}
+
+```
+
+Remplacer `${path/workspace/}` par le chemin absolu vers le workspace
+Le fait d'installer le plugin `Blade Runner` permettra de lancer la tâche au démarrage de l'application.

@@ -1,4 +1,4 @@
-# Node  #
+# Node #
 
 Ce document a pour but de décrire les opérations à effectuer pour installer et configurer un environnement de développement pour `hornet-js` version `5.x.x` et supérieur.
 
@@ -104,7 +104,7 @@ En resumé:
 ```
 export N_PREFIX=~/Dev/tools/node
 export PROJECT_NAME="node"
-export PROJECT_URL="http://artifactory.app.diplomatie.gouv.fr/artifactory-dev/repository-npm-tiers/nodejs/dist/"
+export PROJECT_URL="url_registry"
 ```
 
 ces trois lignes peuvent être ajoutées à la suite du fichier ~/.profile au lieu de les déclarer à chaque session.
