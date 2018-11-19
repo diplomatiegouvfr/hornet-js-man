@@ -73,7 +73,7 @@
  * hornet-js-man - Documentation hornet-js globale
  *
  * @author MEAE - Ministère de l'Europe et des Affaires étrangères
- * @version v5.2.2
+ * @version v5.2.3
  * @link git+https://github.com/diplomatiegouvfr/hornet-js-man.git
  * @license CECILL-2.1
  */

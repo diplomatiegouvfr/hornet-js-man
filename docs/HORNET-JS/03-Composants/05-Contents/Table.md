@@ -446,7 +446,7 @@ Paramètre d'une colonne :
 | `compareMethod`            | Méthode de comparaison destinée au tri de la colonne | &nbsp; | &nbsp;      | `Function`      |
 | `orderByLabelUp`           | Label de substitution dans le cas d'un tri custom ascendant | &nbsp; | &nbsp; | `string`      |
 | `orderByLabelDown`         | Label de substitution dans le cas d'un tri custom descendant | &nbsp; | &nbsp; | `string`     |
-
+| `replaceUndef`             | Valeur de remplacement dans le cas ou la valeur cherchée dans la value depuis le keyColumn ne renvoie rien | &nbsp; | &nbsp; | `string`     | 
 La propriété `compareMethod` est une fonction de tri de la colonne. sa signature est la suivante:
 - 1er argument: un objet de type `SortData`
 - 2ème argument: un objet "a" correspondant à un item (ligne) du tableau

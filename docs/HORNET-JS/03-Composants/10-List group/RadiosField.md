@@ -58,12 +58,14 @@ Attributs du composant RadiosField :
 | Attribut     | Description                                                         | Obligatoire |Valeur par défaut | Type     |
 | ------------ | ------------------------------------------------------------------- | ----------- |----------------- |--------- |
 | id           | Information optionnelle, valorisée par le name si non indiquée      | &nbsp;      | &nbsp;           | string   |
-| defaultValue | Indique et définit si la valeur par défaut selectionné              | &nbsp;      | &nbsp;           | any      |
+| defaultValue | valeur par défaut à utiliser, doit être à l'image du datasource ou data utilisé.`*`| &nbsp;      | &nbsp;           | any      |
 | dataSource   | Données des boutons radio, format: {{"value":"", "label":""}...}    | &nbsp;      | &nbsp;           |Datasource|
 | data         | Données des boutons radio en ne passant pas par un Datasource       | &nbsp;      | &nbsp;           | any      |
 | label        | Libellé du champ de saisie de date                                  | &nbsp;      | &nbsp;           | string   |
 | name         | Nom du radio field                                                  | &nbsp;      | &nbsp;           | string   |
 | required     | Indique si la saisie du champ est obligatoire pour valider le formulaire | &nbsp; | false            | boolean  |
+
+`* attention cette valeur sera écrasée par l'utilisation de la méthode updatefields sur le formulaire.`
 
 le champ dispose également d'un attribut inline qui permet de définir comment sont affichés les boutons:
 

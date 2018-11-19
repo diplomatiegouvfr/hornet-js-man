@@ -113,6 +113,20 @@ CheckBoxField           InputField                RadiosField
 SelectField             TextAreaField             UploadFileField
 ```
 
+## Mise à jour des données
+
+La méthode updateFields du Form permet de mettre à jour les données de celui-ci.
+Attention, les champs ayant une valeur par defaut (`defaultValue`) veront cette valeur écrasée par cette méthode. De même pour les valeurs `currentValue`.
+
+exemple d'utilisation:
+
+```
+let data = {
+    nom: "nom"
+}
+this.monForm.updateFields(data);
+```
+
 ## Validation
 
 Le Texte renseigné dans `errorMessages` s'affichera lorsque la condition sur le champ n'est pas remplie.
