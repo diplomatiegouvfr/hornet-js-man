@@ -1,4 +1,4 @@
--# Le composant Table
+# Le composant Table
 
 ## Description
 
@@ -620,17 +620,22 @@ Les colonnes d'entête et de contenu pourront être personnalisés comme dans l'
 
 ```javascript
 
+
 import { ColumnState } from "hornet-js-react-components/src/widget/table/column";
 import { BodyCellProps } from "hornet-js-react-components/src/widget/table/column/cell/body-cell";
 import { HeaderCellProps } from "hornet-js-react-components/src/widget/table/column/cell/header-cell";
 import { ColumnProps } from "hornet-js-react-components/src/widget/table/column";
 import { Column } from "hornet-js-react-components/src/widget/table/column";
+import { AbstractBodyCell} from "hornet-js-react-components/src/widget/table/column/cell/abstract-body-cell";
+import { AbstractHeaderCell, AbstractHeaderCellProps} from "hornet-js-react-components/src/widget/table/column/cell/abstract-header-cell";
+import * as React from "react";
+import { Class } from "hornet-js-utils/src/typescript-utils";
 
 export interface NewColumnProps extends ColumnProps {
     ...
 }
 
-export interface NewHeaderCellProps extends ColumnProps {
+export interface NewHeaderCellProps extends AbstractHeaderCellProps {
     ...
 }
 
@@ -638,7 +643,7 @@ export interface NewBodyCellProps extends ColumnProps {
     ...
 }
 
-export class NewColumn<T extends NewColumnProps, S extends ColumnProps> extends Column<T, S> {
+export class NewColumn<T extends NewColumnProps, S extends ColumnState> extends Column<T, S> {
 
     /**
     * Permet de définir le composant de la cellule d'entête de la colonne
@@ -653,21 +658,19 @@ export class NewColumn<T extends NewColumnProps, S extends ColumnProps> extends 
     public static getBodyCell(props): Class<NewBodyCell<NewBodyCellProps, any>> {
         return NewBodyCell;
     }
-    ...
 }
 
 export class NewHeaderCell<P extends NewHeaderCellProps, S> extends AbstractHeaderCell<P, any> {
     renderCell(): JSX.Element {
         //rendu
     }
-    ...
 }
 
 export class NewBodyCell<P extends NewBodyCellProps, S> extends AbstractBodyCell<P, any> {
     renderCell(): JSX.Element {
         //rendu
     }
-    ...
+
 }
 
 ```
@@ -742,6 +745,14 @@ Lorsqu'il n'y a pas de données dans le tableau, la pagination ne s'affiche pas:
 
 Par défaut, le message affiché dans un tableau vide est celui présent dans `table.emptyResult` du fichier de ressource.
 
+propriétés du composant `Pager`:
+
+| Attribut     | Description                | Obligatoire | Valeur par défaut | Type       |
+|------------- | -------------------------- | ----------- |------------------ |----------- |
+| itemsPerPage | Nombre d'items par page    | &nbsp;      | &nbsp;            | number     |
+| nbPages      | Nombre de page             | &nbsp;      | &nbsp;            | number     |
+| pageIndex    | Index de la page actuelle  | &nbsp;      | &nbsp;            | number     |
+| totalItems   | Nombre d'items au total    | &nbsp;      | &nbsp;            | number     |
 
 ## Live coding
 
