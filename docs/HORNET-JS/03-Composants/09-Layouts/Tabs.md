@@ -36,7 +36,7 @@ Les attributs du composant `Tabs` sont les suivants:
 | panelId          | Préfixe des id's de chaque div contenant l'onglet   | &nbsp;      | "panel"                             | string |
 | selectedTabIndex | Index de l'onglet à afficher                        | &nbsp;      | 0                                   | number |
 | dataSource       | Données passée au tabs                              | &nbsp;      | &nbsp;                              | DataSource<any> |
-| beforeHideTab    | Méthode appelée avant le masquage d'un onglet       | &nbsp;      | &nbsp;                              | (tabRef?: Tab, index?: number) => void |
+| beforeHideTab    | Méthode appelée avant le masquage d'un onglet. Si renvoit le booléen `false`, stoppe le changement d'onglet       | &nbsp;      | &nbsp;                              | (tabRef?: Tab, index?: number) => void / boolean |
 | afterShowTab     | Méthode appelée après l'affichage d'un onglet       | &nbsp;      | &nbsp;                              | (tabRef?: Tab, index?: number) => void |
 | addTabFunction   | Méthode appelée lors d'un click sur le bouton d'ajout d'onglet | &nbsp; | &nbsp;                        | void/Function |
 | addButtonTtitle  | Title du buton d'ajout d'onglet                     | &nbsp;      | &nbsp;                              | string |

@@ -81,6 +81,25 @@ Attributs du composant CalendarField :
 | onValueChange | Fonction appelé à chaque modification du champs input (prend la valeur en paramètre) | &nbsp; | &nbsp; | (value: string) => void |
 | resettable        | Indique si le champs peut etre réinitialisé ou non                     | &nbsp;      | true               | boolean          |
 
+
+## Calendar field avec complétion
+
+Une variante du `CalendarField`, le `CalendarAutocomplete` propose un calendar qui vient formater la date saisie par l'utilisateur en y ajoutant les séparateurs.
+Ce calendar ne prendra en compte que le premier format de `dateFormats` si celui-ci est renseigné. Les formats pris en compte sont ceux dont les séparateurs sont: "/" , "-" ou "." .
+
+Il s'utilise de la même façon que le CalendarField
+
+```javascript
+import { CalendarAutocomplete } from "hornet-js-react-components/src/widget/form/calendar-autocomplete";
+
+    return(
+        <CalendarAutocomplete
+		  label="Calendrier"
+		  name="exampleCalendar"
+		  title="Calendrier"/>
+    );
+```
+
 ## Live coding
 
 ```javascript showroom

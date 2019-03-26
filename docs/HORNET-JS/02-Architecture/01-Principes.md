@@ -55,6 +55,40 @@ promise
         // ... Traitement si erreur
     }
 ```
+##### CancellablePromise
+
+Il existe également une notion de promesse annulable dans Hornet.js.
+Ces promesses peuvent être annulées avant leur retour d'exécution. Elles peuvent être soit nommées, soit anonymes. Les promesses nommées pouront être annulées à n'importe quel moment de façon unitaire. Les promesses anonymes ne pourront être annulées que toutes en même temps.
+
+Elles s'utilisent de la façon suivante:
+
+```javascript
+import { CancellablePromise } from "hornet-js-utils/src/cancellable-promise";
+
+// Promesse nommée
+const promiseNommee =  CancellablePromise.getNamedPromise((resolve, reject, onCancel) => {
+    ...
+    onCancel(() => {...});
+}, "nom");
+
+// Promesse anonyme
+const promise =  CancellablePromise.getPromise((resolve, reject, onCancel) => {
+    ...
+    onCancel(() => {...});
+});
+
+// Annulation de toutes les promesses, nommées ou non
+CancellablePromise.clearAllCancellablePromises(true);
+
+//Annulation des promesses non nommées
+CancellablePromise.clearAllCancellablePromises(false);
+
+//Annulation des promesses des promesses nommées
+CancellablePromise.clearAllNamedPromises();
+
+//Annulation d'une promesse nommée
+CancellablePromise.cancelPromiseWithName("nom")
+```
 
 
 ### TypeScript

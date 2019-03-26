@@ -116,6 +116,9 @@ SelectField             TextAreaField             UploadFileField
 ## Mise à jour des données
 
 La méthode updateFields du Form permet de mettre à jour les données de celui-ci.
+Elle prend deux paramètres :
+- data : objet de type {clé:valeur} correspondant aux champs à mettre à jour
+- partial (false par défaut) : indique si la mise à jour est partielle. Une mise à jour partielle ne valorise pas à null les champs n'ayant pas de donnée dans le paramètre data;
 Attention, les champs ayant une valeur par defaut (`defaultValue`) veront cette valeur écrasée par cette méthode. De même pour les valeurs `currentValue`.
 
 exemple d'utilisation:
@@ -148,8 +151,9 @@ Le composant Form met à disposition les méthodes publiques suivantes afin de r
 	    /**
 	     * Déclenche une validation du formulaire basée sur un schéma précis ou celui défini pour le formulaire
 	     * @param schema : schéma de validation, par défaut celui du formulaire
+         * @param cleanErros : indique si les erreurs sur les champs et la notification d'erreur doivent être éffacés
 	     */
-	    validate(notifyErrors: boolean, schema?: any): boolean;
+	    validate(notifyErrors: boolean, schema?: any, cleanErrors?: boolean): boolean;
 ```
 
 Par défaut, lors de la validation d'un formulaire les données non renseignées ne sont pas transmises. La props omitNull sert à autoriser la transmission de ces données. Par défaut ces données sont valorisées par une chaîne vide. Il est possible de transmettre à null à la place en valorisant la props nullable du composant en question.

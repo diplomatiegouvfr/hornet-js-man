@@ -122,7 +122,10 @@ Les attributs propre Auto-Completion choix Mulitiple:
 
 | Attribut | Description |  Obligatoire  | Valeur par défaut  | type  |
 | -------- | ----------- | ----------- |----------- |----------- |
-| cleanFilterOnBlur | Force de nettoyage de la zone de saisie sur la sortie du champ | &nbsp; | &nbsp; | boolean |
+| withChips | Spécifie si on doit afficher des chips | &nbsp; | true | boolean |
+| withChipsInitials | Affichage d'un icone en prefixe de la chips avec la première lettre du mot | &nbsp; | false | boolean |
+| chipsComponent | Composant graphique pour un rendu custom de chips | &nbsp; | &nbsp; | JSX.Element |
+
 
 
 ### Accessibilité

@@ -57,6 +57,11 @@ Server(appConfig: ServerConfiguration, hornetMiddlewareList: HornetMiddlewares.H
 ```
 
 ```javascript
+class InitClsApp extends InitCls {
+    evaluateInitCls(): any {
+        return {value: "valueTest", key : "keyTest"};
+    }
+}
 var configServer:ServerConfiguration = {
     appComponent: HornetAppReact,
     errorComponent: HornetErrorComponent,
@@ -79,7 +84,8 @@ var configServer:ServerConfiguration = {
     serverDir: __dirname,
     sessionStore: null,
     staticPath: "../static",
-    welcomePageUrl: utils.config.get("welcomePage")
+    welcomePageUrl: utils.config.get("welcomePage"),
+    initCls: new InitClsApp()
 };
 ```
 
@@ -99,8 +105,9 @@ var configServer:ServerConfiguration = {
 | menuConfig | &nbsp; | Navigation menu [Voir le composant 'navigation'](/hornetshowroom/composant/page/hornet-js/composants/layouts/navigation) |
 | publicZones | &nbsp; | Liste de chemins accessibles sans authentification. Toute requête dont l'url commence par un des chemin sera accessible librement. Exemple : "/public/" => les requêtes CONTEXT_PATH/public/maPage1 et CONTEXT_PATH/public/abc/maPage2 seront accessibles librement |
 | httpsOptions | &nbsp; | Configuration du serveur pour répondre sur du https. Les options sont celles requises par le serveur https de nodejs. Si cette clé n'est pas alimenté, le serveur démarre en mode http. |
-| includeClsKey| &nbsp; | Inclusion et filtre automatique des champs du CLS. On exclue tout les champs sauf ceux précisés. Par défaut, on supprime du cls "hornet.request", "hornet.response", "hornet.routeInfos", "hornet.routeAuthorization", "passport", "hornet.request". Et de "hornet.user" nous ne gardons que "SessionNotOnOrAfter", "Profil", "Nom","Prenom", "name","Mail", "Login" et "roles". Exemple d'utilisation pour filtrer de la clé de cls *hornet.user* les champs renvoyés qui seront uniquement *Nom*,*Prenom* et *Mail*:<br>`"excludeClsKey" : {"hornet.user": ["Nom","Prenom", "Mail"]}` |
+| includeClsKey| &nbsp; | Inclusion et filtre automatique des champs du CLS. On exclut tous les champs sauf ceux précisés. Par défaut, on supprime du cls "hornet.request", "hornet.response", "hornet.routeInfos", "hornet.routeAuthorization", "passport", "hornet.request". Et de "hornet.user" nous ne gardons que "SessionNotOnOrAfter", "Profil", "Nom","Prenom", "name","Mail", "Login" et "roles". Exemple d'utilisation pour filtrer de la clé de cls *hornet.user* les champs renvoyés qui seront uniquement *Nom*,*Prenom* et *Mail*:<br>`"excludeClsKey" : {"hornet.user": ["Nom","Prenom", "Mail"]}` |
 | includeSessionKey | &nbsp; | inclusion automatique des champs de la session. Par défaut, on renvoie tous les champs de la session, sauf "passport" et "strategy". Voir l'exemple sur *excludeClsKey* pour son utilisation. |
+| initCls | &nbsp; | Classe fille de `InitCls` implémentant la méthode `evaluateInitCls` qui retourne un objet contenant les données initiales du Cls. Ces données sont accessibles depuis la clé `hornet.initCls`.|
 
 ## Configuration des middlewares
 

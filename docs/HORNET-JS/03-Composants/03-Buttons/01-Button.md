@@ -29,7 +29,6 @@ let item: ButtonProps[] = {
 | --------- | ------------------------------------------------------------------ |-------------|------------------ |------|
 | className | Style appliqué sur le bouton                                       | &nbsp;      | &nbsp;            | string     |
 | disabled  | Bouton désactivé ou non                                            | &nbsp;      | false             | boolean     |
-| hasPopUp  | [Accessibilité] Indicateur si le bouton ouvre un popup             | &nbsp;      | &nbsp;            | boolean     |
 | id        | Identifiant unique du bouton                                       | &nbsp;      | &nbsp;            | string     |
 | label     | Texte sur du bouton                                                | &nbsp;      | &nbsp;            | string     |
 | name      | Nom du bouton                                                      | &nbsp;      | &nbsp;            | string     |
@@ -38,7 +37,18 @@ let item: ButtonProps[] = {
 | type      | Prend les valeurs: link, button, submit, reset                     | &nbsp;      | &nbsp;            | string     |
 | value     | Valeur correspondante à ce bouton pour la soumission du formulaire | &nbsp;      | &nbsp;            | string     |
 | url       | Url sur laquelle redirige le bouton                                | &nbsp;      | &nbsp;            | string     |
-[Button - attributs]
+| target    | Cible d'ouverture du lien                                          | &nbsp;      | &nbsp;            | LinkTarget |
+
+L'objet `LinkTarget` est une énumération contenant les valeurs possibles de l'attribut `target` d'un lien html
+```
+export enum LinkTarget {
+    BLANK = "_blank",
+    SELF = "_self",
+    PARENT = "_parent",
+    TOP = "_top",
+}
+```
+
 
 Exemple d'utilisation:
 
@@ -66,14 +76,6 @@ let props: ButtonProps[] = {
 Un bouton ayant la propriété url doit être de type link.
 
 Voir la documentation de [Form](../Layouts/Form.md).
-
-## Accessibilité
-
-Dans le cas où le bouton sert à ouvrir un popup, la propriété `hasPopUp` doit être valorisée à true.
-
-Le button html aura alors l'attribut `aria-haspopup` à true.
-
-Cette pratique est obligatoire dans le respect de l'accessibilité pour les boutons ouvrant une modal.
 
 ## Live coding
 

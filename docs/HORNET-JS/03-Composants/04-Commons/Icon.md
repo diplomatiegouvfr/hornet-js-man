@@ -35,7 +35,6 @@ Attributs du composant :
 | title                   | Texte d'infobulle du lien                                                               | Oui         | &nbsp; | string |
 | tabIndex                | Valeur de l'attribut HTML tabIndex à affecter au lien ou bouton correspondant à l'icône | &nbsp;      | &nbsp; | number |
 | target                  | Cible du lien                                                                           | &nbsp;      | &nbsp; | string |
-| hasPopUp                | Indicateur d'ouverture d'un popup suite à clic sur bouton                               | &nbsp;      | &nbsp; | boolean |
 
 
 ## Aperçu des icônes existants

@@ -384,7 +384,7 @@ propriétés du composant `Content` :
 | isContentVisible | Détermine si le content est visible ou non          | &nbsp;       | &nbsp;           | boolean    |
 | summary          | Sommaire du tableau                                 | &nbsp;       | &nbsp;           | string     |
 | name             | Nom du composant                                    | &nbsp;       | &nbsp;           | string     |
-
+| onRerender       | Fonction appelée lorsque le content est re-rendu    | &nbsp;       | &nbsp;           |Function or any |
 
 L'affichage du `Content` génère un tableau HTML avec la balise `table`....
 
@@ -447,6 +447,7 @@ Paramètre d'une colonne :
 | `orderByLabelUp`           | Label de substitution dans le cas d'un tri custom ascendant | &nbsp; | &nbsp; | `string`      |
 | `orderByLabelDown`         | Label de substitution dans le cas d'un tri custom descendant | &nbsp; | &nbsp; | `string`     |
 | `replaceUndef`             | Valeur de remplacement dans le cas ou la valeur cherchée dans la value depuis le keyColumn ne renvoie rien | &nbsp; | &nbsp; | `string`     | 
+
 La propriété `compareMethod` est une fonction de tri de la colonne. sa signature est la suivante:
 - 1er argument: un objet de type `SortData`
 - 2ème argument: un objet "a" correspondant à un item (ligne) du tableau
@@ -467,6 +468,28 @@ compareMethod(sortData: sortData, a:item, b:item) {
     }
     
 }
+```
+
+Des Méthodes sont disponibles sur la classe `DefaultSort` (compareIgnoreCaseAndAccent, compareLowerCase), exemple:
+
+```
+import { DefaultSort } from "hornet-js-core/src/component/datasource/options/datasource-option";
+
+...
+..
+
+        <Table id="lite">
+            <Header title={"Secteurs"}>
+            </Header>
+            <Content dataSource={this.dataForCustomSortAccent}>
+                <Columns>
+                    <Column keyColumn="nom" title={"nom"} sortable={true} 
+                    compareMethod={ DefaultSort.compareIgnoreCaseAndAccent } />
+                </Columns>
+            </Content>
+        </Table>
+
+
 ```
 ##### CheckColumn
 
@@ -527,7 +550,6 @@ Propriétés d'une `ActionColumn`:
 | url          | Url de l'action à déclencher                                | &nbsp;      | &nbsp;            | string      |
 | visible      | Fonction appelée pour rendre visible on non la cellule      | &nbsp;      | &nbsp;            | Function    |
 | disabled     | Fonction appelée/booleen pour rendre disabled l'action      | &nbsp;      | &nbsp;            | Function ou boolean |
-| hasPopUp     | Pour valoriser l'indicateur aria-has-popup                  | &nbsp;      | &nbsp;            | boolean     |
 | label        | Label de la colonne                                         | &nbsp;      | &nbsp;            | string      |
 
 
