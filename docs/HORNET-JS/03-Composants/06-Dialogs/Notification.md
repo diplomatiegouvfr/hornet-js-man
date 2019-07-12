@@ -60,16 +60,21 @@ notif.id = "123456789";
 notif.text = "message à afficher";
 errors.addNotification(notif);
 ```
-Enfin il nous reste plus qu'a afficher les notifications. Pour cela, il faut utiliser la fonction `notify` du `NotificationManager` : 
+Enfin il nous reste plus qu'a afficher les notifications. Pour cela, il faut utiliser la fonction `notify` du `NotificationManager`.
+
+A noter qu'il est possible de faire apparaitre les messages d'informations/validation sous forme de message pop-in. Cela évite tout effet de scroll vers les messages (situés en entête de formulaire habituellement). Il suffit d'ajouter `true` en fin de méthode `.notify()` : 
+
 ```javascript
 /* Patron */
-NotificationManager.notify("id", "id du composant", "les erreurs", "les informations","les exceptions","Les alertes","les personnels");
+NotificationManager.notify("id", "id du composant", "les erreurs", "les informations","les exceptions","Les alertes","les personnels", "le style de l'alerte d'info normale ou popIn");
 /* Exemple pour afficher des notifications de type informations (en vert) */
 NotificationManager.notify(null,null,null,errors,null,null,null);
 /* Exemple pour afficher des notifications de type personnelles */
 NotificationManager.notify(null,null,null,null,null,null,personnals);
 /* Exemple pour afficher des notifications de type personnelles et errors */
 NotificationManager.notify(null,null,errors,null,null,null,personnals);
+/* Exemple pour afficher des notifications de type informations (en vert) */
+NotificationManager.notify(null,null,null,errors,null,null,null, true);
 
 ```
 

@@ -435,11 +435,34 @@ Grâce au décorateur @Entity, pour chaque entity, on indique :
 
 - le nom de la table liée
 - la référence au sequelize model correspondant
+- un objet de configuration Sequelize (ex : `{freezeTableName: "tableName"}`) qui permet aussi de gérer le version pour l'**Optimistic Locking** (ex: `{version: {nextVal: nextversionInteger}}`)
 
 ex :
 ```javascript
     @Entity("partenaire", PartenaireModel)
     public partenaireEntity: HornetSequelizeInstanceModel<PartenaireAttributes>;
+```
+
+```javascript
+    @Entity("UTILISATEUR", UtilisateurModel, {version: {nextVal: nextversionInteger}})
+    public utilisateurEntity: HornetSequelizeInstanceModel<UtilisateurAttributes>;
+```
+
+La classe de configuration pour la partie version est typée avec une interface exporter depuis `Entity`, et qui déclare les attributs suivants :
+
+|  Attribut  |  Description |
+| ---------- | -------------|
+| attributName | Nom de l'attribut Sequelize qui porte la gestion de la version, par défaut 'version'.
+| nextVal | Méthode appelée pour renvoyer la prochaine valeur de l'attibut *attributName* et dont la signature doit respecter `(currentValue) => any;`. Par défaut 'nextversionTimestamp' 
+
+Nous mettons à disposition deux implémentations de nextVal depuis `Entity` :
+
++ **nextversionTimestamp**, qui renvoit Le nombre de millisecondes écoulées depuis le premier janvier 1970 à minuit UTC.
++ **nextversionInteger**, qui incrémente d'1 la valeur.
+
+exemple d'import :
+```javascript
+import { Entity, nextversionInteger, nextversionTimestamp, Version } from "src/decorators/dec-seq-entity";
 ```
 
 Ces entities sont typées en `HornetSequelizeInstanceModel<T>` qui surcharge `Sequelize.Model<TInstance, TAttributes>`, les relations entre elles sont à définir au travers de Sequelize et/ou de `SequelizeUtils`.

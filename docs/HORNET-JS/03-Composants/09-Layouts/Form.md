@@ -104,6 +104,9 @@ Descriptif des attributs du composant formulaire Hornet :
 | textLang                | Langue du texte descriptif                                                                     | &nbsp;       | &nbsp;           | string  |
 | validationOptions       | Options de validation ajv (cf. http://epoberezkin.github.io/ajv/#options)                      | &nbsp;       | DataValidator.DEFAULT_VALIDATION_OPTIONS |ajv.Options |
 | omitNull                | Transmettre les informations non renseignées lors de la soumission                             | &nbsp;       | false            |boolean  |
+| isSticky                | Ajoute ou non la classe sticky au formulaire                                                   | &nbsp;       | false            |boolean  |
+| buttonAreaIdSticky      | Précise l'id de la zone de boutons en sticky                                                   | &nbsp;       | "button-container" |string|
+| footerId                | Précise l'id de l'élément de vérification et de calcul de fin de page                          | &nbsp;       | "footer-container" |string|
 
 Il existe d'autres types de champs :
 
@@ -377,7 +380,20 @@ Les formulaires du framework Hornet sont préconfigurés avec deux boutons par d
 
 Si dans le formulaire, un `ButtonsArea` a été défini sans `Button`, ou si aucun `ButtonsArea` n'est présent. Le `ButtonsArea` par défaut et ses deux `Buttons` par défaut seront présents.
 
+Afin de rendre la `ButtonsArea` sticky en cas de pages de formulaires très (trop) longues, il faut ajouter la props `isSticky` au composant <Form>. La zone des boutons oscillera entre les classes `.button-area-isFixed` (classe par défaut) et `.button-area-isSticky`
+
 ![formulaire_default_buttons](../sources/form/form/formulaire-bouton.png)
+
+Descriptif des attributs du composant ButtonsArea Hornet :
+
+| Attribut                | Description                                                                                    | Obligatoire | Valeur par défaut | Type    |
+| ----------------------- | ---------------------------------------------------------------------------------------------- | ------------|------------------ | ------- |
+| className               | Nom de la classe CSS à affecter au conteneur.                                                 | &nbsp;      |"button-area-isFixed" et "button-area-sticky" si sticky   | string  |
+| id                      | Identifiant du conteneur                                                                      | Oui          | &nbsp;           | string  |
+| isSticky                | Ajoute ou non la classe sticky au conteneur                                                   | &nbsp;       | false            |boolean  |
+
+
+Pour gérer une priorité de mise en évidence des actions déclanchées par les boutons, trois classes existent et sont à placer sur les `Buttons` : `primary`, `secondary` et `tertiary`, ce qui donne plus de place aux actions primaires.
 
 Exemple de configuration ave un seul bouton `Valider` :
 

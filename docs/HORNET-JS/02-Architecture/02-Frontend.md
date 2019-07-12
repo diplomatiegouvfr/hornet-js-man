@@ -121,6 +121,31 @@ Les composants de cette brique utilisent le moteur de rendu [React](http://faceb
 
 Dans Hornet, les composants graphiques sont implémentés avec la librairie React.
 
+#### SCSS
+
+Le template hornet-js est consolidé dans des fichiers .scss distincts.
+Chaque composant embarque son propre style et ses images.
+
+##### Arborescence SASS Hornet-js :
+
+##### abstrats/
+Contient les déclarations de variables et de fonctions, respectivement dans **_colors.scss** et **_mixins.scss** et le fichier **_theming.scss** nécessaire à la déclaration de couleurs pour les thèmes.
+
+##### base/
+les fichiers de ce dossiers construisent les styles les plus génériques de l'appli et de ses composants. Avec **_breackpoints.scss**, **_grid.scss** sont gérés les grilles et le système de responsive, **_reset.scss** permet d'éviter les effets de bords des différents navigateurs, **_typo.scss** gère les typographie de l'appli et **_global.scss** défini les styles les plus génériques possible de l'appli.
+
+##### themes/
+Si nécessaire, ce dossier peut contenir différents thèmes et ses couleurs qu'il faudra ensuite importer dans le fichier du même nom à la racine du dossier sass (exemple : **/themes/_theme1.scss** sera à importer dans **theme1.scss** à la racine du dossier sass)
+
+##### core.scss
+Permet aux feuilles de style des composants de se servir des variables, mixins et fonctions nécessaire au bon fonctionnement du SCSS. 
+
+##### gen.scss
+Lui, est appelé par la page globale à l'appli et intègre les styles génériques, c'est-à-dire tous les styles qui ne sont pas en lien avec un composant.
+
+**Attention, dans ces deux fichiers, l'ordre des imports étant très important**.
+
+
 #### Diagrammes de séquence
 
 Ci-dessous sont présentés les schémas généraux de déroulements des échanges dans le pattern Hornet en mode SPA (navigateur web) et rendu serveur (serveur NodeJS).

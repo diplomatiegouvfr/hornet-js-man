@@ -51,6 +51,7 @@ Attributs du switchfield:
 | onClick                 | méthode appelée au click à la souris et sur une touche  | &nbsp;      | &nbsp;            | MouseEventHandler<HTMLElement>    |
 | onKeyDown               | méthode appelée au click sur une touche       | &nbsp;      | &nbsp;            | KeyboardEventHandler<HTMLElement>    |
 | onChange                | méthode appelée lors d'un changement de valeur| &nbsp;      | &nbsp;            | FormEventHandler<HTMLElement>    |
+| shouldRadioBeChecked    | méthode appelée lors d'un render pour check option | &nbsp;      | &nbsp;            | Function |
 
 
 ## Live coding

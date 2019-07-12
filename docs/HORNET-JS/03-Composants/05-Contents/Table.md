@@ -162,7 +162,7 @@ propriétés du composant `Table`
 | Attribut  | Description              | Obligatoire | Valeur par défaut         | Type    |
 |-----------| ------------------------ | ----------- |-------------------------- |-------- |
 | id        | Identifiant du tableau   | Oui         | &nbsp;                    | string  |
-| className | Classe CSS personnalisée | &nbsp;      | "hornet-datatable-header" | string  |
+| className | Classe CSS personnalisée | &nbsp;      |  | string  |
 | isVisible | Tableau visible ou non   | &nbsp;      | true                      | boolean |
 | width     | Largeur du tableau       | &nbsp;      | &nbsp;                    | number  |
 
@@ -385,8 +385,11 @@ propriétés du composant `Content` :
 | summary          | Sommaire du tableau                                 | &nbsp;       | &nbsp;           | string     |
 | name             | Nom du composant                                    | &nbsp;       | &nbsp;           | string     |
 | onRerender       | Fonction appelée lorsque le content est re-rendu    | &nbsp;       | &nbsp;           |Function or any |
+| isSticky       | Détermine si le tableau possède un thead fixe         | &nbsp;       | &nbsp;           |boolean |
 
 L'affichage du `Content` génère un tableau HTML avec la balise `table`....
+
+Pour bénéficier d'un `thead` fixe, il faut appliquer true à la props `isSticky`. Le header du tableau sera alors toujours visible (enveloppé dans une div de classe `isSticky`) en cas de scroll au sein de ce tableau. A noter qu'il est indispensable pour se faire d'appliquer un `max-height` fixe dans le css pour la classe `datatable-content`.
 
 Un `Loader` et une `Alert` sont associés au tableau. Le `Loader` s'affiche lors du chargement des données du tableau.
 

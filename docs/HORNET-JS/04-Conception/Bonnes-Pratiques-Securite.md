@@ -280,11 +280,56 @@ D’autres implémentations similaires sont envisageables. Un élément aléatoi
 
 ## Cross-Site Scripting (XSS)
 
-En cours...
+Les failles Cross-Site Scripting (également appelées XSS) sont une vulnérabilité Web qui permet à un attaquant de compromettre les interactions des utilisateurs avec
+une application vulnérable. Les vulnérabilités de script permettent généralement à un attaquant de se faire passer pour un utilisateur victime, d'effectuer toutes les
+actions que l'utilisateur est capable de réaliser et d'accéder à ses données. Si l'utilisateur victime dispose d'un accès privilégié dans l'application, l'attaquant
+pourrait alors avoir le contrôle total sur toutes les fonctionnalités et les données de l'application.
+
+### Reflected XSS
+
+### Stored XSS
 
 ### Recommandation(s)
 
+Les failles XSS peuvent être mitigées de différentes façon, il convient de les éradiquer sur un applicatif car elles ouvrent la porte à de nombreuses possibilités
+pour un attaquant tel que le vol de cookie de session, la redirection des utilisateurs, le bypass anti-CSRF... :
+
+- Ne pas insérer d'entrée utilisateur sans une phase de de contrôle et d'épuration (sanitization)
+
+- Html escape/encode : l'échappement HTML vise à empêcher l'exploitation des situations où l'attaquant est en capacité d'injecter du code arbitraire dans du code HTML
+existant. Parmi les techniques d'échappement HTML : Utilisation des fonctions "htmlentities" et "htmlspecialchars" en PHP ou "escapeHtml" et "htmlEncode" en Java.
+
+- CSS escape/encode : l'échappement CSS vise à empêcher l'exploitation des situations où l'attaquant est en capacité d'injecter du code arbitraire dans du code CSS
+existant.
+
+- URL escape/encode : l'échappement URL vise à empêcher l'exploitation des situations où l'attaquant est en capacité d'injecter du code arbitraire dans l'URL du
+navigateur (paramètre GET).
+
+- Appliquer un transtypage ou une expression régulière si le format des données entrantes est correctement défini. Par exemple un code produit numérique passé en
+variable GET peut être « transtypé » coté serveur en tant que variable de type "int". On s'assurera ainsi de la validité du format attendu.
+
+- Centraliser tous les traitements de contrôle et d'épuration des données entrantes (GET, POST, Cookies) au travers de fonctions et méthodes communes.
+
+- Utiliser un framework efficace ou enrichir celui existant pour l'épuration des données en entrée et en sortie plutôt que de définir des fonctions d'épuration
+artisanales.  L'utilisation d'un framework reconnu sera toujours plus efficace qu'une fonction moins éprouvée.
+
+- Raisonner par liste blanche pour le nettoyage des données entrantes quand le métier le permet plutôt que par liste noire. En effet, une même syntaxe d'injection
+peut se réécrire d’innombrables façons (obfuscation).
+
+- Implémentation d'un WAF (Web-application Firewall). La présence d'un WAF permet de centraliser la phase d'épuration sur un équipement en amont afin de réduire les
+traitements de contrôle au niveau du serveur. Toutefois, il est important de mettre en place un principe de défense en profondeur en multipliant les contrôles et les vérifications et de ne pas déléguer toute la sécurité à l'unique WAF en place (techniques de bypass WAF).
+
+- Tripler les contrôles cotés serveur, client et backend. Il est nécessaire de s'assurer du bon format des données au plus tôt dans la chaine de traitement
+(coté client via du JavaScript), de leur traitement correct côté serveur et de leur stockage effectif coté backend.
+
+- Afin d'opérer un principe de défense en profondeur, il est conseillé d'utiliser plusieurs de ces recommandations. L'encodage/échappement des données entrantes
+est généralement une condition nécessaire est suffisante à la mitigation des XSS.
+
+
 ### Ressource(s)
+
+- https://www.owasp.org/index.php/XSS_%28Cross_Site_Scripting%29_Prevention_Cheat_Sheet
+- https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet
 
 ## File Upload
 

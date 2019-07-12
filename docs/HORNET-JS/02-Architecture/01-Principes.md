@@ -167,6 +167,15 @@ Exemple de donnée au format JSON :
 
 [http://fr.wikipedia.org/wiki/HTML5](http://fr.wikipedia.org/wiki/HTML5)
 
+
+### SCSS et préprocesseurs
+
+> **Préprocesseurs** Comme son nom l'indique, un préprocesseur CSS intervient avant le traitement des fichiers CSS par les navigateurs web. Il se situe soit côté serveur, soit côté client. Il permet de générer dynamiquement un fichier CSS standard (aux normes W3C) à partir d'un ou de plusieurs fichiers source qui disposent d'une syntaxe plus étendue que le CSS.
+
+Il existe plusieurs préprocesseurs CSS, chacun possédant une syntaxe et un langage qui leur est propre. Bien qu'ils étendent la structure du CSS, ils restent indépendants des normes CSS existantes. Parmi les plus connus se trouvent Sass, LESS et Stylus3. L'objectif des préprocesseurs CSS est d'ajouter des fonctionnalités qui permettent au développeur de mieux structurer son code, fonctionnalités qui pour beaucoup manquent au CSS. En créant une couche d'abstraction, elles visent à améliorer la maintenabilité et la clarté du code, à améliorer sa structure, à éviter les répétitions (philosophie de programmation "DRY"), et ainsi à augmenter la productivité du développeur. Quelques-unes des fonctionnalités offertes par les préprocesseurs CSS incluent généralement : les variables, l’imbrication (hiérarchisation) du code, les mixins, les opérations mathématiques et logiques, les conditions, les boucles et les importations.
+
+[https://fr.wikipedia.org/wiki/Pr%C3%A9processeur_CSS](https://fr.wikipedia.org/wiki/Pr%C3%A9processeur_CSS)
+
 #### History
 
 > L'objet **DOM** `window` fournit un accès à l'historique du navigateur via l'objet history. Il expose un ensemble de méthodes et de propriétés qui permettent d'avancer et de reculer dans l'historique de l'utilisateur ainsi que -- à partir d'HTML5 -- manipuler le contenu de l'ensemble de l'historique.
