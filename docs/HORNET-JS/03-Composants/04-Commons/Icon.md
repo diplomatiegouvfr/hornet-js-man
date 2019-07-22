@@ -45,6 +45,8 @@ Attributs du composant :
 
 ```javascript showroom
 return (
-    <Icon src={Picto.black.editer} alt={"editer"} title={"editer"} />
+    <Icon src={<SvgSprites icon="edit" height="2em" width="2em" color="#0579be" />}
+          alt={"editer"}
+          title={"editer"} />
  );
 ```

@@ -86,6 +86,10 @@ Le composant `SvgSprites` récupère dans un sprite (un ensemble d'icônes conte
 * consult
 * user
 * info
+* top
+* bottom
+* first
+* last
 
 ## Live coding
 
@@ -93,6 +97,6 @@ Pour récupérer le bon sprite il suffit de passer dans la props `icon` le nom d
 
 ```javascript showroom
 return (
-    <SvgSprites icon="close" />
+    <SvgSprites icon="close" height="2em" width="2em" color="red"/>
  );
 ```

@@ -1,3 +1,8 @@
+# Hornet-js-man 5.4.1
+- aad4734 PROJ[]: Update doc install node
+- e0752f7 PROJ[]: suppression sources papyrus
+- 451d2f8 PROJ[]: Correction utilisation des icons et suppression de papyrus
+
 # Hornet-js-man 5.4.0
 - dc51a42 DOC : Modification doc sticky
 - 29e5ebe PROJ: Ajout du ariaLabel dans la doc des sprites svg
