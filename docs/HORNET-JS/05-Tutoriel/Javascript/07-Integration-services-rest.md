@@ -54,7 +54,7 @@ import { Logger } from "hornet-js-utils/src/logger";
 import { ReferentielPaysService} from "src/services/page/ref/ref-pays-service-page";
 import { RouteActionService } from "hornet-js-core/src/routes/abstract-routes";
 
-const logger: Logger = Utils.getLogger("applitutoriel.actions.ref.ref-actions");
+const logger: Logger = Logger.getLogger("applitutoriel.actions.ref.ref-actions");
 
 export class ListerPays extends RouteActionService<any, ReferentielPaysService> {
     execute(): Promise<any> {
@@ -97,7 +97,7 @@ import {
 } from "applitutoriel-js-common/src/utils/urls";
 import { ReferentielPaysService } from "applitutoriel-js-common/src/services/page/ref/ref-pays-service-page";
 
-const logger: Logger = Utils.getLogger("applitutoriel.services.par.ref-pays-service-page-impl");
+const logger: Logger = Logger.getLogger("applitutoriel.services.par.ref-pays-service-page-impl");
 
 /**
  * Implementation des services pour les referentiels
@@ -217,7 +217,7 @@ import { AuthService } from "applitutoriel-js-common/src/services/page/auth/auth
 import { ServiceSecure } from "hornet-js-core/src/services/service-secure";
 import { Response } from "superagent";
 
-const logger: Logger = Utils.getLogger("applitutoriel.services.data.auth.auth-service-data-impl");
+const logger: Logger = Logger.getLogger("applitutoriel.services.data.auth.auth-service-data-impl");
 
 /**
  * Implementation des services pour l'authentification
@@ -280,7 +280,7 @@ import { AdministrationSecteurService } from "applitutoriel-js-common/src/servic
 import { ServiceSecure } from "hornet-js-core/src/services/service-secure";
 import { Response } from "superagent";
 
-const logger: Logger = Utils.getLogger("applitutoriel.services.adm.secteur-service-page-impl");
+const logger: Logger = Logger.getLogger("applitutoriel.services.adm.secteur-service-page-impl");
 
 /**
  * Implementation des services pour les secteurs

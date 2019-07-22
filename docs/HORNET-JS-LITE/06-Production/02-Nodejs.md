@@ -8,7 +8,7 @@ L'installation de Node.js passe par :
 
 ## Installation de Node.js
 
-Récupérer le paquet nodejs sur le site officiel de nodejs.org dans sa version `8.9.X` `linux x64`.
+Récupérer le paquet nodejs sur le site officiel de nodejs.org dans sa version `10.16.0` `linux x64`.
 
 Dézipper celui-ci dans le répertoire : `/usr/local`
 

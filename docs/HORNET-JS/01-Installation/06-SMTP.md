@@ -140,16 +140,18 @@ smtp_tls_session_cache_database = btree:${data_directory}/smtp_scache
 # information on enabling SSL in the smtp client.
 
 smtpd_relay_restrictions = permit_mynetworks permit_sasl_authenticated defer_unauth_destination
-myhostname = workstation.intern
+myhostname = workstation13.intern
 alias_maps = hash:/etc/aliases
 alias_database = hash:/etc/aliases
 myorigin = /etc/mailname
-mydestination = workstation.domain.fr, workstation.intern, localhost.intern, localhost
+mydestination = workstation13.devng.diplomatie.gouv.fr, workstation13.intern, localhost.intern, localhost
 relayhost =
 mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128
 mailbox_size_limit = 0
 recipient_delimiter = +
 inet_interfaces = all
+
+#### MAE Specific
 
 smtpd_sasl_auth_enable = yes
 smtpd_sasl_security_options = noanonymous
@@ -162,7 +164,7 @@ sudo vi /etc/postfix/canonical-redirect
 ```
 
 ```
-+ /^.*$/ userg@workstation.intern
++ /^.*$/ debianUserg@workstationXX.intern
 ```
 
 ```
