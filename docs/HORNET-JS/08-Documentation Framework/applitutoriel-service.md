@@ -160,10 +160,10 @@ L'applitutoriel-service a mis en place un exemple d'utilisation de cache `ehcach
 |-----------|-------------|--------|
 | mail.application.name | Nom de l'application | Applitutoriel |
 | mail.application.url | URL de l'application | http://localhost:18080/applitutoriel |
-| mail.messageid.domain | Nom de domaine pour le MessageID de l'entete SMTP | diffusion.diplomatie.gouv.fr |
+| mail.messageid.domain | Nom de domaine pour le MessageID de l'entete SMTP | |
 | mail.contact.to | Destinataires du mail de contact | "destinataire\@mail.com", "destinataire2\@mail.com" |
 | mail.contact.object | Objet du mail de contact | [%s] Un utilisateur de l'application (%s %s) a envoyé un mail de contact |
-| mail.contact.body | Chemin du template velocity du corps | fr/gouv/diplomatie/applitutoriel/business/service/ModeleMailContact.vm |
+| mail.contact.body | Chemin du template velocity du corps | |
 [Configuration du service de mail - Serveur d’application]
 
 ### Accès au web services: webservices.properties

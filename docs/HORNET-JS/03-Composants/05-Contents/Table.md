@@ -69,7 +69,7 @@ import { Columns, Column } from "hornet-js-react-components/src/widget/table/col
                   <Header title={"Liste"}>
                     <MenuActions>
                       <ActionButton title={"Ajout"}
-                          srcImg={<SvgSprites icon="add" height="1.5em" width="1.5em" color="#FFF" />}
+                          srcImg={Picto.white.ajouter}
                           action={this.ajouterSecteur} priority={true}/>
                     </MenuActions>
                   </Header>
@@ -115,7 +115,7 @@ render(){
                 <Header title={"Secteurs"}>
                     <MenuActions>
                         <ActionButton title={"add"}
-                                      srcImg={<SvgSprites icon="add" height="1.5em" width="1.5em" color="#FFF" />}
+                                      srcImg={Picto.white.ajouter}
                                       action={this.ajouterSecteur} priority={true}/>
                     </MenuActions>
                 </Header>
@@ -127,11 +127,11 @@ render(){
                         <DateColumn keyColumn="dateMajEnreg" title={"Date de mise à jour"} sortable={false}/>
                         <Column keyColumn="auteurCreat" title={"Auteur de la création"} sortable={false}/>
                         <ActionColumn keyColumn="id" title={"Modification"}
-                                      srcImg={<SvgSprites icon="edit" height="2em" width="2em" color="#0579be" />}
+                                      srcImg={Picto.black.editer}
                                       action={this.editItem.bind(this)}/>
                         <ActionColumn keyColumn="id"
                                       title={"Suppression"}
-                                      srcImg={<SvgSprites icon="delete" height="2em" width="2em" color="#0579be" />}
+                                      srcImg={Picto.black.supprimer}
                                       action={this.supprimer.bind(this)}
                         />
                         <EditionActionColumn keyColumn="id"
@@ -233,7 +233,7 @@ Exemple de header:
 <Header title={"Secteurs"} libelleNombreTotalItem={"( Nombre d'item {count} )"}>
     <MenuActions>
         <ActionButton title={this.i18n("administration.secteurs.table.addTitle")}
-                      srcImg={<SvgSprites icon="add" height="1.5em" width="1.5em" color="#FFF" />}
+                      srcImg={Picto.white.ajouter}
                       action={this.ajouterSecteur} priority={true}/>
     </MenuActions>
 </Header>
@@ -283,13 +283,13 @@ Il est composé d'`ActionButton`.
     <ActionButton typeAction={TypeAction.ACTION_UNITAIRE}
                   title={"consultation"}
                   label={"consultation"}
-                  srcImg={<SvgSprites icon="consult"/>}
+                  srcImg={Picto.black.consulter}
                   url={"/partenaires/consulter/:id"}
     />
     <ActionButton typeAction={TypeAction.ACTION_MASSE}
                   priority={true}
                   label={"suppression"}
-                  srcImg={<SvgSprites icon="delete" color="#FFF" />}
+                  srcImg={Picto.white.supprimer}
                   action={this.supprimerEnMasse}
                   title={"Supprimer en masse"}
                   messageAlert={"Etes-vous sûr(e) de vouloir supprimer ce(s) partenaire(s) ?"}
@@ -310,15 +310,15 @@ Exemple:
 
 ```javascript
 
-import { SvgSprites } from 'hornet-js-react-components/src/widget/icon/svg-sprites';
+import { Picto } from "hornet-js-react-components/src/widget/table/content";
 
 <Header title={"Secteurs"}>
         <MenuActions>
             <ActionButton title={"ajouter"}
-                          srcImg={<SvgSprites icon="add" height="1.5em" width="1.5em" color="#FFF" />}
+                          srcImg={Picto.white.ajouter}
                           action={this.ajouterSecteur} priority={true}/>
             <ActionButton title={"autre"}
-                          srcImg={<SvgSprites icon="edit" color="#000" />}
+                          srcImg={Picto.black.editer}
                           label={"Autre label"}
                           action={this.test} priority={false}/>
         </MenuActions>
@@ -562,7 +562,7 @@ Exemple:
 
 <ActionColumn keyColumn="id"
               title={"Consultation"}
-              srcImg={<SvgSprites icon="consult" color="#0579BE" />}
+              srcImg={Picto.black.consulter}
               url={"/partenaires/consulter/:id"}/>
 
 ```
@@ -570,13 +570,13 @@ Exemple:
 Il s'agit des colonnes `Consultation`, `Edition` et `Suppression` du tableau ci-dessus.
 
 L'affichage d'une action peut se faire à l'aide d'un pictogramme par la propriété `scrImg`.
-Utiliser le composant  `SvgSprites` comme valeur de la props srcImg pour avoir des pictogrammes:
+Des pictogrammes sont disponibles dans `Picto`:
 
 import:
 
 ```javascript
 
-import { SvgSprites } from 'hornet-js-react-components/src/widget/icon/svg-sprites';
+import { Picto } from "hornet-js-react-components/src/widget/table/content";
 
 ```
 
@@ -587,7 +587,7 @@ Exemple d'une colonne action avec un message d'alerte:
 
 <ActionColumn keyColumn="id"
               title={"Suppression"}
-              srcImg={<SvgSprites icon="delete" color="#0579BE" />}
+              srcImg={Picto.black.supprimer}
               action={this.supprimer}
               messageAlert={"Etes-vous sûr(e) de vouloir supprimer le partenaire ${nom} - ${prenom} ?"}
               titleAlert={"Suppression partenaire"}/>
@@ -807,7 +807,7 @@ var data = new DataSource<any>([
                 <ToggleColumnsButton hiddenColumns={{role: true, nom: false}}/>
                 <MenuActions>
                     <ActionButton title={"add"}
-                                  srcImg={<SvgSprites icon="add" height="1.5em" width="1.5em" color="#FFF" />}
+                                  srcImg={Picto.white.ajouter}
                                   action={function() {console.log("Action")}} priority={true}/>
                 </MenuActions>
             </Header>
@@ -817,11 +817,11 @@ var data = new DataSource<any>([
                     <Column keyColumn="prenom" title={"prénom"} sortable={false}/>
                     <Column keyColumn="role" title={"role"} sortable={false}/>
                     <ActionColumn keyColumn="id" title={"Modification"}
-                                  srcImg={<SvgSprites icon="edit" color="#0579BE" />}
+                                  srcImg={Picto.black.editer}
                                   action={function() {console.log("Action")}}/>
                     <ActionColumn keyColumn="id"
                                   title={"Suppression"}
-                                  srcImg={<SvgSprites icon="delete" color="#0579BE" />}
+                                  srcImg={Picto.black.supprimer}
                                   action={function() {console.log("Action")}}
                     />
                 </Columns>

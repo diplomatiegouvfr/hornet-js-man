@@ -177,7 +177,7 @@ import { ServiceRequest } from "hornet-js-core/src/services/service-request";
 import { PartenaireService } from "src/services/page/par/par-service-page";
 import { URL_LISTER, URL_PARTENAIRE } from "src/utils/urls";
 
-const logger: Logger = Logger.getLogger("applidemo.services.par.par-service-page-impl");
+const logger: Logger = Utils.getLogger("applidemo.services.par.par-service-page-impl");
 
 export class PartenaireServiceImpl extends ServiceRequest implements PartenaireService {
 
@@ -280,7 +280,7 @@ import { RouteActionService } from "hornet-js-core/src/routes/abstract-routes";
 import { Utils } from "hornet-js-utils";
 import { Logger } from "hornet-js-utils/src/logger";
 
-const logger: Logger = Logger.getLogger("applidemo.actions.pro.pro-lsp-actions");
+const logger: Logger = Utils.getLogger("applidemo.actions.pro.pro-lsp-actions");
 
 export class Lister extends RouteActionService<any, PartenaireService> {
 

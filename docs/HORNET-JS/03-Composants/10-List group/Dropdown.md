@@ -122,7 +122,7 @@ return (
   <div style={divStyle} >
     <Dropdown
         items={[{label: "monItem1", action: () => {alert('click item 1')}, className:"link"},{label: "monItem2", action: () => {alert('click item 2')}, className:"link"}]}
-        srcImg={<SvgSprites icon="account" />}
+        icon="picto-user"
         id={"mondropdown-drop"}
         label={"Mon dropdown"}
         position={Position.BOTTOMLEFT}

@@ -54,7 +54,7 @@ import { Utils } from 'hornet-js-utils';
 import { Logger } from 'hornet-js-utils/src/logger';
 import { CommonServiceData } from 'src/services/data/common-service-data';
 
-const logger: Logger = Logger.getLogger('applitutoriel.actions.common.status-get');
+const logger: Logger = Utils.getLogger('applitutoriel.actions.common.status-get');
 
 export class StatusGet extends RouteActionService<any, CommonServiceData> {
 
@@ -111,7 +111,7 @@ import * as URLS from 'src/utils/urls';
 
 import { CommonServiceData } from 'src/services/data/common-service-data';
 import * as featureFlipping from "src/resources/featureflipping.json";
-const logger: Logger = Logger.getLogger('data.common-service-data-impl');
+const logger: Logger = Utils.getLogger('data.common-service-data-impl');
 
 export class CommonServiceDataImpl extends ServiceRequest implements CommonServiceData {
 
@@ -236,10 +236,10 @@ import * as ReactDOMServer from 'react-dom/server';
 // // PageRenderingMiddleware
 // -------------------------------------------------------------------------------------------------------------------
 // //
-const logger: Logger = Logger.getLogger('middleware.PageRenderingMiddleware');
+const logger: Logger = Utils.getLogger('middleware.PageRenderingMiddleware');
 
 export class FeaturePageRenderingMiddleware extends AbstractHornetMiddleware {
-    private static logger: Logger = Logger.getLogger('hornet-js-react-components.middleware.PageRenderingMiddleware');
+    private static logger: Logger = Utils.getLogger('hornet-js-react-components.middleware.PageRenderingMiddleware');
 
     private commonService: CommonServiceData = new CommonServiceDataImpl();
 
@@ -311,7 +311,7 @@ import { Utils } from 'hornet-js-utils';
 import { Logger } from 'hornet-js-utils/src/logger';
 import { CommonServiceData } from "src/services/data/common-service-data";
 
-const logger: Logger = Logger.getLogger('features.get');
+const logger: Logger = Utils.getLogger('features.get');
 
 export class FeaturesGetAction extends RouteActionService<any, CommonServiceData> {
 

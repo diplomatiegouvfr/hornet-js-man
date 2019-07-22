@@ -6,19 +6,21 @@ Ce document a pour but de décrire les opérations à effectuer pour installer e
 
 L’environnement d’exécution Hornet est composé des éléments suivants :
 
-- `NodeJS 10 LTS`
+- `NodeJS 8 LTS`
 
 L’environnement de développement intégré (IDE) retenu est `Webstorm 2017.3.4`. Il est aussi possible d'utiliser Visual Studio Code.
 
 ## Configuration de l'environnement d'exécution ##
 
-La version de NodeJS supportée par Hornet est la `10 LTS`
+La version de NodeJS supportée par Hornet est la `8 LTS`
 
 ### Installation de NodeJS ###
 
+Récupérer le package DEB
+
 Dans un terminal, taper la commande suivante:
 ```
-sudo dpkg -i nodejs-10.16.0.deb
+sudo dpkg -i nodejs-8.9.4.deb
 ```
 
 ### Paramétrage des installations de package globaux ###
@@ -52,13 +54,13 @@ export PATH=~/.npm-global/bin:$PATH
 
 - Ouvrir une console
 - Taper `node --version`
-- Doit s'afficher en retour : `v10.16.0`
+- Doit s'afficher en retour : `v8.9.x`
 
 ### Vérifier NPM ###
 
 - Ouvrir une console
 - Taper `npm --version`
-- Doit s'afficher en retour : `6.9.0`
+- Doit s'afficher en retour : `5.6.0`
 
 #### Configuration NPM
 
@@ -102,7 +104,7 @@ En resumé:
 ```
 export N_PREFIX=~/Dev/tools/node
 export PROJECT_NAME="node"
-export PROJECT_URL="http://artifactory.app.diplomatie.gouv.fr/artifactory-dev/repository-npm-tiers/nodejs/dist/"
+export PROJECT_URL="url_registry"
 ```
 
 ces trois lignes peuvent être ajoutées à la suite du fichier ~/.profile au lieu de les déclarer à chaque session.
@@ -146,3 +148,6 @@ ln -s ~/Dev/tools/node/n/lib/node_modules/npm/bin/npm
 rm node_modules # si le lien existe déjà
 ln -s ~/Dev/tools/node/n/lib/node_modules
 ```
+
+
+ 
